@@ -51,27 +51,62 @@ E.Options.args.dpe = {
 }
 
 if E.myclass == "DRUID" then
-E.Options.args.dpe.args.balancepower = {
+E.Options.args.dpe.args.druid = {
 	order = 1,
 	type = 'group',
-	name = L["Balance Power"],
+	name = L["Druid"],
 	args = {
-		balancepower = {
+		druidheader = {
 			order = 1,
 			type = "header",
-			name = L["Balance Power Frame"],
+			name = L["Druid spesific options"],
 		},
-		balancepowerdesc = {
+		general = {
 			order = 2,
-			type = "description",
-			name = L["A frame with exact number of your Solar/Lunar energy."],
+			type = "group",
+			name = '',
+			guiInline = true,
+			args = {
+				bpenable = {
+					order = 1,
+					type = "toggle",
+					name = L["Balance Power Frame"],
+					desc = L["Show/hide the frame with exact number of your Solar/Lunar energy."],
+					get = function(info) return E.db.general.bpenable end,
+					set = function(info, value) E.db.general.bpenable = value; StaticPopup_Show("CONFIG_RL") end
+				},
+			},
 		},
-		bpenable = {
-			order = 3,
-			type = "toggle",
-			name = L['Enable'],
-			get = function(info) return E.db.general.bpenable end,
-			set = function(info, value) E.db.general.bpenable = value; StaticPopup_Show("CONFIG_RL") end
+	},
+}
+end
+
+if E.myclass == "DEATHKNIGHT" then
+E.Options.args.dpe.args.deathknight = {
+	order = 1,
+	type = 'group',
+	name = L["Death Knight"],
+	args = {
+		dkheader = {
+			order = 1,
+			type = "header",
+			name = L["Death Knight spesific options"],
+		},
+		general = {
+			order = 2,
+			type = "group",
+			name = '',
+			guiInline = true,
+			args = {
+				necrostrike = {
+					order = 1,
+					type = "toggle",
+					name = L["Necrotic Strike"],
+					desc = L["Show/hide Necrotic Strike absorb overlay."],
+					get = function(info) return E.db.general.necrostrike end,
+					set = function(info, value) E.db.general.necrostrike = value; end
+				},
+			},
 		},
 	},
 }
@@ -86,6 +121,11 @@ E.Options.args.dpe.args.credits = {
 			order = 1,
 			type = "header",
 			name = L["Credits"],
+		},
+		credits = {
+			order = 2,
+			type = "description",
+			name = L['ELVUI_DPE_CREDITS']..'\n\n\n'..L['Submodules:']..'\n\n'..L['ELVUI_DPE_CODERS']..'\n\n'..L['Other support:']..'\n\n\n'..L['ELVUI_DPE_MISC'],
 		},
 	},
 }
