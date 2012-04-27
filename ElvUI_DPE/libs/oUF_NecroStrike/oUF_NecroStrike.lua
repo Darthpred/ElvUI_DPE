@@ -1,13 +1,10 @@
 local _, ns = ...
-local oUF = ns.oUF or oUF
-
+local oUF = ElvUF or oUF
 if not oUF then return end
-
 local NecroticStrikeTooltip
 
 local function GetNecroticAbsorb(unit)
 	local i = 1
-	
 	while true do
 		local _, _, texture, _, _, _, _, _, _, _, spellId = UnitAura(unit, i, "HARMFUL")
 		--local _, _, texture, _, _, _, _, _, _, _, spellId = UnitAura(unit, i, "HELPFUL") --Debug for testing with holy pally mastery
