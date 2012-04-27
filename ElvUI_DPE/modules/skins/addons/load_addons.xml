@@ -1,0 +1,9 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">	
+	<Script file='auctionator.lua'/>
+	<Script file='dbmopt.lua'/>
+	<Script file='skada.lua'/>
+	<Script file='notes.lua'/>
+	<Script file='tdb.lua'/>
+	<Script file='tellmewhen.lua'/>
+	<Script file='moveanything.lua'/>
+</Ui>

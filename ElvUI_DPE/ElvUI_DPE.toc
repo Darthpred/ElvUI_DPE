@@ -1,0 +1,16 @@
+﻿## Interface: 40300
+## Title: |cff1784d1ElvUI |rDarth Predator's Edit
+## Author: Darth Predator
+## Version: 0.1
+## Notes: Plugin that changes |cff1784d1ElvUI|r to fit my preferences.
+## Notes-ruRU: Плагин, переделывающий |cff1784d1ElvUI|r под мой вкус.
+## eMail: darthpred@gmail.com
+## URL: 
+## RequiredDeps: ElvUI
+## DefaultState: Enabled
+
+locales\load_locales.xml
+modules\load_modules.xml
+core\options.lua
+layout\layout.lua
+config\load_config.xml

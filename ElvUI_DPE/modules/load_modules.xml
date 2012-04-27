@@ -1,0 +1,11 @@
+﻿<Ui xmlns="http://www.blizzard.com/wow/ui/">	
+	<Include file="datatexts\load_datatexts.xml"/>
+	<Include file="chat\load_chat.xml"/>
+	<Include file="bags\load_bags.xml"/>
+	<Include file="misc\load_misc.xml"/>
+	<Include file='skins\addons\load_addons.xml'/>
+	<Include file='unitframes\load_unitframes.xml'/>
+	<Script file='testui\testui.lua'/>
+	<Script file='maps\minimap.lua'/>
+	<Script file='auras\auras.lua'/>
+</Ui>
