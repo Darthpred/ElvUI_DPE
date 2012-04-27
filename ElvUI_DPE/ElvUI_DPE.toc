@@ -9,8 +9,10 @@
 ## RequiredDeps: ElvUI
 ## DefaultState: Enabled
 
+
 locales\load_locales.xml
 modules\load_modules.xml
 core\options.lua
 layout\layout.lua
 config\load_config.xml
+libs\load_libs.xml
