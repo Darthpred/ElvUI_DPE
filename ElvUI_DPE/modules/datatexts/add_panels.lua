@@ -1,6 +1,45 @@
 ﻿local E, L, P, G = unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 local LO = E:GetModule('Layout');
 
+--Defaults
+--Datatexts
+P['datatexts'] = {
+	['panels'] = {
+		['Bottom_Right'] = {
+		['left'] = 'Spell/Heal Power',
+		['middle'] = 'Haste',
+		['right'] = 'Crit Chance',
+		},
+		['Bottom_Left'] = {
+		['left'] = 'Bags',
+		['middle'] = 'Gold',
+		['right'] = 'Armor',
+		},	
+		['Top_Left'] = {
+		['left'] = 'Swatter',
+		['middle'] = 'Skada',
+		['right'] = 'MrtWoo',
+		},	
+		['Top_Right'] = {
+		['left'] = '',
+		['middle'] = '',
+		['right'] = '',
+		},	
+		['Top_Center_Left'] = {
+		['left'] = 'Altoholic',
+		['middle'] = 'TellMeWhen',
+		['right'] = 'AtlasLoot',
+		},
+		['Top_Center_Right'] = {
+		['left'] = 'Notes',
+		['middle'] = 'DBM-LDB',
+		['right'] = 'WIM',
+		},
+		['Bottom_Panel'] = 'System',
+		['Top_Center'] = 'Version',
+	},
+}
+
 LO.InitializeDPE = LO.Initialize
 function LO:Initialize()
 	LO.InitializeDPE(self)

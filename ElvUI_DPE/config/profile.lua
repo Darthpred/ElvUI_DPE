@@ -3,24 +3,19 @@
 P.gridSize = 64
 P.farmSize = 340
 
---Testing
-P['dpe'] = {
-	['xprepinfo'] = true,
-}
-
 --Core
 P['general'] = {
 	["taingLog"] = false,
 	["autoscale"] = true,
 	["stickyFrames"] = true,
-	['loginmessage'] = false,
+	['loginmessage'] = true,
 	["interruptAnnounce"] = "NONE",
 	["autoRepair"] = "NONE",
-	['vendorGrays'] = true,
+	['vendorGrays'] = false,
 	['autoAcceptInvite'] = false,
 	
 	-- fonts
-	["fontsize"] = 10,
+	["fontsize"] = 12,
 	["font"] = "ElvUI Font",
 	
 	--colors
@@ -70,8 +65,8 @@ P["nameplate"] = {
 	["showlevel"] = true,
 	["enhancethreat"] = true,
 	["combat"] = false,
-	["showhealth"] = true,
-	["trackauras"] = true,
+	["showhealth"] = false,
+	["trackauras"] = false,
 	["trackfilter"] = 'CCDebuffs',
 	['goodscale'] = 1,
 	['badscale'] = 1,
@@ -87,7 +82,7 @@ P["nameplate"] = {
 
 --Auras
 P['auras'] = {
-	['perRow'] = 19,
+	['perRow'] = 12,
 }
 
 --Chat
@@ -141,43 +136,11 @@ P['datatexts'] = {
 			['middle'] = 'Time',	
 			['right'] = 'Gold',
 		},
-		['Bottom_Right'] = {
-		['left'] = 'Spell/Heal Power',
-		['middle'] = 'Haste',
-		['right'] = 'Crit Chance',
-		},
-		['Bottom_Left'] = {
-		['left'] = 'Bags',
-		['middle'] = 'Gold',
-		['right'] = 'Armor',
-		},	
-		['Top_Left'] = {
-		['left'] = 'Swatter',
-		['middle'] = 'Skada',
-		['right'] = 'MrtWoo',
-		},	
-		['Top_Right'] = {
-		['left'] = '',
-		['middle'] = '',
-		['right'] = '',
-		},	
-		['Top_Center_Left'] = {
-		['left'] = 'Altoholic',
-		['middle'] = 'TellMeWhen',
-		['right'] = 'AtlasLoot',
-		},
-		['Top_Center_Right'] = {
-		['left'] = 'Notes',
-		['middle'] = 'DBM-LDB',
-		['right'] = 'WIM',
-		},
-		['LeftMiniPanel'] = 'Time',
-		['RightMiniPanel'] = 'Guild',
-		['Bottom_Panel'] = 'System',
-		['Top_Center'] = 'Version',
+		['LeftMiniPanel'] = 'Guild',
+		['RightMiniPanel'] = 'Friends',
 	},
 	['localtime'] = true,
-	['time24'] = true,
+	['time24'] = false,
 }
 
 --Tooltip
@@ -190,22 +153,22 @@ P['tooltip'] = {
 
 --UnitFrame
 P['unitframe'] = {
-	['smoothbars'] = false,
+	['smoothbars'] = true,
 	['statusbar'] = "Minimalist",
 	['font'] = 'ElvUI Font',
-	['fontsize'] = 9,
+	['fontsize'] = 12,
 	['fontoutline'] = 'OUTLINE',
 	['OORAlpha'] = 0.35,
 	['debuffHighlighting'] = true,
 	["smartRaidFilter"] = true,
 
 	['colors'] = {
-		['healthclass'] = true,
+		['healthclass'] = false,
 		['powerclass'] = false,
-		['colorhealthbyvalue'] = false,
+		['colorhealthbyvalue'] = true,
 		['customhealthbackdrop'] = false,
 		['classbackdrop'] = false,
-		['classNames'] = false,
+		['classNames'] = true,
 		
 		['health'] = P.general.bordercolor,
 		['health_backdrop'] = { r = .8,g = .01,b = .01 },
@@ -237,7 +200,7 @@ P['unitframe'] = {
 			['health'] = {
 				['text'] = true,
 				['text_format'] = 'current-percent',
-				['position'] = 'BOTTOMRIGHT',
+				['position'] = 'LEFT',
 			},
 			['power'] = {
 				['enable'] = true,
@@ -321,7 +284,7 @@ P['unitframe'] = {
 			['health'] = {
 				['text'] = true,
 				['text_format'] = 'current-percent',
-				['position'] = 'BOTTOMRIGHT',
+				['position'] = 'RIGHT',
 			},
 			['power'] = {
 				['enable'] = true,
@@ -330,7 +293,7 @@ P['unitframe'] = {
 				['width'] = 'fill',
 				['height'] = 10,
 				['offset'] = 0,
-				['position'] = 'RIGHT',
+				['position'] = 'LEFT',
 				['hideonnpc'] = true,					
 			},
 			['name'] = {
