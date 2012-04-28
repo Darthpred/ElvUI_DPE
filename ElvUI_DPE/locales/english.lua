@@ -18,7 +18,7 @@ Plugin doesn't change any files in ElvUI folder so disabling or deleting it woul
 ]=]
 
 --Credits
-L['ELVUI_DPE_CREDITS'] = "I would like to give out a special shout out to the following people for helping me creating this addon with testing, coding and other stuff."
+L['ELVUI_DPE_CREDITS'] = "I would like to point out the following people for helping me creating this addon with testing, coding and other stuff."
 L['Submodules and coding:'] = "Submodules and coding:"
 L['ELVUI_DPE_CODERS'] = [=[Benik - core of exp/rep bars' text
 Catok - Test UI feature
