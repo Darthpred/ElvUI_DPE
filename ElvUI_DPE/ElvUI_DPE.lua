@@ -8,15 +8,12 @@ local CH = E:GetModule('Chat')
 
 function DPE:Initialize()
 	--For testing purposes.
-	print("DPE init")
+	print("DPE initialized")
 end
 
 E.UpdateAllDPE = E.UpdateAll
 function E:UpdateAll()
-	--CH:PositionChat()
-	--print("Imma Updated")
     E.UpdateAllDPE(self)
-	--print("Imma Updated 2")
 end
 
 E:RegisterModule(DPE:GetName())

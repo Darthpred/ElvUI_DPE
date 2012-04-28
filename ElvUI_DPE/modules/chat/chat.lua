@@ -4,7 +4,6 @@ local CH = E:GetModule('Chat')
 CH.PositionChatDPE = CH.PositionChat
 function CH:PositionChat(override)
 	CH.PositionChatDPE(self)
-	--print("Imma chat")
 	local chat, chatbg, tab, id, point, button, isDocked, chatFound
 	for _, frameName in pairs(CHAT_FRAMES) do
 		chat = _G[frameName]
@@ -86,5 +85,4 @@ function CH:PositionChat(override)
 	end	
 
 	end
-	--print("Imma chat 2")
 end
