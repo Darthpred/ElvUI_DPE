@@ -129,7 +129,7 @@ E.Options.args.dpe.args.credits = {
 		credits = {
 			order = 2,
 			type = "description",
-			name = L['ELVUI_DPE_CREDITS']..'\n\n\n'..L['Submodules:']..'\n\n'..L['ELVUI_DPE_CODERS']..'\n\n\n'..L['Other support:']..'\n\n'..L['ELVUI_DPE_MISC'],
+			name = L['ELVUI_DPE_CREDITS']..'\n\n\n'..L['Submodules and coding:']..'\n\n'..L['ELVUI_DPE_CODERS']..'\n\n\n'..L['Other support:']..'\n\n'..L['ELVUI_DPE_MISC'],
 		},
 	},
 }
