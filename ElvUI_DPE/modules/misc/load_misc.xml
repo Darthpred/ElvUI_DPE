@@ -2,7 +2,6 @@
 	<Script file='misc.lua'/>
 	<Script file='raidUtility.lua'/>
 	<Script file='raidbuffreminder.lua'/>
-	<Script file='autorelease.lua'/>
 	<Script file='exprepbar.lua'/>
 	<Script file='balancepower.lua'/>
 </Ui>

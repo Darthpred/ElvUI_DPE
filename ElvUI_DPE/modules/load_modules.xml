@@ -8,4 +8,5 @@
 	<Script file='testui\testui.lua'/>
 	<Script file='maps\minimap.lua'/>
 	<Script file='auras\auras.lua'/>
+	<Script file='autorelease\autorelease.lua'/>
 </Ui>

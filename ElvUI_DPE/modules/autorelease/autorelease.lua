@@ -1,0 +1,36 @@
+local E, L, P, G = unpack(ElvUI); --Engine
+local AR = E:NewModule('AutoRelease', 'AceHook-3.0', 'AceEvent-3.0');
+
+--Defaults
+P['general'] = {
+	['pvpautorelease'] = true,
+}
+
+function AR:Releasing()
+	local inInstance, instanceType = IsInInstance()
+	if (inInstance and (instanceType == "pvp")) then
+		if E.db.general.pvpautorelease then 
+			local soulstone = GetSpellInfo(20707)
+				if ((E.myclass ~= "SHAMAN") and not (soulstone and UnitBuff("player", soulstone))) then
+					RepopMe()
+				end
+		end
+	end
+	
+	-- auto resurrection for world PvP area...when active
+	if E.db.general.pvpautorelease then 
+		for index = 1, GetNumWorldPVPAreas() do
+			local pvpID, localizedName, isActive, canQueue, startTime, canEnter = GetWorldPVPAreaInfo(index)
+			
+			if (GetRealZoneText() == localizedName and isActive) then
+				RepopMe()
+			end
+		end
+	end
+end
+
+function AR:Initialize()
+	self:RegisterEvent("PLAYER_DEAD", "Releasing");
+end
+
+E:RegisterModule(AR:GetName())
