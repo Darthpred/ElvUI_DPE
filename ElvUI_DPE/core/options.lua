@@ -1,4 +1,6 @@
 ﻿local E, L, P, G = unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
+local DPE = E:GetModule('DPE');
+local M = E:GetModule('Misc');
 
 E.Options.args.dpe = {
 	type = "group",
@@ -35,7 +37,7 @@ E.Options.args.dpe = {
 					name = L["Xp-Rep Mod"],
 					desc = L['Show XP-Rep Info on bars'],
 					get = function(info) return E.db.skins.xprepinfo end,
-					set = function(info, value) E.db.skins.xprepinfo = value; StaticPopup_Show("CONFIG_RL") end
+					set = function(info, value) E.db.skins.xprepinfo = value; M:UpdateExpRepBarAnchor() end
 				},	
 				pvpautorelease = {
 					order = 2,
@@ -43,7 +45,7 @@ E.Options.args.dpe = {
 					name = L["PvP Autorelease"],
 					desc = L['Automatically release body when killed inside a battleground.'],
 					get = function(info) return E.db.general.pvpautorelease end,
-					set = function(info, value) E.db.general.pvpautorelease = value; StaticPopup_Show("CONFIG_RL") end
+					set = function(info, value) E.db.general.pvpautorelease = value; end
 				},
 			},
 		},
@@ -73,7 +75,7 @@ E.Options.args.dpe.args.druid = {
 					name = L["Balance Power Frame"],
 					desc = L["Show/hide the frame with exact number of your Solar/Lunar energy."],
 					get = function(info) return E.db.general.bpenable end,
-					set = function(info, value) E.db.general.bpenable = value; StaticPopup_Show("CONFIG_RL") end
+					set = function(info, value) E.db.general.bpenable = value; DPE:BPUpdate() end
 				},
 			},
 		},
@@ -81,6 +83,7 @@ E.Options.args.dpe.args.druid = {
 }
 end
 
+--[[
 if E.myclass == "DEATHKNIGHT" then
 E.Options.args.dpe.args.deathknight = {
 	order = 1,
@@ -104,13 +107,14 @@ E.Options.args.dpe.args.deathknight = {
 					name = L["Necrotic Strike"],
 					desc = L["Show/hide Necrotic Strike absorb overlay."],
 					get = function(info) return E.db.general.necrostrike end,
-					set = function(info, value) E.db.general.necrostrike = value; end
+					set = function(info, value) E.db.general.necrostrike = value; DPE:NSLoad() end
 				},
 			},
 		},
 	},
 }
 end
+]]
 
 E.Options.args.dpe.args.credits = {
 	order = 5,
@@ -125,7 +129,7 @@ E.Options.args.dpe.args.credits = {
 		credits = {
 			order = 2,
 			type = "description",
-			name = L['ELVUI_DPE_CREDITS']..'\n\n\n'..L['Submodules:']..'\n\n'..L['ELVUI_DPE_CODERS']..'\n\n'..L['Other support:']..'\n\n\n'..L['ELVUI_DPE_MISC'],
+			name = L['ELVUI_DPE_CREDITS']..'\n\n\n'..L['Submodules:']..'\n\n'..L['ELVUI_DPE_CODERS']..'\n\n\n'..L['Other support:']..'\n\n'..L['ELVUI_DPE_MISC'],
 		},
 	},
 }
