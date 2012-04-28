@@ -1,7 +1,10 @@
 local _, ns = ...
 local oUF = ElvUF or oUF
+local E, L, P, G = unpack(ElvUI);
 if not oUF then return end
 local NecroticStrikeTooltip
+
+if E.myclass ~= "DEATHKNIGHT" then return end
 
 local function GetNecroticAbsorb(unit)
 	local i = 1
