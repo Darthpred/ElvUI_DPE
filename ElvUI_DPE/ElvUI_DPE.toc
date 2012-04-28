@@ -9,7 +9,7 @@
 ## RequiredDeps: ElvUI
 ## DefaultState: Enabled
 
-
+ElvUI_DPE.lua
 locales\load_locales.xml
 modules\load_modules.xml
 core\options.lua
