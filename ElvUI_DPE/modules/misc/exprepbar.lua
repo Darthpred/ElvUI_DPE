@@ -9,7 +9,7 @@ local showRepBar, showExpBar = false, false
 local text_shown = 0
 
 -- Defaults
-P['xprepmod'] = {
+P['skins'] = {
 	['xprepinfo'] = true,
 }
 
@@ -179,7 +179,7 @@ function M:UpdateExpBar(event)
 		bar:SetValue(cur)
 		-- enable text
 		if E.db.skins.xprepinfo then
-			bar.txt:SetText(LEVEL_ABBR..' '..string.format('%s: %d / %d (%d%%)', UnitLevel('player'), cur, max, cur/max * 100)..' + ('..xprest..')')
+			M:CreateExpTextString()
 		end
 	end
 	
@@ -239,7 +239,8 @@ function M:UpdateRepBar(event)
 		bar:SetValue(value)
 		-- enable text
 		if E.db.skins.xprepinfo then
-			bar.txt:SetText(name..': '..format('%d / %d (%d%%)', value - min, max - min, (value - min) / (max - min) * 100))
+			M:CreateRepTextString()
+			--bar.txt:SetText(name..': '..format('%d / %d (%d%%)', value - min, max - min, (value - min) / (max - min) * 100))
 		end
 	end
 		
@@ -264,14 +265,56 @@ function M:UpdateExpRepBarAnchor()
 
 	if UpperReputationBar then
 		UpperReputationBar:Size(BAR_WIDTH + E.RBRWidth, BAR_HEIGHT)
+		if E.db.skins.xprepinfo then
+			M:CreateRepTextString()
+		else
+			UpperReputationBar.txt:SetText('')
+		end
 	end
 	
 	if UpperExperienceBar then
 		UpperExperienceBar:Size(BAR_WIDTH + E.RBRWidth, BAR_HEIGHT)
+		if E.db.skins.xprepinfo then
+			M:CreateExpTextString()
+		else
+			UpperExperienceBar.txt:SetText('')
+		end
 	end	
 	
 	self:PositionBars(self:GetNumShownBars())
+
 end
+
+function M:CreateExpTextString()
+	local cur, max = GetXP('player')
+	local rested = GetXPExhaustion()
+	local xprest
+	if rested and rested > 0 then
+		UpperExperienceBar.rested:SetMinMaxValues(0, max)
+		UpperExperienceBar.rested:SetValue(math.min(cur + rested, max))
+		xprest = E:ShortValue(rested)
+	else
+		UpperExperienceBar.rested:SetMinMaxValues(0, 1)
+		UpperExperienceBar.rested:SetValue(0)	
+	end
+	
+	if E.db.general.expRepPos == "TOP_SCREEN" then
+		UpperExperienceBar.txt:SetText(LEVEL_ABBR..' '..string.format('%s: %d / %d (%d%%)', UnitLevel('player'), cur, max, cur/max * 100)..' + ('..xprest..')')
+	else
+		UpperExperienceBar.txt:SetText('XP:'..string.format(' %d / %d (%d%%)', cur, max, cur/max * 100))
+	end
+end
+
+function M:CreateRepTextString()
+	local name, reaction, min, max, value = GetWatchedFactionInfo()
+
+	if E.db.general.expRepPos == "TOP_SCREEN" then
+		UpperReputationBar.txt:SetText(name..': '..format('%d / %d (%d%%)', value - min, max - min, (value - min) / (max - min) * 100))
+	else
+		UpperReputationBar.txt:SetText(name..': '..format('%d%%', (value - min) / (max - min) * 100))
+	end
+end
+
 
 function M:LoadExpRepBar()
 	local holder = CreateFrame('Button', 'UpperRepExpBarHolder', E.UIParent)
