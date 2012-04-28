@@ -7,6 +7,5 @@ M.InitializeDPE = M.Initialize
 function M:Initialize()
 	M.InitializeDPE(self)
 
-	self:LoadAutoRelease()
 	RU:MoveButton()
 end
