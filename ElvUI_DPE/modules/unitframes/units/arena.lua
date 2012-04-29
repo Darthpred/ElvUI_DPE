@@ -6,6 +6,7 @@ local abs = math.abs
 local _, ns = ...
 local ElvUF = ns.oUF
 
+--Here and in other units, moving power text to power bar
 UF.Update_ArenaFramesDPE = UF.Update_ArenaFrames
 function UF:Update_ArenaFrames(frame, db)
 	self:Update_ArenaFramesDPE(frame, db)

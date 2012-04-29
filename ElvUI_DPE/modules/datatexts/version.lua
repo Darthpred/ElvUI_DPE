@@ -1,4 +1,5 @@
-﻿local E, L, P, G = unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
+﻿--Version datatext. Only in Russian for now.
+local E, L, P, G = unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 local DT = E:GetModule('DataTexts')
 
 local displayString = '';

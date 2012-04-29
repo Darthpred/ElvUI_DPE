@@ -1,4 +1,5 @@
 --Credits to Benik
+--Exp/Rep bar text mod
 local E, L, P, G = unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 local M = E:GetModule('Misc');
 

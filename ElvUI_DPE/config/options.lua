@@ -4,6 +4,7 @@ local M = E:GetModule('Misc');
 local RM = E:GetModule('RaidMarks');
 local BG = E:GetModule('BackGrounds');
 
+--Main options group
 E.Options.args.dpe = {
 	type = "group",
     name = L["Additional options"],
@@ -85,6 +86,7 @@ E.Options.args.dpe = {
 	},
 }
 
+--Options for Exp/Rep text
 E.Options.args.dpe.args.exprep = {
 	type = "group",
     name = L["Xp-Rep Text"],
@@ -147,6 +149,7 @@ E.Options.args.dpe.args.exprep = {
 	},
 }
 
+--Options for additional background frames. Main group
 E.Options.args.dpe.args.backgrounds = {
 	type = "group",
 	name = L["Backgrounds"],
@@ -202,14 +205,14 @@ E.Options.args.dpe.args.backgrounds = {
 		},
 	}
 }
-
+--Subgroup for 1st frame. They are based on the same pattern
 E.Options.args.dpe.args.backgrounds.args.bottom = {
 	type = "group",
 	name = L["Bottom BG"],
 	order = 1,
 	disabled = function() return not E.db.backgrounds.bottom.enabled end,
 	args = {
-		width = {
+		width = { --setting width (obviously)
 			order = 3,
 			type = "range",
 			name = L['Width'],
@@ -227,11 +230,12 @@ E.Options.args.dpe.args.backgrounds.args.bottom = {
 			get = function(info) return E.db.backgrounds.bottom.height end,
 			set = function(info, value) E.db.backgrounds.bottom.height = value; BG:FramesSize() end,
 		},
-		spacer = {
+		spacer = { --Empty slot for making sliders move to next line
 			order = 5,
 			type = "description",
 			name = "",
 		},
+		--Main means of moving frames. To create actual mover for them is veeeeeeeeeeery crapy idea.
 		xoffset = {
 			order = 6,
 			type = "range",
@@ -250,6 +254,7 @@ E.Options.args.dpe.args.backgrounds.args.bottom = {
 			get = function(info) return E.db.backgrounds.bottom.yoffset end,
 			set = function(info, value) E.db.backgrounds.bottom.yoffset = value; BG:FramesPositions() end,
 		},
+		--Setting custom texture for those who like it
 		texture = {
 			order = 8,
 			type = 'input',
@@ -265,7 +270,7 @@ E.Options.args.dpe.args.backgrounds.args.bottom = {
 		},
 	},
 }
-
+--Subgroup for 2nd frame
 E.Options.args.dpe.args.backgrounds.args.left = {
 	order = 2,
 	type = "group",
@@ -328,7 +333,7 @@ E.Options.args.dpe.args.backgrounds.args.left = {
 		},
 	},
 }
-
+--Subgroup for 3rd frame
 E.Options.args.dpe.args.backgrounds.args.right = {
 	order = 2,
 	type = "group",
@@ -391,7 +396,7 @@ E.Options.args.dpe.args.backgrounds.args.right = {
 		},
 	},
 }
-
+--Subgroup for 4th frame
 E.Options.args.dpe.args.backgrounds.args.action = {
 	order = 4,
 	type = "group",
@@ -455,6 +460,7 @@ E.Options.args.dpe.args.backgrounds.args.action = {
 	},
 }
 
+--Adds a new option group is character is a druid.
 if E.myclass == "DRUID" then
 E.Options.args.dpe.args.druid = {
 	order = 50,
@@ -472,7 +478,7 @@ E.Options.args.dpe.args.druid = {
 			name = '',
 			guiInline = true,
 			args = {
-				bpenable = {
+				bpenable = { --Frame with sol/lun energy count
 					order = 1,
 					type = "toggle",
 					name = L["Balance Power Frame"],
@@ -486,6 +492,7 @@ E.Options.args.dpe.args.druid = {
 }
 end
 
+--Adds a new option group is character is a dk. However i couldn't make intended option work.
 --[[
 if E.myclass == "DEATHKNIGHT" then
 E.Options.args.dpe.args.deathknight = {
@@ -519,6 +526,7 @@ E.Options.args.dpe.args.deathknight = {
 end
 ]]
 
+--Credits
 E.Options.args.dpe.args.credits = {
 	order = 200,
 	type = 'group',

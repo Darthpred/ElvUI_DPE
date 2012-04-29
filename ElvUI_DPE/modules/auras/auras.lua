@@ -1,6 +1,7 @@
 local E, L, P, G = unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 local A = E:GetModule('Auras');
 
+--Replacing Elv's function to make buffs smaller
 function A:StyleBuffs(buttonName, index, debuff)
 	local buff = _G[buttonName..index]
 	local icon = _G[buttonName..index.."Icon"]

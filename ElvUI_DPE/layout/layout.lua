@@ -8,6 +8,7 @@ LO.ToggleChatPanelsDPE = LO.ToggleChatPanels
 function LO:ToggleChatPanels()
 	LO.ToggleChatPanelsDPE(self)
 
+	--I've made replacement only for show both setting. I'm using only those atm. will do more later
 	if E.db.general.panelBackdrop == 'SHOWBOTH' then
 		LeftChatPanel.backdrop:Show()
 		LeftChatTab:Show()
@@ -33,7 +34,7 @@ function LO:CreateChatPanels()
 	LeftChatTab:Point('TOPLEFT', LeftChatPanel, 'TOPLEFT', 2, -2)
 	LeftChatTab:Point('BOTTOMRIGHT', LeftChatPanel, 'TOPRIGHT', -2, -PANEL_HEIGHT)
 	
-	--Preventing left chat detapanel fading
+	--Preventing left chat datapanel fading
 	ChatFrame1EditBox:Hide()
 	
 	--Right Chat
@@ -44,6 +45,7 @@ function LO:CreateChatPanels()
 	RightChatTab:Point('BOTTOMLEFT', RightChatPanel, 'TOPLEFT', 2, -PANEL_HEIGHT)
 end
 
+--Config button was loading before my minimap changes were taking place. So that's the way to force the correct size
 function LO:UpdateConfigButton()
 	local RBRWidthDPE = ((E.MinimapSize - 6) / 7 + 4)
 	ElvConfigToggle:Width(RBRWidthDPE)

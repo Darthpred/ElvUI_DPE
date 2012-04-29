@@ -2,7 +2,7 @@
 local RBR = E:GetModule('RaidBuffReminder');
 
 E.RaidBuffReminder = RBR
-
+--Additional buffs to RBR. Still need warrior, rogue, shaman and possibly druid
 localizedClass, englishClass = UnitClass("player")
 local class = englishClass
 
@@ -51,7 +51,7 @@ function RBR:UpdateReminder(event, unit)
 	
 	local frame = self.frame
 		
-	for i = 2, 7 do
+	for i = 2, 7 do --was 2, 6
 		local hasBuff, texture = self:CheckFilterForActiveBuff(self['Spell'..i..'Buffs'])
 		frame['spell'..i].t:SetTexture(texture)
 		if hasBuff then
@@ -75,8 +75,8 @@ function RBR:Initialize()
 	frame.spell3 = self:CreateButton(frame.spell2)
 	frame.spell4 = self:CreateButton(frame.spell3)
 	frame.spell5 = self:CreateButton(frame.spell4)
-	frame.spell6 = self:CreateButton(frame.spell5)
-	frame.spell7 = self:CreateButton(frame.spell6, nil, true)
+	frame.spell6 = self:CreateButton(frame.spell5) --was (frame.spell5, nil, true)
+	frame.spell7 = self:CreateButton(frame.spell6, nil, true) --new
 	self.frame = frame
 	
 	if E.db.general.raidReminder then

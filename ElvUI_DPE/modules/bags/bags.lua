@@ -1,3 +1,6 @@
+--Replaced the whole module. Have no idea how to force ElvUI to take only modified functions from here.
+--Seems to be similar to profiles issue
+
 local E, L, P, G = unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 local B = E:GetModule('Bags');
 

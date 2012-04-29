@@ -136,6 +136,7 @@ function BG:UpdateTex()
 	BGaction.tex:SetTexture(E.db.backgrounds.action.texture)
 end
 
+--Visibility / Enable check
 function BG:FramesVisibility()
 	if E.db.backgrounds.bottom.enabled then
 		BGbottom:Show()

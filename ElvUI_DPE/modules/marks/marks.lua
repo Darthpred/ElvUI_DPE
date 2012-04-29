@@ -1,4 +1,5 @@
-﻿local E, L, P, G = unpack(ElvUI); --Engine
+﻿--Raid mark bar. Similar to quickmark which just semms to be impossible to skin
+local E, L, P, G = unpack(ElvUI); --Engine
 local RM = E:NewModule('RaidMarks', 'AceHook-3.0', 'AceEvent-3.0');
 
 local mark_menu = CreateFrame("Frame", "Mark_Menu", E.UIParent)
@@ -11,8 +12,6 @@ local m6 = CreateFrame("Button", "M6", Mark_Menu, "SecureActionButtonTemplate")
 local m7 = CreateFrame("Button", "M7", Mark_Menu, "SecureActionButtonTemplate")
 local m8 = CreateFrame("Button", "M8", Mark_Menu, "SecureActionButtonTemplate")
 
---local Msize = 18 --Size of mark buttons. Changing this would change the size of all elements
-
 --Defaults
 P['marks'] = {
 	['enabled'] = true,
@@ -20,6 +19,7 @@ P['marks'] = {
     ['size'] = 18,
 }
 
+--Main frame
 function RM:CreateFrame()
 	mark_menu:Point('CENTER', E.UIParent, 'CENTER', 0, 0) --Default positon
 	mark_menu:SetFrameStrata('LOW');
@@ -29,6 +29,7 @@ function RM:CreateFrame()
 	mark_menu:Hide()
 end
 
+--Buttons creation
 function RM:SetButtonAttributes()
 	--Skull
 	m1:CreateBackdrop('Default');
@@ -119,32 +120,19 @@ function RM:SetButtonAttributes()
 	m8.tex:SetTexture("INTERFACE/TARGETINGFRAME/UI-RaidTargetingIcon_1")
 end
 
+--Setting/updating buttons' size
 function RM:FrameButtonsSize()
-	--Skull
 	m1:Size(E.db.marks.size)
-	
-	--Cross
 	m2:Size(E.db.marks.size)
-
-	--Square
 	m3:Size(E.db.marks.size)
-
-	--Moon
 	m4:Size(E.db.marks.size)
-
-	--Triangle
 	m5:Size(E.db.marks.size)
-
-	--Diamond
 	m6:Size(E.db.marks.size)
-
-	--Circle
 	m7:Size(E.db.marks.size)
-
-	--Star
 	m8:Size(E.db.marks.size)
 end
 
+--Setting growth direction for buttons
 function RM:FrameButtonsGrowth()
 	m1:ClearAllPoints()
 	m2:ClearAllPoints()
@@ -156,88 +144,53 @@ function RM:FrameButtonsGrowth()
 	m8:ClearAllPoints()
 	
 	if E.db.marks.growth == "RIGHT" then
-		--Main frame
 		mark_menu:SetWidth(8 * E.db.marks.size + 11)
 		mark_menu:SetHeight(E.db.marks.size + 4)
-		--Skull
 		m1:Point('LEFT', Mark_Menu, 'LEFT', 2, 0) 
-		--Cross
 		m2:Point('LEFT', m1, 'RIGHT', 1, 0) 
-		--Square
 		m3:Point('LEFT', m2, 'RIGHT', 1, 0) 
-		--Moon
 		m4:Point('LEFT', m3, 'RIGHT', 1, 0) 
-		--Triangle
 		m5:Point('LEFT', m4, 'RIGHT', 1, 0) 
-		--Diamond
 		m6:Point('LEFT', m5, 'RIGHT', 1, 0) 
-		--Circle
 		m7:Point('LEFT', m6, 'RIGHT', 1, 0) 
-		--Star
 		m8:Point('LEFT', m7, 'RIGHT', 1, 0) 
 	elseif E.db.marks.growth == "LEFT" then
-		--Main frame
 		mark_menu:SetWidth(8 * E.db.marks.size + 11)
 		mark_menu:SetHeight(E.db.marks.size + 4)
-		--Skull
 		m1:Point('RIGHT', Mark_Menu, 'RIGHT', -2, 0) 
-		--Cross
 		m2:Point('RIGHT', m1, 'LEFT', -1, 0) 
-		--Square
 		m3:Point('RIGHT', m2, 'LEFT', -1, 0) 
-		--Moon
 		m4:Point('RIGHT', m3, 'LEFT', -1, 0) 
-		--Triangle
 		m5:Point('RIGHT', m4, 'LEFT', -1, 0) 
-		--Diamond
 		m6:Point('RIGHT', m5, 'LEFT', -1, 0) 
-		--Circle
 		m7:Point('RIGHT', m6, 'LEFT', -1, 0) 
-		--Star
 		m8:Point('RIGHT', m7, 'LEFT', -1, 0) 
 	elseif E.db.marks.growth == "UP" then
-		--Main frame
 		mark_menu:SetHeight(8 * E.db.marks.size + 11)
 		mark_menu:SetWidth(E.db.marks.size + 4)
-		--Skull
 		m1:Point('BOTTOM', Mark_Menu, 'BOTTOM', 0, 2) 
-		--Cross
 		m2:Point('BOTTOM', m1, 'TOP', 0, 1) 
-		--Square
 		m3:Point('BOTTOM', m2, 'TOP', 0, 1) 
-		--Moon
 		m4:Point('BOTTOM', m3, 'TOP', 0, 1) 
-		--Triangle
 		m5:Point('BOTTOM', m4, 'TOP', 0, 1) 
-		--Diamond
 		m6:Point('BOTTOM', m5, 'TOP', 0, 1) 
-		--Circle
 		m7:Point('BOTTOM', m6, 'TOP', 0, 1)
-		--Star
 		m8:Point('BOTTOM', m7, 'TOP', 0, 1)
 	elseif E.db.marks.growth == "DOWN" then
-		--Main frame
 		mark_menu:SetHeight(8 * E.db.marks.size + 11)
 		mark_menu:SetWidth(E.db.marks.size + 4)
-		--Skull
 		m1:Point('TOP', Mark_Menu, 'TOP', 0, -2) 
-		--Cross
 		m2:Point('TOP', m1, 'BOTTOM', 0, -1) 
-		--Square
 		m3:Point('TOP', m2, 'BOTTOM', 0, -1) 
-		--Moon
 		m4:Point('TOP', m3, 'BOTTOM', 0, -1) 
-		--Triangle
 		m5:Point('TOP', m4, 'BOTTOM', 0, -1) 
-		--Diamond
 		m6:Point('TOP', m5, 'BOTTOM', 0, -1) 
-		--Circle
 		m7:Point('TOP', m6, 'BOTTOM', 0, -1)
-		--Star
 		m8:Point('TOP', m7, 'BOTTOM', 0, -1)
 	end
 end
 
+--Visibility/enable check
 function RM:UpdateVisibility()
 	if E.db.marks.enabled then
 		mark_menu:Show()

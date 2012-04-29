@@ -2,6 +2,7 @@ local E, L, P, G = unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 local UF = E:GetModule('UnitFrames');
 local LSM = LibStub("LibSharedMedia-3.0");
 
+--Replacemant to move pvp indicator
 function UF:UpdatePvPText(frame)
 	local unit = frame.unit
 	local PvPText = frame.PvPText

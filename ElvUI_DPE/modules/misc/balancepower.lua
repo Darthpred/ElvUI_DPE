@@ -1,3 +1,4 @@
+--Module to create frame with sol/lun energy value. At least untill the time i find the way to place text on actual energy bar
 local E, L, P, G = unpack(ElvUI); --Engine
 local M = E:GetModule('Misc');
 local DPE = E:GetModule('DPE');
@@ -32,6 +33,7 @@ function M:CreateBalancePower()
 	DPE:BPUpdate()
 end
 
+--Visibility/enable check
 function DPE:BPUpdate()
 	if E.db.general.bpenable then
 		bpower:Show()
@@ -40,6 +42,7 @@ function DPE:BPUpdate()
 	end
 end
 
+--Druid only feature!!!
 if E.myclass == "DRUID" then
 	M:CreateBalancePower()
 end

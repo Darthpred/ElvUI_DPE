@@ -1,3 +1,4 @@
+--Replacement of Elv's time datatext with some additions
 local E, L, P, G = unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 local DT = E:GetModule('DataTexts')
 
@@ -163,8 +164,8 @@ local function OnEnter(self)
 	local dungeonId1 = 416
 	local dungeonId2 = 417
 	GameTooltip:AddLine(" ")
-	GameTooltip:AddLine(L["LFR Dragon Soul"])
-	for i =1,4 do
+	GameTooltip:AddLine(L["LFR Dragon Soul"]) --Instance name
+	for i =1,4 do --1st part
 		bossName, texture, isKilled, isIneligible = GetLFGDungeonEncounterInfo(dungeonId1, i);
 		if ( isKilled ) then
 			GameTooltip:AddDoubleLine(bossName, BOSS_DEAD, RED_FONT_COLOR.r, RED_FONT_COLOR.g, RED_FONT_COLOR.b, RED_FONT_COLOR.r, RED_FONT_COLOR.g, RED_FONT_COLOR.b);
@@ -174,7 +175,7 @@ local function OnEnter(self)
 			GameTooltip:AddDoubleLine(bossName, BOSS_ALIVE, GREEN_FONT_COLOR.r, GREEN_FONT_COLOR.g, GREEN_FONT_COLOR.b, GREEN_FONT_COLOR.r, GREEN_FONT_COLOR.g, GREEN_FONT_COLOR.b);
 		end
 	end
-	for i =5,8 do
+	for i =5,8 do --2nd part
 		bossName, texture, isKilled, isIneligible = GetLFGDungeonEncounterInfo(dungeonId2, i);
 		if ( isKilled ) then
 			GameTooltip:AddDoubleLine(bossName, BOSS_DEAD, RED_FONT_COLOR.r, RED_FONT_COLOR.g, RED_FONT_COLOR.b, RED_FONT_COLOR.r, RED_FONT_COLOR.g, RED_FONT_COLOR.b);
@@ -184,6 +185,7 @@ local function OnEnter(self)
 			GameTooltip:AddDoubleLine(bossName, BOSS_ALIVE, GREEN_FONT_COLOR.r, GREEN_FONT_COLOR.g, GREEN_FONT_COLOR.b, GREEN_FONT_COLOR.r, GREEN_FONT_COLOR.g, GREEN_FONT_COLOR.b);
 		end
 	end
+	--LFR lockout end
 
 	local oneraid, lockoutColor
 	for i = 1, GetNumSavedInstances() do

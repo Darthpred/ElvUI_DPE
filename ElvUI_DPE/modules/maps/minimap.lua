@@ -4,6 +4,7 @@ local LO = E:GetModule('Layout');
 E.Minimap = M
 local RBRWidthDPE = ((E.MinimapSize - 6) / 7 + 4)
 
+--A part of addint 7th icon to raid buff reminder
 M.UpdateSettingsDPE = M.UpdateSettings
 function M:UpdateSettings()
 	M.UpdateSettingsDPE(self)

@@ -4,6 +4,7 @@ local E, L, P, G = unpack(ElvUI);
 if not oUF then return end
 local NecroticStrikeTooltip
 
+--Enabling only for DKs
 if E.myclass ~= "DEATHKNIGHT" then return end
 
 local function GetNecroticAbsorb(unit)

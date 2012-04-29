@@ -1,5 +1,11 @@
 ﻿local E, L, P, G = unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 
+--[[
+Another set of ElvUI profile defaults. Including my own for additional datatext panels.
+For some reason when creating a new profile ElvUI is trying to find all data in my plugin insdead of own folder.
+Also removing defaults of additional panels causes their settings to disappear from options frame
+]]
+
 P.gridSize = 64
 P.farmSize = 340
 
@@ -136,6 +142,7 @@ P['datatexts'] = {
 			['middle'] = 'Time',	
 			['right'] = 'Gold',
 		},
+		--My panels defaults
 		['Bottom_Right'] = {
 		['left'] = 'Spell/Heal Power',
 		['middle'] = 'Haste',
@@ -168,6 +175,7 @@ P['datatexts'] = {
 		},
 		['Bottom_Panel'] = 'System',
 		['Top_Center'] = 'Version',
+		--end of my defaults
 		['LeftMiniPanel'] = 'Guild',
 		['RightMiniPanel'] = 'Friends',
 	},

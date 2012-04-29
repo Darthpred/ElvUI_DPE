@@ -1,6 +1,7 @@
 ﻿local E, L, P, G = unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 local CH = E:GetModule('Chat')
 
+--Replacement of chat tab position and size function
 CH.PositionChatDPE = CH.PositionChat
 function CH:PositionChat(override)
 	CH.PositionChatDPE(self)
@@ -44,8 +45,8 @@ function CH:PositionChat(override)
 	if point == "BOTTOMRIGHT" and chat:IsShown() and not (id > NUM_CHAT_WINDOWS) and id == self.RightChatWindowID then
 		if id ~= 2 then
 			chat:ClearAllPoints()
-			chat:Point("BOTTOMLEFT", RightChatDataPanel, "TOPLEFT", -70, 3)
-			chat:SetSize(E.db.general.panelWidth - 6, (E.db.general.panelHeight - 27))
+			chat:Point("BOTTOMLEFT", RightChatDataPanel, "TOPLEFT", -70, 3) -- <<< Changed
+			chat:SetSize(E.db.general.panelWidth - 6, (E.db.general.panelHeight - 27)) -- <<< Changed
 		else
 			chat:ClearAllPoints()
 			chat:Point("BOTTOMLEFT", RightChatDataPanel, "TOPLEFT", 1, 3)
@@ -71,7 +72,7 @@ function CH:PositionChat(override)
 		if id ~= 2 and not (id > NUM_CHAT_WINDOWS) then
 			chat:ClearAllPoints()
 			chat:Point("BOTTOMLEFT", LeftChatToggleButton, "TOPLEFT", 1, 3)
-			chat:Size(E.db.general.panelWidth - 6, (E.db.general.panelHeight - 27))
+			chat:Size(E.db.general.panelWidth - 6, (E.db.general.panelHeight - 27)) -- <<< Changed
 			FCF_SavePositionAndDimensions(chat)		
 		end
 		chat:SetParent(LeftChatPanel)

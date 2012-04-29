@@ -2,7 +2,6 @@
 local LO = E:GetModule('Layout');
 
 --Defaults
---Datatexts
 P['datatexts'] = {
 	['panels'] = {
 		['Bottom_Right'] = {
@@ -40,6 +39,7 @@ P['datatexts'] = {
 	},
 }
 
+--Added function to create new panels
 LO.InitializeDPE = LO.Initialize
 function LO:Initialize()
 	LO.InitializeDPE(self)
@@ -47,9 +47,9 @@ function LO:Initialize()
 end
 
 
--- Новые панели инфотекстов
+-- New panels
 function LO:CreateDataPanels()
-	--Правая нижняя панель
+	--bottom right
 	local bottom_bar = CreateFrame('Frame', "Bottom_Right", E.UIParent)
 	bottom_bar:SetTemplate('Default', true)
 	bottom_bar:SetFrameStrata('LOW')
@@ -60,7 +60,7 @@ function LO:CreateDataPanels()
 	E:GetModule('DataTexts'):RegisterPanel(Bottom_Right, 3, 'ANCHOR_BOTTOM', 0, -4)
 	bottom_bar:Hide()
 	
-	--Левая нижняя панель
+	--bottom left
 	local top_bar = CreateFrame('Frame', 'Bottom_Left', E.UIParent)
 	top_bar:SetTemplate('Default', true)
 	top_bar:SetFrameStrata('LOW')
@@ -71,7 +71,7 @@ function LO:CreateDataPanels()
 	E:GetModule('DataTexts'):RegisterPanel(Bottom_Left, 3, 'ANCHOR_BOTTOM', 0, -4)
 	top_bar:Hide()
 	
-	--Центральная нижняя панель
+	--bottom center
 	local map = CreateFrame('Frame', 'Bottom_Panel', E.UIParent)
 	map:SetTemplate('Default', true)
 	map:SetFrameStrata('LOW')
@@ -82,7 +82,7 @@ function LO:CreateDataPanels()
 	E:GetModule('DataTexts'):RegisterPanel(Bottom_Panel, 1, 'ANCHOR_BOTTOM', 0, -4)
 	map:Hide()
 	
-	--Верхняя левая крайняя панель
+	--the most left top panel
 	local top_left_bar = CreateFrame('Frame', "Top_Left", E.UIParent)
 	top_left_bar:SetTemplate('Default', true)
 	top_left_bar:SetFrameStrata('LOW')
@@ -93,7 +93,7 @@ function LO:CreateDataPanels()
 	E:GetModule('DataTexts'):RegisterPanel(Top_Left, 3, 'ANCHOR_BOTTOM', 0, -4)
 	top_left_bar:Hide()
 	
-	--Верхняя правая крайняя панель
+	--the most right top panel
 	local top_right_bar = CreateFrame('Frame', "Top_Right", E.UIParent)
 	top_right_bar:SetTemplate('Default', true)
 	top_right_bar:SetFrameStrata('LOW')
@@ -104,7 +104,7 @@ function LO:CreateDataPanels()
 	E:GetModule('DataTexts'):RegisterPanel(Top_Right, 3, 'ANCHOR_BOTTOM', 0, -4)
 	top_right_bar:Hide()
 	
-	--Верхняя правая панель
+	--top right
 	local top_center_right_bar = CreateFrame('Frame', "Top_Center_Right", E.UIParent)
 	top_center_right_bar:SetTemplate('Default', true)
 	top_center_right_bar:SetFrameStrata('LOW')
@@ -115,7 +115,7 @@ function LO:CreateDataPanels()
 	E:GetModule('DataTexts'):RegisterPanel(Top_Center_Right, 3, 'ANCHOR_BOTTOM', 0, -4)
 	top_center_right_bar:Hide()
 	
-	--Верхняя левая панель
+	--top left
 	local top_center_left_bar = CreateFrame('Frame', "Top_Center_Left", E.UIParent)
 	top_center_left_bar:SetTemplate('Default', true)
 	top_center_left_bar:SetFrameStrata('LOW')
@@ -126,7 +126,7 @@ function LO:CreateDataPanels()
 	E:GetModule('DataTexts'):RegisterPanel(Top_Center_Left, 3, 'ANCHOR_BOTTOM', 0, -4)
 	top_center_left_bar:Hide()
 	
-	--Верхняя центральная панель
+	--top center
 	local top_center_bar = CreateFrame('Frame', "Top_Center", E.UIParent)
 	top_center_bar:SetTemplate('Default', true)
 	top_center_bar:SetFrameStrata('LOW')
@@ -138,7 +138,7 @@ function LO:CreateDataPanels()
 	top_center_bar:Hide()
 end
 
---Отображать панели
+--Showing panels
 function ExtraDataBarSetup()
 Bottom_Left:Show()
 Bottom_Right:Show()
@@ -150,7 +150,7 @@ Top_Center_Left:Show()
 Top_Center:Show()
 end
 
---Обновлять панели на каждый экран загрузки
+--Renew panels after loading screens
 function LO:PLAYER_ENTERING_WORLD(...)
 ExtraDataBarSetup()
 self:UnregisterEvent("PLAYER_ENTERING_WORLD");

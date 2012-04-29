@@ -3,6 +3,7 @@ local RU = E:GetModule('RaidUtility');
 
 E.RaidUtility = RU
 
+--Moved RU down cause of top datatext panels
 function RU:MoveButton()
 	ShowButton:ClearAllPoints()
 	ShowButton:Point("TOP", E.UIParent, "TOP", -400, -21)
