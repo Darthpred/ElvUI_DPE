@@ -259,7 +259,7 @@ function M:UpdateExpRepBarAnchor()
 		
 	else
 		BAR_WIDTH = E.MinimapSize+1 -- strange... should be fine without this +1 but it's needed :(
-		UpperRepExpBarHolder:Point('TOP', MMHolder, 'BOTTOM', -1, -5)  
+		UpperRepExpBarHolder:Point('TOP', MMHolder, 'BOTTOM', -1, -4)  
 		UpperRepExpBarHolder:SetParent(Minimap)
 	end
 	
