@@ -7,6 +7,7 @@ local BAR_HEIGHT = 10 -- was 9
 local TOPBAR_HEIGHT = ((BAR_HEIGHT) * 3)+1 -- was ((BAR_HEIGHT + 2) * 4) + BAR_HEIGHT
 local showRepBar, showExpBar = false, false
 local text_shown = 0
+local RBRWidthDPE = ((E.MinimapSize - 6) / 7 + 4)
 
 -- Defaults
 P['skins'] = {
@@ -130,7 +131,7 @@ function M:UpdateExpBar(event)
 	local bar = UpperExperienceBar
 	if not bar then
 		bar = CreateFrame('StatusBar', 'UpperExperienceBar', UpperRepExpBar)
-		bar:Size(BAR_WIDTH + E.RBRWidth, BAR_HEIGHT)
+		bar:Size(BAR_WIDTH + RBRWidthDPE, BAR_HEIGHT)
 		bar:CreateBackdrop('Default')
 		bar:SetStatusBarTexture(E.media.normTex)
 		bar:SetFrameLevel(UpperRepExpBar:GetFrameLevel() + 3)
@@ -210,7 +211,7 @@ function M:UpdateRepBar(event)
 	local name, reaction, min, max, value = GetWatchedFactionInfo()
 	if not bar then
 		bar = CreateFrame('StatusBar', 'UpperReputationBar', UpperRepExpBar)
-		bar:Size(BAR_WIDTH + E.RBRWidth + 4, BAR_HEIGHT)
+		bar:Size(BAR_WIDTH + RBRWidthDPE, BAR_HEIGHT)
 		bar:CreateBackdrop('Default')
 		bar:SetStatusBarTexture(E.media.normTex)
 		bar:SetFrameLevel(UpperRepExpBar:GetFrameLevel() + 3)
@@ -258,15 +259,15 @@ function M:UpdateExpRepBarAnchor()
 		
 	else
 		BAR_WIDTH = E.MinimapSize+1 -- strange... should be fine without this +1 but it's needed :(
-		UpperRepExpBarHolder:Point('TOP', MMHolder, 'BOTTOM', 1, -5)  
+		UpperRepExpBarHolder:Point('TOP', MMHolder, 'BOTTOM', -1, -5)  
 		UpperRepExpBarHolder:SetParent(Minimap)
 	end
 	
 	UpperRepExpBarHolder:SetFrameLevel(0)
-	UpperRepExpBarHolder:Size(BAR_WIDTH - 30 + E.RBRWidth, TOPBAR_HEIGHT)
+	UpperRepExpBarHolder:Size(BAR_WIDTH - 30 + RBRWidthDPE, TOPBAR_HEIGHT)
 
 	if UpperReputationBar then
-		UpperReputationBar:Size(BAR_WIDTH + E.RBRWidth, BAR_HEIGHT)
+		UpperReputationBar:Size(BAR_WIDTH + RBRWidthDPE, BAR_HEIGHT)
 		if E.db.skins.xprepinfo then
 			M:CreateRepTextString()
 		else
@@ -275,7 +276,7 @@ function M:UpdateExpRepBarAnchor()
 	end
 	
 	if UpperExperienceBar then
-		UpperExperienceBar:Size(BAR_WIDTH + E.RBRWidth, BAR_HEIGHT)
+		UpperExperienceBar:Size(BAR_WIDTH + RBRWidthDPE, BAR_HEIGHT)
 		if E.db.skins.xprepinfo then
 			M:CreateExpTextString()
 		else
