@@ -302,7 +302,7 @@ function M:CreateExpTextString()
 	
 	if E.db.general.expRepPos == "TOP_SCREEN" and E.db.skins.xprepdet then
 		if E.db.skins.xprest and rested and rested > 0 then
-			UpperExperienceBar.txt:SetText(LEVEL_ABBR..' '..string.format('%s XP: %d / %d (%d%%)', UnitLevel('player'), cur, max, cur/max * 100)..' + ('..xprest..' Rested)')
+			UpperExperienceBar.txt:SetText(LEVEL_ABBR..' '..string.format('%s XP: %d / %d (%d%%)', UnitLevel('player'), cur, max, cur/max * 100)..' + '..L['Rested:']..xprest)
 		else
 			UpperExperienceBar.txt:SetText(LEVEL_ABBR..' '..string.format('%s XP: %d / %d (%d%%)', UnitLevel('player'), cur, max, cur/max * 100))
 		end
