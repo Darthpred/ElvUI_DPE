@@ -57,6 +57,13 @@ L['Show/Hide Reaction status on bar.'] = "Отображает статус ре
 L['Rested Value'] = "Бодрость"
 L['Show/Hide Rested value.'] = "Показать/скрыть значение бодрости."
 
+--Raid Marks
+L["Marks"] = "Метки"
+L["Show/Hide raid marks."] = "Показать/скрыть фрейм рейдовых меток."
+L['Sets size of buttons'] = "Устанавливает размер кнопок"
+L["Direction"] = "Направление"
+L['Change the direction of buttons growth from "skull" mark'] = 'Изменяет направление роста кнопок от метки "череп".'
+
 --Balance Power Frame
 L["Druid"] = "Друид"
 L["Druid spesific options"] = "Настройки для друидов"

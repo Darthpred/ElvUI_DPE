@@ -64,6 +64,13 @@ L['Show/Hide Reaction status on bar.'] = "Show/Hide Reaction status on bar."
 L['Rested Value'] = "Rested Value"
 L['Show/Hide Rested value.'] = "Show/Hide Rested value."
 
+--Raid Marks
+L["Marks"] = "Marks"
+L["Show/Hide raid marks."] = "Show/Hide raid marks."
+L['Sets size of buttons'] = "Sets size of buttons"
+L["Direction"] = "Direction"
+L['Change the direction of buttons growth from "skull" mark'] = 'Change the direction of buttons growth from "skull" mark'
+
 --Balance Power Frame 
 L["Druid"] = "Druid"
 L["Druid spesific options"] = "Druid spesific options"
