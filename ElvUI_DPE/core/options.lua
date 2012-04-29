@@ -32,14 +32,6 @@ E.Options.args.dpe = {
 					get = function(info) return E.db.datatexts.lfrshow end,
 					set = function(info, value) E.db.datatexts.lfrshow = value; end
 				},
-				xprepinfo = {
-					order = 1,
-					type = "toggle",
-					name = L["Xp-Rep Mod"],
-					desc = L['Show XP-Rep Info on bars'],
-					get = function(info) return E.db.skins.xprepinfo end,
-					set = function(info, value) E.db.skins.xprepinfo = value; M:UpdateExpRepBarAnchor() end
-				},	
 				pvpautorelease = {
 					order = 2,
 					type = "toggle",
@@ -92,9 +84,71 @@ E.Options.args.dpe = {
 	},
 }
 
+E.Options.args.dpe.args.exprep = {
+	type = "group",
+    name = L["Xp-Rep Text"],
+    order = 1,
+   	args = {
+		xprepmodheader = {
+		order = 1,
+		type = "header",
+		name = L["XP-Rep Text mod by Benik"],
+		},
+		xprep_top = {
+			order = 2,
+			type = "group",
+			name = L["General"],
+			guiInline = true,
+			args = {
+				xprepinfo = {
+				order = 1,
+				type = "toggle",
+				name = L["Enable"],
+				desc = L['Show/Hide XP-Rep Info.'],
+				get = function(info) return E.db.skins.xprepinfo end,
+				set = function(info, value) E.db.skins.xprepinfo = value; M:UpdateExpRepBarAnchor() end
+				},
+				xprepdet = {
+				order = 2,
+				type = "toggle",
+				name = L['Detailed'],
+				desc = L['More XP-Rep Info. Shown only when bars are on top.'],
+				get = function(info) return E.db.skins.xprepdet end,
+				set = function(info, value) E.db.skins.xprepdet = value; M:UpdateExpRepBarAnchor() end
+				},
+			},
+		},
+		detailed_opt = {
+			order = 3,
+			type = "group",
+			name = L["Detailed options"],
+			guiInline = true,
+			disabled = function() return not E.db.skins.xprepdet end,
+			args = {			
+				repreact = {
+				order = 1,
+				type = "toggle",
+				name = L['Reaction Name'],
+				desc = L['Show/Hide Reaction status on bar.'],
+				get = function(info) return E.db.skins.repreact end,
+				set = function(info, value) E.db.skins.repreact = value; M:UpdateExpRepBarAnchor() end
+				},
+				xprest = {
+				order = 2,
+				type = "toggle",
+				name = L['Rested Value'],
+				desc = L['Show/Hide Rested value.'],
+				get = function(info) return E.db.skins.xprest end,
+				set = function(info, value) E.db.skins.xprest = value; M:UpdateExpRepBarAnchor() end
+				},
+			},
+		},
+	},
+}
+
 if E.myclass == "DRUID" then
 E.Options.args.dpe.args.druid = {
-	order = 1,
+	order = 2,
 	type = 'group',
 	name = L["Druid"],
 	args = {

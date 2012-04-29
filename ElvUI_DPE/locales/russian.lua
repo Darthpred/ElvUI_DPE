@@ -46,8 +46,16 @@ L["PvP Autorelease"] = "Автовыход из тела"
 L['Automatically release body when killed inside a battleground.'] = "Автоматически выходить из тела на полях боя."
 
 --Exp/Rep Text
-L["Xp-Rep Mod"] = "Текст Опыта/Репутации"
-L['Show XP-Rep Info on bars'] = "Показывать значения опыта/репутации на соответствующих полосах."
+L["Xp-Rep Text"] = "Текст Опыта/Репутации"
+L["XP-Rep Text mod by Benik"] = "Мод текста опыта/репутации от Benik"
+L['Show/Hide XP-Rep Info.'] = "Показать/скрыть текст на полосах."
+L['Detailed'] = "Подробно"
+L['More XP-Rep Info. Shown only when bars are on top.'] = "Более подробная информация в тексте. Отображается только при нахождении полос в верху экрана."
+L["Detailed options"] = "Опции подробного текста"
+L['Reaction Name'] = "Реакция"
+L['Show/Hide Reaction status on bar.'] = "Отображает статус реакции на полосе в виде текста."
+L['Rested Value'] = "Бодрость"
+L['Show/Hide Rested value.'] = "Показать/скрыть значение бодрости."
 
 --Balance Power Frame
 L["Druid"] = "Друид"

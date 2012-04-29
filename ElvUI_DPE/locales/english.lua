@@ -53,8 +53,16 @@ L["PvP Autorelease"] = "PvP Autorelease"
 L['Automatically release body when killed inside a battleground.'] = "Automatically release body when killed inside a battleground."
 
 --Exp/Rep Text
-L["Xp-Rep Mod"] = "Exp/Rep Text"
-L['Show XP-Rep Info on bars'] = "Show exp/rep text"
+L["Xp-Rep Text"] = "Exp/Rep Text"
+L["XP-Rep Text mod by Benik"] = "XP-Rep Text mod by Benik."
+L['Show/Hide XP-Rep Info.'] = "Show/Hide XP-Rep Info"
+L['Detailed'] = "Detailed"
+L['More XP-Rep Info. Shown only when bars are on top.'] = "More XP-Rep Info. Shown only when bars are on top."
+L["Detailed options"] = "Detailed options"
+L['Reaction Name'] = "Reaction Name"
+L['Show/Hide Reaction status on bar.'] = "Show/Hide Reaction status on bar."
+L['Rested Value'] = "Rested Value"
+L['Show/Hide Rested value.'] = "Show/Hide Rested value."
 
 --Balance Power Frame 
 L["Druid"] = "Druid"

@@ -11,6 +11,9 @@ local text_shown = 0
 -- Defaults
 P['skins'] = {
 	['xprepinfo'] = true,
+	['repreact'] = false,
+	['xprest'] = false,
+	['xprepdet'] = true,
 }
 
 local function GetXP(unit)
@@ -240,7 +243,6 @@ function M:UpdateRepBar(event)
 		-- enable text
 		if E.db.skins.xprepinfo then
 			M:CreateRepTextString()
-			--bar.txt:SetText(name..': '..format('%d / %d (%d%%)', value - min, max - min, (value - min) / (max - min) * 100))
 		end
 	end
 		
@@ -298,8 +300,12 @@ function M:CreateExpTextString()
 		UpperExperienceBar.rested:SetValue(0)	
 	end
 	
-	if E.db.general.expRepPos == "TOP_SCREEN" then
-		UpperExperienceBar.txt:SetText(LEVEL_ABBR..' '..string.format('%s: %d / %d (%d%%)', UnitLevel('player'), cur, max, cur/max * 100)..' + ('..xprest..')')
+	if E.db.general.expRepPos == "TOP_SCREEN" and E.db.skins.xprepdet then
+		if E.db.skins.xprest and rested and rested > 0 then
+			UpperExperienceBar.txt:SetText(LEVEL_ABBR..' '..string.format('%s XP: %d / %d (%d%%)', UnitLevel('player'), cur, max, cur/max * 100)..' + ('..xprest..' Rested)')
+		else
+			UpperExperienceBar.txt:SetText(LEVEL_ABBR..' '..string.format('%s XP: %d / %d (%d%%)', UnitLevel('player'), cur, max, cur/max * 100))
+		end
 	else
 		UpperExperienceBar.txt:SetText('XP:'..string.format(' %d / %d (%d%%)', cur, max, cur/max * 100))
 	end
@@ -308,8 +314,12 @@ end
 function M:CreateRepTextString()
 	local name, reaction, min, max, value = GetWatchedFactionInfo()
 
-	if E.db.general.expRepPos == "TOP_SCREEN" then
-		UpperReputationBar.txt:SetText(name..': '..format('%d / %d (%d%%)', value - min, max - min, (value - min) / (max - min) * 100))
+	if E.db.general.expRepPos == "TOP_SCREEN" and E.db.skins.xprepdet then
+		if E.db.skins.repreact then
+			UpperReputationBar.txt:SetText(name..': '..format('%d / %d ('.._G['FACTION_STANDING_LABEL'..reaction]..' '..'%d%%)', value - min, max - min, (value - min) / (max - min) * 100))
+		else
+			UpperReputationBar.txt:SetText(name..': '..format('%d / %d (%d%%)', value - min, max - min, (value - min) / (max - min) * 100))
+		end
 	else
 		UpperReputationBar.txt:SetText(name..': '..format('%d%%', (value - min) / (max - min) * 100))
 	end
