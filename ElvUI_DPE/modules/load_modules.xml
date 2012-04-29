@@ -9,4 +9,5 @@
 	<Script file='maps\minimap.lua'/>
 	<Script file='auras\auras.lua'/>
 	<Script file='autorelease\autorelease.lua'/>
+	<Script file='marks\marks.lua'/>
 </Ui>
