@@ -1,6 +1,7 @@
 ﻿local E, L, P, G = unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 local DPE = E:GetModule('DPE');
 local M = E:GetModule('Misc');
+local RM = E:GetModule('RaidMarks');
 
 E.Options.args.dpe = {
 	type = "group",
@@ -46,6 +47,45 @@ E.Options.args.dpe = {
 					desc = L['Automatically release body when killed inside a battleground.'],
 					get = function(info) return E.db.general.pvpautorelease end,
 					set = function(info, value) E.db.general.pvpautorelease = value; end
+				},
+			},
+		},
+		marks = {
+			order = 4,
+			type = "group",
+			name = L["Marks"],
+			guiInline = true,
+			args = {
+				enabled = {
+					order = 1,
+					type = "toggle",
+					name = L["Enable"],
+					desc = L["Show/Hide raid marks."],
+					get = function(info) return E.db.marks.enabled end,
+					set = function(info, value) E.db.marks.enabled = value; RM:UpdateVisibility() end
+				},
+				size = {
+					order = 2,
+					type = "range",
+					name = L['Size'],
+					desc = L['Sets size of buttons'],
+					min = 15, max = 30, step = 1,
+					get = function(info) return E.db.marks.size end,
+					set = function(info, value) E.db.marks.size = value; RM:FrameButtonsGrowth(); RM:FrameButtonsSize() end,
+				},
+				growth = {
+					order = 3,
+					type = "select",
+					name = L["Direction"],
+					desc = L['Change the direction of buttons growth from "skull" mark'],
+					get = function(info) return E.db.marks.growth end,
+					set = function(info, value) E.db.marks.growth = value; RM:FrameButtonsGrowth() end,
+					values = {
+						['RIGHT'] = L["Right"],
+						['LEFT'] = L["Left"],
+						['UP'] = L["Up"],
+						['DOWN'] = L["Down"],
+					},
 				},
 			},
 		},
