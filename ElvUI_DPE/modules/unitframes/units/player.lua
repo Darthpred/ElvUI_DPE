@@ -6,6 +6,13 @@ local abs = math.abs
 local _, ns = ...
 local ElvUF = ns.oUF
 
+--Function to move damn combat indicator to topright part of the frame. Maybe i should create an option to make it placeble everywhere.
+function UF:Update_CombatIndicator()
+	local CombatText = ElvUF_Player.Combat
+	
+	CombatText:Point("TOPRIGHT", ElvUF_Player.Health, "TOPRIGHT", 0, 0)
+end
+
 UF.Update_PlayerFrameDPE = UF.Update_PlayerFrame
 function UF:Update_PlayerFrame(frame, db)
 	UF:Update_PlayerFrameDPE(frame, db)
@@ -26,3 +33,4 @@ function UF:Update_PlayerFrame(frame, db)
 end
 
 UF:Update_AllFrames()
+UF:Update_CombatIndicator(self)
