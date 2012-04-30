@@ -13,13 +13,5 @@ function UF:Resize_ResIndicator()
 	end
 end
 
-UF.UpdateAllFramesDPE = UF.UpdateAllFrames
-function UF:UpdateAllFrames()
-    UF:UpdateAllFramesDPE(self)
-	
-	UF:Resize_ResIndicator()
-	print("Imma updated")
-end
-
 UF:Update_AllFrames()
 UF:RegisterEvent("PARTY_MEMBERS_CHANGED", "Resize_ResIndicator")
