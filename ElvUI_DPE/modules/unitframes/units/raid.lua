@@ -7,13 +7,15 @@ local _, ns = ...
 local ElvUF = ns.oUF
 
 function UF:Resize_RaidResIndicator()
+	local inInstance, instanceType = IsInInstance()
+	if (inInstance and (instanceType == "pvp")) then return end
 	if GetNumRaidMembers() == 0 then return end
 	local Rmembers = GetNumRaidMembers()
 	if GetNumRaidMembers() > 5 and GetNumRaidMembers() < 26 then
 		for i = 1, Rmembers do
 			_G["ElvUF_Raid625UnitButton"..i].ResurrectIcon:Size(16, 20)
 		end
-	else
+	elseif GetNumRaidMembers() > 25 then
 		for i = 1, Rmembers do
 			_G["ElvUF_Raid2640UnitButton"..i].ResurrectIcon:Size(16, 20)
 		end
