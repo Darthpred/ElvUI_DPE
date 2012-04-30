@@ -5,4 +5,5 @@
 	<Script file='boss.lua'/>
 	<Script file='arena.lua'/>
 	<Script file='targettarget.lua'/>
+	<Script file='party.lua'/>
 </Ui>
