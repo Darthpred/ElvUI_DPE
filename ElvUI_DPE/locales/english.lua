@@ -48,6 +48,13 @@ L["LFR Dragon Soul"] = "LFR Dragon Soul"
 L["LFR Lockdown"] = "LFR Lockdown"
 L["Show/Hide LFR lockdown info in time datatext's tooltip."] = "Show/Hide LFR lockdown info in time datatext's tooltip."
 
+L["DPE_AUTHOR_INFO"] = "Darth Predator's edit (Дартпредатор@Свежеватель Душ(Soulflyer) - EU)"
+L["DPE_CONTACTS"] = [=[Bug reports, suggestions and other stuff accepted via:
+- In-game mail
+- Private Massage on TukUI.org to Darth Predator
+- Private Massage on Curse to Darth_Predator
+- Shadowmage.ru]=]
+
 --PvP auto release
 L["PvP Autorelease"] = "PvP Autorelease"
 L['Automatically release body when killed inside a battleground.'] = "Automatically release body when killed inside a battleground."

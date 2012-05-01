@@ -41,6 +41,13 @@ L["LFR Dragon Soul"] = "Душа Дракона ЛФР"
 L['LFR Lockdown'] = "Состояние ЛФР"
 L["Show/Hide LFR lockdown info in time datatext's tooltip."] = "Отображать/скрывать информацию о сохранении ЛФР"
 
+L["DPE_AUTHOR_INFO"] = "Редакция от Darth Predator (Дартпредатор - Свежеватель Душ)"
+L["DPE_CONTACTS"] = [=[При возникновении вопросов или желании подогнать сборку под себя обращаться:
+- Игровая почта
+- Личное сообщение на форуме TukUI, ник Darth Predator
+- Личное сообщение на Curse, ник Darth_Predator
+- Сайт Shadowmage.ru]=]
+
 --PvP Autorelease
 L["PvP Autorelease"] = "Автовыход из тела"
 L['Automatically release body when killed inside a battleground.'] = "Автоматически выходить из тела на полях боя."

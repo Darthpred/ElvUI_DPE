@@ -18,14 +18,10 @@ end
 local function OnEnter(self)
 	DT:SetupTooltip(self)
 
-	GameTooltip:AddDoubleLine("Сборка ElvUI версии", E.version)
-	GameTooltip:AddLine("Редакция от Darth Predator (Дартпредатор - Свежеватель Душ)")
+	GameTooltip:AddDoubleLine("ElvUI "..L["Version"]..format(": |cff99ff33%s|r",E.version))
+	GameTooltip:AddLine(L["DPE_AUTHOR_INFO"])
 	GameTooltip:AddLine(" ")
-	GameTooltip:AddLine("При возникновении вопросов или желании подогнать сборку под себя обращаться:")
-	GameTooltip:AddLine("- Игровая почта")
-	GameTooltip:AddLine("- Личное сообщение на форуме TukUI, ник Darth Predator")
-	GameTooltip:AddLine("- Личное сообщение на Curse, ник Darth_Predator")
-	GameTooltip:AddLine("- Сайт Shadowmage.ru")
+	GameTooltip:AddLine(L['DPE_CONTACTS'])
 	
 	GameTooltip:Show()
 end
