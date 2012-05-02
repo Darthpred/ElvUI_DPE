@@ -45,7 +45,7 @@ E.Options.args.dpe = {
 					order = 3,
 					type = "range",
 					name = L['Aura Size'],
-					desc = L['Sets size of auras. This is global setting and will affect all your profiles.'],
+					desc = L['Sets size of auras.\n|cffFF0000This is global setting and will affect all your profiles.|r'],
 					min = 20, max = 50, step = 1,
 					get = function(info) return E.global.dpe.auras.size end,
 					set = function(info, value) E.global.dpe.auras.size = value; StaticPopup_Show("GLOBAL_RL") end,
@@ -172,7 +172,7 @@ E.Options.args.dpe.args.backgrounds = {
 		intro = {
 			order = 2,
 			type = "description",
-			name = L["Soon™ the description will appear here."]
+			name = L["BG_DESC"]
 		},
 		bottom_enabled = {
 			order = 3,
@@ -483,7 +483,7 @@ E.Options.args.dpe.args.datatext = {
 		intro = {
 			order = 2,
 			type = "description",
-			name = L["Soon™ the description will appear here."]
+			name = L["DP_DESC"]
 		},
 		top_left = {
 			order = 3,
