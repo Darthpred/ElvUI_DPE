@@ -11,7 +11,7 @@ P['general'] = {
 function AR:Releasing()
 	local inInstance, instanceType = IsInInstance()
 	if (inInstance and (instanceType == "pvp")) then
-		if E.db.general.pvpautorelease then 
+		if E.db.dpe.pvpautorelease then 
 			local soulstone = GetSpellInfo(20707)
 				if ((E.myclass ~= "SHAMAN") and not (soulstone and UnitBuff("player", soulstone))) then
 					RepopMe()
@@ -20,7 +20,7 @@ function AR:Releasing()
 	end
 	
 	-- auto resurrection for world PvP area...when active
-	if E.db.general.pvpautorelease then 
+	if E.db.dpe.pvpautorelease then 
 		for index = 1, GetNumWorldPVPAreas() do
 			local pvpID, localizedName, isActive, canQueue, startTime, canEnter = GetWorldPVPAreaInfo(index)
 			
