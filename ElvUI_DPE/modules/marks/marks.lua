@@ -12,15 +12,6 @@ local m6 = CreateFrame("Button", "M6", Mark_Menu, "SecureActionButtonTemplate")
 local m7 = CreateFrame("Button", "M7", Mark_Menu, "SecureActionButtonTemplate")
 local m8 = CreateFrame("Button", "M8", Mark_Menu, "SecureActionButtonTemplate")
 
---Defaults
-P['dpe'] = {
-	['marks'] = {
-		['enabled'] = true,
-		['growth'] = "RIGHT",
-		['size'] = 18,
-	},
-}
-
 --Main frame
 function RM:CreateFrame()
 	mark_menu:Point('CENTER', E.UIParent, 'CENTER', 0, 0) --Default positon
