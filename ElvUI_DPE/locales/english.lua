@@ -35,14 +35,18 @@ Allaidia - moral support O_o
 ]=]
 
 --Datatexts
-L["Bottom_Right"] = "Bottom Right"
-L["Bottom_Left"] = "Bottom Left"
-L["Bottom_Panel"] = "Bottom Center"
-L["Top_Center"] = "Top Center"
-L["Top_Center_Left"] = "Bottom Left-Center"
-L["Top_Center_Right"] = "Bottom Right-Center"
-L["Top_Left"] = "Top Left"
-L["Top_Right"] = "Top Right"
+L["DP_1"] = "DT Panel 1"
+L["DP_2"] = "DT Panel 2"
+L["Top_Center"] = "Top Panel"
+L["DP_3"] = "DT Panel 3"
+L["DP_4"] = "DT Panel 4"
+L["DP_5"] = "DT Panel 5"
+L["Bottom_Panel"] = "Bottom Panel"
+L["DP_6"] = "DT Panel 6"
+
+
+
+
 
 L["LFR Dragon Soul"] = "LFR Dragon Soul"
 L["LFR Lockdown"] = "LFR Lockdown"
