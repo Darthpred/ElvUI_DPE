@@ -44,10 +44,6 @@ L["DP_5"] = "DT Panel 5"
 L["Bottom_Panel"] = "Bottom Panel"
 L["DP_6"] = "DT Panel 6"
 
-
-
-
-
 L["LFR Dragon Soul"] = "LFR Dragon Soul"
 L["LFR Lockdown"] = "LFR Lockdown"
 L["Show/Hide LFR lockdown info in time datatext's tooltip."] = "Show/Hide LFR lockdown info in time datatext's tooltip."
@@ -74,6 +70,17 @@ L['Reaction Name'] = "Reaction Name"
 L['Show/Hide Reaction status on bar.'] = "Show/Hide Reaction status on bar."
 L['Rested Value'] = "Rested Value"
 L['Show/Hide Rested value.'] = "Show/Hide Rested value."
+
+--Raid Utility
+L["Raid Utility"] = "Raid Utility"
+L["Raid Utility coordinates"] = "Raid Utility coordinates"
+L["RU_DESC"] = [=[This config group allows you to freely move your Raid Utility button starting position.
+Unfortunately movement of this buttom with mouse will produse errors after clicking on the moved button.
+Those errors are not critical but may cause perfomance issues in case of long and active RU usage.]=]
+L['X Position'] = "X Position"
+L['Sets X position of Raid Utility button.'] = "Sets X position of Raid Utility button."
+L['Y Position'] = "Y Position"
+L['Sets Y position of Raid Utility button.'] = "Sets Y position of Raid Utility button."
 
 --Raid Marks
 L["Marks"] = "Marks"

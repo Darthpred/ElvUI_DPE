@@ -750,6 +750,43 @@ E.Options.args.dpe.args.datatext = {
 	},
 }
 
+--Raid Utility
+E.Options.args.dpe.args.raidutil = {
+	order = 5,
+	type = 'group',
+	name = L["Raid Utility"],
+	args = {
+		raidutilheader = {
+			order = 1,
+			type = "header",
+			name = L["Raid Utility coordinates"],
+		},
+		raidutilinf = {
+			order = 2,
+			type = "description",
+			name = L["RU_DESC"],
+		},
+		xpos = {
+			order = 3,
+			type = "range",
+			name = L['X Position'],
+			desc = L['Sets X position of Raid Utility button.'],
+			min = 0, max = E.screenwidth, step = 1,
+			get = function(info) return E.db.dpe.raidutil.xpos end,
+			set = function(info, value) E.db.dpe.raidutil.xpos = value; E:GetModule('RaidUtility'):ButtonCoordinates() end,
+		},
+		ypos = {
+			order = 4,
+			type = "range",
+			name = L['Y Position'],
+			desc = L['Sets Y position of Raid Utility button.'],
+			min = 0, max = E.screenwidth, step = 1,
+			get = function(info) return E.db.dpe.raidutil.ypos end,
+			set = function(info, value) E.db.dpe.raidutil.ypos = value; E:GetModule('RaidUtility'):ButtonCoordinates() end,
+		},
+	},
+}
+
 --Adds a new option group is character is a druid.
 if E.myclass == "DRUID" then
 E.Options.args.dpe.args.druid = {
