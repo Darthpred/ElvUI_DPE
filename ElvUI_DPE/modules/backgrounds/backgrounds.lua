@@ -2,46 +2,6 @@
 local E, L, P, G = unpack(ElvUI); --Engine
 local BG = E:NewModule('BackGrounds', 'AceHook-3.0', 'AceEvent-3.0');
 
---Defaults
-P['backgrounds'] = {
-	['bottom'] = {
-		['enabled'] = false,
-		['trans'] = false,
-		['texture'] = "",
-		['width'] = E.screenwidth/4 + 32,
-		['height'] = E.screenheight/6 - 13,
-		['xoffset'] = 0,
-		['yoffset'] = 0,
-	},
-	['left'] = {
-		['enabled'] = false,
-		['trans'] = false,
-		['texture'] = "",
-		['width'] = E.screenwidth/10 - 4,
-		['height'] = E.screenheight/5 + 11,
-		['xoffset'] = 0,
-		['yoffset'] = 0,
-	},
-	['right'] = {
-		['enabled'] = false,
-		['trans'] = false,
-		['texture'] = "",
-		['width'] = E.screenwidth/10 - 4,
-		['height'] = E.screenheight/5 + 11,
-		['xoffset'] = 0,
-		['yoffset'] = 0,
-	},
-	['action'] = {
-		['enabled'] = false,
-		['trans'] = false,
-		['texture'] = "",
-		['width'] = E.screenwidth/4 + 32,
-		['height'] = E.screenheight/20 + 5,
-		['xoffset'] = 0,
-		['yoffset'] = 0,
-	},
-}
-
 local BGbottom = CreateFrame('Frame', "BottomBG", E.UIParent);
 local BGleft = CreateFrame('Frame', "LeftBG", E.UIParent);
 local BGright = CreateFrame('Frame', "RightBG", E.UIParent);
@@ -96,78 +56,86 @@ end
 
 --Frames Size
 function BG:FramesSize()
-	BGbottom:SetWidth(E.db.backgrounds.bottom.width)
-	BGbottom:SetHeight(E.db.backgrounds.bottom.height)
+	BGbottom:SetWidth(E.db.dpe.backgrounds.bottom.width)
+	BGbottom:SetHeight(E.db.dpe.backgrounds.bottom.height)
 
-	BGleft:SetWidth(E.db.backgrounds.left.width)
-	BGleft:SetHeight(E.db.backgrounds.left.height)
+	BGleft:SetWidth(E.db.dpe.backgrounds.left.width)
+	BGleft:SetHeight(E.db.dpe.backgrounds.left.height)
 
-	BGright:SetWidth(E.db.backgrounds.right.width)
-	BGright:SetHeight(E.db.backgrounds.right.height)
+	BGright:SetWidth(E.db.dpe.backgrounds.right.width)
+	BGright:SetHeight(E.db.dpe.backgrounds.right.height)
 
-	BGaction:SetWidth(E.db.backgrounds.action.width)
-	BGaction:SetHeight(E.db.backgrounds.action.height)
+	BGaction:SetWidth(E.db.dpe.backgrounds.action.width)
+	BGaction:SetHeight(E.db.dpe.backgrounds.action.height)
 end
 
 --Frames points
 function BG:FramesPositions()
-	BGbottom:Point("BOTTOM", E.UIParent, "BOTTOM", 0 + E.db.backgrounds.bottom.xoffset, 21 + E.db.backgrounds.bottom.yoffset); 
-	BGleft:Point("BOTTOMRIGHT", E.UIParent, "BOTTOM", -(E.screenwidth/4 + 32)/2 - 1 + E.db.backgrounds.left.xoffset, 21 + E.db.backgrounds.left.yoffset); 
-	BGright:Point("BOTTOMLEFT", E.UIParent, "BOTTOM", (E.screenwidth/4 + 32)/2 + 1 + E.db.backgrounds.right.xoffset, 21 + E.db.backgrounds.right.yoffset); 
-	BGaction:Point("BOTTOM", E.UIParent, "BOTTOM", 0 + E.db.backgrounds.action.xoffset, E.screenheight/6 + 9 + E.db.backgrounds.action.yoffset);
+	BGbottom:Point("BOTTOM", E.UIParent, "BOTTOM", 0 + E.db.dpe.backgrounds.bottom.xoffset, 21 + E.db.dpe.backgrounds.bottom.yoffset); 
+	BGleft:Point("BOTTOMRIGHT", E.UIParent, "BOTTOM", -(E.screenwidth/4 + 32)/2 - 1 + E.db.dpe.backgrounds.left.xoffset, 21 + E.db.dpe.backgrounds.left.yoffset); 
+	BGright:Point("BOTTOMLEFT", E.UIParent, "BOTTOM", (E.screenwidth/4 + 32)/2 + 1 + E.db.dpe.backgrounds.right.xoffset, 21 + E.db.dpe.backgrounds.right.yoffset); 
+	BGaction:Point("BOTTOM", E.UIParent, "BOTTOM", 0 + E.db.dpe.backgrounds.action.xoffset, E.screenheight/6 + 9 + E.db.dpe.backgrounds.action.yoffset);
 end
 
 --Updating textures
 function BG:UpdateTex()
 	BGbottom.tex:Point('TOPLEFT', BGbottom, 'TOPLEFT', 2, -2)
 	BGbottom.tex:Point('BOTTOMRIGHT', BGbottom, 'BOTTOMRIGHT', -2, 2)
-	BGbottom.tex:SetTexture(E.db.backgrounds.bottom.texture)
+	BGbottom.tex:SetTexture(E.db.dpe.backgrounds.bottom.texture)
 	
 	BGright.tex:Point('TOPLEFT', BGright, 'TOPLEFT', 2, -2)
 	BGright.tex:Point('BOTTOMRIGHT', BGright, 'BOTTOMRIGHT', -2, 2)
-	BGright.tex:SetTexture(E.db.backgrounds.right.texture)
+	BGright.tex:SetTexture(E.db.dpe.backgrounds.right.texture)
 	
 	BGleft.tex:Point('TOPLEFT', BGleft, 'TOPLEFT', 2, -2)
 	BGleft.tex:Point('BOTTOMRIGHT', BGleft, 'BOTTOMRIGHT', -2, 2)
-	BGleft.tex:SetTexture(E.db.backgrounds.left.texture)
+	BGleft.tex:SetTexture(E.db.dpe.backgrounds.left.texture)
 	
 	BGaction.tex:Point('TOPLEFT', BGaction, 'TOPLEFT', 2, -2)
 	BGaction.tex:Point('BOTTOMRIGHT', BGaction, 'BOTTOMRIGHT', -2, 2)
-	BGaction.tex:SetTexture(E.db.backgrounds.action.texture)
+	BGaction.tex:SetTexture(E.db.dpe.backgrounds.action.texture)
 end
 
 --Visibility / Enable check
 function BG:FramesVisibility()
-	if E.db.backgrounds.bottom.enabled then
+	if E.db.dpe.backgrounds.bottom.enabled then
 		BGbottom:Show()
 	else
 		BGbottom:Hide()
 	end
 	
-	if E.db.backgrounds.left.enabled then
+	if E.db.dpe.backgrounds.left.enabled then
 		BGleft:Show()
 	else
 		BGleft:Hide()
 	end
 	
-	if E.db.backgrounds.right.enabled then
+	if E.db.dpe.backgrounds.right.enabled then
 		BGright:Show()
 	else
 		BGright:Hide()
 	end
 	
-	if E.db.backgrounds.action.enabled then
+	if E.db.dpe.backgrounds.action.enabled then
 		BGaction:Show()
 	else
 		BGaction:Hide()
 	end
 end
 
+function BG:UpdateFrames()
+	BG:FramesSize()
+	BG:FramesPositions()
+	BG:FramesVisibility()
+    BG:UpdateTex()
+end
+
 --Hook to updating during profile change
 E.UpdateAllHUD = E.UpdateAll
 function E:UpdateAll()
     E.UpdateAllHUD(self)
-    BG:UpdateTex()
+	
+	BG:UpdateFrames()
 end
 
 function BG:Initialize()
