@@ -1,11 +1,5 @@
 ﻿local E, L, P, G = unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 
---[[
-Another set of ElvUI profile defaults. Including my own for additional datatext panels.
-For some reason when creating a new profile ElvUI is trying to find all data in my plugin insdead of own folder.
-Also removing defaults of additional panels causes their settings to disappear from options frame
-]]
-
 P.gridSize = 64
 P.farmSize = 340
 
@@ -42,6 +36,7 @@ P['general'] = {
 	['mapTransparency'] = 1,
 	['minimapSize'] = 176,
 	['raidReminder'] = true,
+	['tinyWorldMap'] = true,
 };
 
 --Bags
@@ -142,40 +137,6 @@ P['datatexts'] = {
 			['middle'] = 'Time',	
 			['right'] = 'Gold',
 		},
-		--My panels defaults
-		['Bottom_Right'] = {
-		['left'] = 'Spell/Heal Power',
-		['middle'] = 'Haste',
-		['right'] = 'Crit Chance',
-		},
-		['Bottom_Left'] = {
-		['left'] = 'Bags',
-		['middle'] = 'Gold',
-		['right'] = 'Armor',
-		},	
-		['Top_Left'] = {
-		['left'] = 'Swatter',
-		['middle'] = 'Skada',
-		['right'] = 'MrtWoo',
-		},	
-		['Top_Right'] = {
-		['left'] = '',
-		['middle'] = '',
-		['right'] = '',
-		},	
-		['Top_Center_Left'] = {
-		['left'] = 'Altoholic',
-		['middle'] = 'TellMeWhen',
-		['right'] = 'AtlasLoot',
-		},
-		['Top_Center_Right'] = {
-		['left'] = 'Notes',
-		['middle'] = 'DBM-LDB',
-		['right'] = 'WIM',
-		},
-		['Bottom_Panel'] = 'System',
-		['Top_Center'] = 'Version',
-		--end of my defaults
 		['LeftMiniPanel'] = 'Guild',
 		['RightMiniPanel'] = 'Friends',
 	},
@@ -808,7 +769,7 @@ P['unitframe'] = {
 			['columnSpacing'] = 3,
 			['xOffset'] = 0,
 			['yOffset'] = -3,
-			['groupBy'] = 'GROUP',
+			['groupBy'] = 'ISTANK',
 			["showParty"] = true,
 			["showRaid"] = true,
 			["showSolo"] = false,
@@ -837,6 +798,7 @@ P['unitframe'] = {
 			['name'] = {
 				['enable'] = true,
 				['position'] = 'LEFT',
+				['length'] = 'LONG',
 			},
 			['buffs'] = {
 				['enable'] = false,
@@ -904,7 +866,7 @@ P['unitframe'] = {
 			['columnSpacing'] = 3,
 			['xOffset'] = 3,
 			['yOffset'] = -3,
-			['groupBy'] = 'GROUP',
+			['groupBy'] = 'ISTANK',
 			["showParty"] = true,
 			["showRaid"] = true,
 			["showSolo"] = false,
@@ -933,6 +895,7 @@ P['unitframe'] = {
 			['name'] = {
 				['enable'] = true,
 				['position'] = 'TOP',
+				['length'] = 'SHORT',
 			},
 			['buffs'] = {
 				['enable'] = false,
@@ -1016,6 +979,7 @@ P['unitframe'] = {
 			['name'] = {
 				['enable'] = true,
 				['position'] = 'TOP',
+				['length'] = 'SHORT',
 			},
 			['buffs'] = {
 				['enable'] = false,
