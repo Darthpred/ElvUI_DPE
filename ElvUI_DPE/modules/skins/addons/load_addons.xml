@@ -6,4 +6,5 @@
 	<Script file='tdb.lua'/>
 	<Script file='tellmewhen.lua'/>
 	<Script file='moveanything.lua'/>
+	<Script file='extvendor.lua'/>
 </Ui>
