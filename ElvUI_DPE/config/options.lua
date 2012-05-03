@@ -780,7 +780,7 @@ E.Options.args.dpe.args.raidutil = {
 			type = "range",
 			name = L['Y Position'],
 			desc = L['Sets Y position of Raid Utility button.'],
-			min = 0, max = E.screenwidth, step = 1,
+			min = 0, max = E.screenheight, step = 1,
 			get = function(info) return E.db.dpe.raidutil.ypos end,
 			set = function(info, value) E.db.dpe.raidutil.ypos = value; E:GetModule('RaidUtility'):ButtonCoordinates() end,
 		},

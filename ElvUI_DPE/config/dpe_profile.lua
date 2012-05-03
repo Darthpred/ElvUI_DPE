@@ -128,6 +128,11 @@ P['dpe'] = {
 			['width'] = E.db.general.panelWidth,
 		},
 	},
+	
+	['raidutil'] = {
+		['xpos'] = E.screenwidth/3,
+		['ypos'] = E.screenheight - 30,
+	},
 }
 
 
