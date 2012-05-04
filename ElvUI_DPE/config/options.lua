@@ -116,6 +116,14 @@ E.Options.args.dpe = {
 			name = L["Player Frame Indicators"],
 			guiInline = true,
 			args = {
+				pvpmouse = {
+					order = 1,
+					type = "toggle",
+					name = L["PvP text on mouse over"],
+					desc = L['Show PvP text on mouse over player frame.'],
+					get = function(info) return E.db.dpe.pvp.mouse end,
+					set = function(info, value) E.db.dpe.pvp.mouse = value; end,
+				},
 				pvp = {
 					order = 3,
 					type = "select",

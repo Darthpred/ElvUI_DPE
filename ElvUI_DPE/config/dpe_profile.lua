@@ -149,7 +149,7 @@ P['dpe'] = {
 	--PvP indicator
 	['pvp'] = {
 		['pos'] = 'BOTTOMLEFT',
-		--['mouse'] = true,
+		['mouse'] = true,
 	},
 }
 

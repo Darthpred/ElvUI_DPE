@@ -9,27 +9,57 @@ function UF:UpdatePvPText(frame)
 	local LowManaText = frame.Power.LowManaText
 	local health = frame.Health
 	
-	PvPText:Show()
-	if LowManaText and LowManaText:IsShown() then LowManaText:Hide() end
+	if E.db.dpe.pvp.mouse then
+		if PvPText and frame:IsMouseOver() then
+			PvPText:Show()
+				if LowManaText and LowManaText:IsShown() then LowManaText:Hide() end
 		
-	local time = GetPVPTimer()
-	local min = format("%01.f", floor((time / 1000) / 60))
-	local sec = format("%02.f", floor((time / 1000) - min * 60)) 
+				local time = GetPVPTimer()
+				local min = format("%01.f", floor((time / 1000) / 60))
+				local sec = format("%02.f", floor((time / 1000) - min * 60)) 
 		
-	if(UnitIsPVPFreeForAll(unit)) then
-		if time ~= 301000 and time ~= -1 then
-			PvPText:SetText(PVP.." ".."("..min..":"..sec..")")
-		else
-			PvPText:SetText(PVP)
-		end
-	elseif UnitIsPVP(unit) then
-		if time ~= 301000 and time ~= -1 then
-			PvPText:SetText(PVP.." ".."("..min..":"..sec..")")
-		else
-			PvPText:SetText(PVP)
+					if(UnitIsPVPFreeForAll(unit)) then
+						if time ~= 301000 and time ~= -1 then
+							PvPText:SetText(PVP.." ".."("..min..":"..sec..")")
+						else
+							PvPText:SetText(PVP)
+						end
+					elseif UnitIsPVP(unit) then
+						if time ~= 301000 and time ~= -1 then
+							PvPText:SetText(PVP.." ".."("..min..":"..sec..")")
+						else
+							PvPText:SetText(PVP)
+						end
+					else
+						PvPText:SetText("")
+					end
+		elseif PvPText then
+			PvPText:Hide()
+			if LowManaText and not LowManaText:IsShown() then LowManaText:Show() end
 		end
 	else
-		PvPText:SetText("")
+		PvPText:Show()
+		if LowManaText and LowManaText:IsShown() then LowManaText:Hide() end
+
+		local time = GetPVPTimer()
+		local min = format("%01.f", floor((time / 1000) / 60))
+		local sec = format("%02.f", floor((time / 1000) - min * 60)) 
+
+		if(UnitIsPVPFreeForAll(unit)) then
+			if time ~= 301000 and time ~= -1 then
+				PvPText:SetText(PVP.." ".."("..min..":"..sec..")")
+			else
+				PvPText:SetText(PVP)
+			end
+		elseif UnitIsPVP(unit) then
+			if time ~= 301000 and time ~= -1 then
+				PvPText:SetText(PVP.." ".."("..min..":"..sec..")")
+			else
+				PvPText:SetText(PVP)
+			end
+		else
+			PvPText:SetText("")
+		end
 	end
 	
 	local x, y = self:GetPositionOffset(E.db.dpe.pvp.pos)
