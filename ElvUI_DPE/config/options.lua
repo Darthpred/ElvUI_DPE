@@ -133,6 +133,15 @@ E.Options.args.dpe = {
 					set = function(info, value) E.db.dpe.pvp.pos = value; end,
 					values = positionValues
 				},
+				combatico = {
+					order = 4,
+					type = "select",
+					name = L["Combat Position"],
+					desc = L['Set the point to show combat icon'],
+					get = function(info) return E.db.dpe.combatico.pos end,
+					set = function(info, value) E.db.dpe.combatico.pos = value; E:GetModule('UnitFrames'):Update_CombatIndicator() end,
+					values = positionValues
+				},
 			},
 		},
 	},

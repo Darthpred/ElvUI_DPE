@@ -10,7 +10,9 @@ local ElvUF = ns.oUF
 function UF:Update_CombatIndicator()
 	local CombatText = ElvUF_Player.Combat
 	
-	CombatText:Point("TOPRIGHT", ElvUF_Player.Health, "TOPRIGHT", 0, 0)
+	local x, y = self:GetPositionOffset(E.db.dpe.combatico.pos)
+	CombatText:ClearAllPoints()
+	CombatText:Point(E.db.dpe.combatico.pos, ElvUF_Player.Health, E.db.dpe.combatico.pos, x, x)
 end
 
 UF.Update_PlayerFrameDPE = UF.Update_PlayerFrame
@@ -33,4 +35,4 @@ function UF:Update_PlayerFrame(frame, db)
 end
 
 UF:Update_AllFrames()
-UF:Update_CombatIndicator(self)
+--UF:Update_CombatIndicator(self)

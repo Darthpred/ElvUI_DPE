@@ -151,6 +151,11 @@ P['dpe'] = {
 		['pos'] = 'BOTTOMLEFT',
 		['mouse'] = true,
 	},
+	
+	--Combat Icon
+	['combatico'] = {
+		['pos'] = 'TOPRIGHT',
+	},
 }
 
 
