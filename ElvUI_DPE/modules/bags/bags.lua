@@ -1,7 +1,7 @@
 --Replaced the whole module. Have no idea how to force ElvUI to take only modified functions from here.
 --Seems to be similar to profiles issue
 
-local E, L, P, G = unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
+local E, L, V, P, G =  unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 local B = E:GetModule('Bags');
 
 local ST_NORMAL = 1
@@ -249,7 +249,7 @@ end
 
 
 function B:Layout(isBank)
-	if E.global.bags.enable ~= true then return end
+	if E.private.bags.enable ~= true then return end
 	local slots = 0
 	local rows = 0
 	local offset = 26
@@ -1476,7 +1476,7 @@ function B:INVENTORY_SEARCH_UPDATE()
 end
 
 function B:Initialize()
-	if not E.global.bags.enable then 
+	if not E.private.bags.enable then 
 		self:LoadBagBar()
 		return 
 	end

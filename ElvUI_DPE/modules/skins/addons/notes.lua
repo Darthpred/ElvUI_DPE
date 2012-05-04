@@ -1,9 +1,9 @@
-local E, L, P, G = unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
+local E, L, V, P, G =  unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 local S = E:GetModule('Skins')
 
 local function LoadSkin()
 
-	--if E.global.skins.notes.enable ~= true then return end
+	--if E.private.skins.notes.enable ~= true then return end
 
 	local StripAllTextures = {
                 "NotesFrame",

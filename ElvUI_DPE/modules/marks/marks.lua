@@ -1,5 +1,5 @@
 ﻿--Raid mark bar. Similar to quickmark which just semms to be impossible to skin
-local E, L, P, G = unpack(ElvUI); --Engine
+local E, L, V, P, G =  unpack(ElvUI); --Engine
 local RM = E:NewModule('RaidMarks', 'AceHook-3.0', 'AceEvent-3.0');
 
 local mark_menu = CreateFrame("Frame", "Mark_Menu", E.UIParent)

@@ -1,4 +1,4 @@
-local E, L, P, G = unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
+local E, L, V, P, G =  unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 local S = E:GetModule('Skins')
 
 -- Used to strip unecessary options from the in-game config
@@ -13,7 +13,7 @@ local function StripOptions(options)
 end
 
 local function LoadSkin()
-	if E.global.skins.skada.enable ~= true then return end
+	if E.private.skins.skada.enable ~= true then return end
 	local Skada = Skada
 	local barSpacing = 0
 	local borderWidth = 1

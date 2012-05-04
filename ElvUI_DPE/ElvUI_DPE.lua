@@ -1,7 +1,7 @@
 ﻿-------------------------------------------------
 --Here be Credits
 -------------------------------------------------
-local E, L, P, G = unpack(ElvUI); --Engine, Locales, Profile, Global
+local E, L, V, P, G =  unpack(ElvUI); --Engine, Locales, Profile, Global
 local DPE = E:NewModule('DPE', 'AceHook-3.0', 'AceEvent-3.0');
 
 function DPE:Initialize()

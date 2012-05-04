@@ -1,9 +1,9 @@
 --Credit to Azilroka US-Daggerspine
-local E, L, P, G = unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
+local E, L, V, P, G =  unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 local S = E:GetModule('Skins')
 
 local function LoadSkin()
-	if E.global.skins.blizzard.enable ~= true or E.global.skins.blizzard.merchant ~= true then return end
+	if E.private.skins.blizzard.enable ~= true or E.private.skins.blizzard.merchant ~= true then return end
 	--Additional check for runninf ExtVendor. Cause this skin will actually replace Elv's for vendor. 
 	--In that case it will be broken if ExtVendor isn't running.
 	if not IsAddOnLoaded("ExtVendor") then return end

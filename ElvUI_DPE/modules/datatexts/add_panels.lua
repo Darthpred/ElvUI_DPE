@@ -1,4 +1,4 @@
-﻿local E, L, P, G = unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
+﻿local E, L, V, P, G =  unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 local DTP = E:NewModule('DTPanels', 'AceHook-3.0', 'AceEvent-3.0');
 local LO = E:GetModule('Layout');
 

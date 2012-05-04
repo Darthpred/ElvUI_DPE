@@ -1,11 +1,11 @@
 --Replacement of Elv's skin just in case he didn't fix "back" button
-local E, L, P, G = unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
+local E, L, V, P, G =  unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 local S = E:GetModule('Skins')
 
 --Credit Tomkuzyno
 
 local function LoadSkin()
-	if E.global.skins.blizzard.enable ~= true or E.global.skins.blizzard.auctionhouse ~= true then return end
+	if E.private.skins.blizzard.enable ~= true or E.private.skins.blizzard.auctionhouse ~= true then return end
 	-- Options skinning
 	Atr_BasicOptionsFrame:StripTextures()
 	Atr_BasicOptionsFrame:SetTemplate("Transparent")

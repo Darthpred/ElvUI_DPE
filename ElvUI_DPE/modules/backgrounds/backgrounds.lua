@@ -1,5 +1,5 @@
 ﻿--Submodule to create several backgrounds for some elements
-local E, L, P, G = unpack(ElvUI); --Engine
+local E, L, V, P, G =  unpack(ElvUI); --Engine
 local BG = E:NewModule('BackGrounds', 'AceHook-3.0', 'AceEvent-3.0');
 
 local BGbottom = CreateFrame('Frame', "BottomBG", E.UIParent);

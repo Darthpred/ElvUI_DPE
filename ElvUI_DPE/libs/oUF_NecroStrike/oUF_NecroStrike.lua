@@ -1,6 +1,6 @@
 local _, ns = ...
 local oUF = ElvUF or oUF
-local E, L, P, G = unpack(ElvUI);
+local E, L, V, P, G =  unpack(ElvUI);
 if not oUF then return end
 local NecroticStrikeTooltip
 

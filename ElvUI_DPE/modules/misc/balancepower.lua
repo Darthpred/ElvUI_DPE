@@ -1,5 +1,5 @@
 --Module to create frame with sol/lun energy value. At least untill the time i find the way to place text on actual energy bar
-local E, L, P, G = unpack(ElvUI); --Engine
+local E, L, V, P, G =  unpack(ElvUI); --Engine
 local M = E:GetModule('Misc');
 local DPE = E:GetModule('DPE');
 

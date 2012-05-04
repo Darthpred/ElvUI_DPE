@@ -1,4 +1,4 @@
-local E, L, P, G = unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
+local E, L, V, P, G =  unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 local A = E:GetModule('Auras');
 
 --Replacing Elv's function to make buffs smaller
@@ -14,6 +14,7 @@ function A:StyleBuffs(buttonName, index, debuff)
 		icon:Point("BOTTOMRIGHT", buff, -2, 2)
 		
 		buff:Size(E.global.dpe.auras.size)
+		--buff:Size(35)
 				
 		duration:ClearAllPoints()
 		duration:Point("BOTTOM", 0, -13)

@@ -1,6 +1,6 @@
 --Credit to Repooc.
 --Remade his auto release featule to module which allows profile setting of the function not the global one.
-local E, L, P, G = unpack(ElvUI); --Engine
+local E, L, V, P, G =  unpack(ElvUI); --Engine
 local AR = E:NewModule('AutoRelease', 'AceHook-3.0', 'AceEvent-3.0');
 
 --Defaults

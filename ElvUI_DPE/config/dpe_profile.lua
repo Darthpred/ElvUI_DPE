@@ -1,4 +1,4 @@
-﻿local E, L, P, DF, G = unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
+﻿local E, L, V, P, DF, G =  unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 
 --Datatexts
 P.datatexts.panels.Top_Center = 'Version'

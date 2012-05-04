@@ -1,4 +1,4 @@
-﻿local E, L, DF = unpack(ElvUI) -- Import Functions/Constants, Config, Locales
+﻿local E, L, V, P, G =  unpack(ElvUI); -- Import Functions/Constants, Config, Locales
 local RBR = E:GetModule('RaidBuffReminder');
 
 E.RaidBuffReminder = RBR
