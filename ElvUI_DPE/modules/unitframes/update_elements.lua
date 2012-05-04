@@ -7,6 +7,7 @@ function UF:UpdatePvPText(frame)
 	local unit = frame.unit
 	local PvPText = frame.PvPText
 	local LowManaText = frame.Power.LowManaText
+	local health = frame.Health
 	
 	PvPText:Show()
 	if LowManaText and LowManaText:IsShown() then LowManaText:Hide() end
@@ -31,5 +32,7 @@ function UF:UpdatePvPText(frame)
 		PvPText:SetText("")
 	end
 	
-	PvPText:Point("BOTTOMLEFT", frame.Health, "BOTTOMLEFT", 2, 2)
+	local x, y = self:GetPositionOffset(E.db.dpe.pvp.pos)
+	PvPText:ClearAllPoints()
+	PvPText:Point(E.db.dpe.pvp.pos, health, E.db.dpe.pvp.pos, x, y)
 end

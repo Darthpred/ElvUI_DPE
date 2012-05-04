@@ -144,7 +144,13 @@ P['dpe'] = {
 	},
 	
 	--Skada Backdrop
-	['skadaback'] = true
+	['skadaback'] = true,
+	
+	--PvP indicator
+	['pvp'] = {
+		['pos'] = 'BOTTOMLEFT',
+		--['mouse'] = true,
+	},
 }
 
 

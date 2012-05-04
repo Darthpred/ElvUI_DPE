@@ -2,6 +2,17 @@
 --local DTP = E:GetModule('DTPanels');
 --local DT = E:GetModule('DataTexts')
 
+local positionValues = {
+	TOPLEFT = 'TOPLEFT',
+	LEFT = 'LEFT',
+	BOTTOMLEFT = 'BOTTOMLEFT',
+	RIGHT = 'RIGHT',
+	TOPRIGHT = 'TOPRIGHT',
+	BOTTOMRIGHT = 'BOTTOMRIGHT',
+	CENTER = 'CENTER',
+	TOP = 'TOP',
+	BOTTOM = 'BOTTOM',
+};
 
 --Main options group
 E.Options.args.dpe = {
@@ -56,7 +67,7 @@ E.Options.args.dpe = {
 					name = L["Skada Backdrop"],
 					desc = L['Show/hide Skada backdrop.'],
 					get = function(info) return E.db.dpe.skadaback end,
-					set = function(info, value) E.db.dpe.skadaback = value; end
+					set = function(info, value) E.db.dpe.skadaback = value; StaticPopup_Show("GLOBAL_RL") end
 				},
 			},
 		},
@@ -96,6 +107,23 @@ E.Options.args.dpe = {
 						['UP'] = L["Up"],
 						['DOWN'] = L["Down"],
 					},
+				},
+			},
+		},
+		indicators = {
+			order = 4,
+			type = "group",
+			name = L["Player Frame Indicators"],
+			guiInline = true,
+			args = {
+				pvp = {
+					order = 3,
+					type = "select",
+					name = L["PvP Position"],
+					desc = L['Set the point to show pvp text'],
+					get = function(info) return E.db.dpe.pvp.pos end,
+					set = function(info, value) E.db.dpe.pvp.pos = value; end,
+					values = positionValues
 				},
 			},
 		},
