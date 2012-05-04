@@ -129,10 +129,22 @@ P['dpe'] = {
 		},
 	},
 	
+	--Raid Utility
 	['raidutil'] = {
 		['xpos'] = E.screenwidth/3,
 		['ypos'] = E.screenheight - 30,
 	},
+	
+	--Exp/Rep info
+	['xprepinfo'] = {
+		['enabled'] = true,
+		['xprepdet'] = false,
+		['repreact'] = false,
+		['xprest'] = false,
+	},
+	
+	--Skada Backdrop
+	['skadaback'] = true
 }
 
 
