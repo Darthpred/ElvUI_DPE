@@ -30,6 +30,19 @@ L['Automatically release body when killed inside a battleground.'] = "Automatica
 L['Aura Size'] = "Aura Size"
 L['Sets size of auras.\n|cffFF0000This is global setting and will affect all your profiles.|r'] = "Sets size of auras.\n|cffFF0000This is global setting and will affect all your profiles.|r"
 
+--Skada
+L["Skada Backdrop"]= "Skada Backdrop"
+L['Show/hide Skada backdrop.'] = "Show/hide Skada backdrop."
+
+--Player Frame Indicators
+L["Player Frame Indicators"] = "Player Frame Indicators"
+L["PvP text on mouse over"] = "PvP text on mouse over"
+L['Show PvP text on mouse over player frame.'] = "Show PvP text on mouse over player frame. Will be shown constantly if toggled of."
+L["PvP Position"] = "PvP Position"
+L['Set the point to show pvp text'] = "Set the point to show pvp text"
+L["Combat Position"] = "Combat Position"
+L['Set the point to show combat icon'] = "Set the point to show combat icon"
+
 --Raid Marks
 L["Marks"] = "Marks"
 L["Show/Hide raid marks."] = "Show/Hide raid marks."
@@ -82,6 +95,8 @@ L["DP_4"] = "DT Panel 4"
 L["DP_5"] = "DT Panel 5"
 L["Bottom_Panel"] = "Bottom Panel"
 L["DP_6"] = "DT Panel 6"
+L['Show/Hide this panel.'] = "Show/Hide this panel."
+L['Sets size of this panel'] = "Sets size of this panel"
 
 --Raid Utility--
 ----------------

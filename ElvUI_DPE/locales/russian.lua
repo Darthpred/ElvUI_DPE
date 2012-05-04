@@ -25,6 +25,19 @@ L['Aura Size'] = "Размер баффов"
 L['Sets size of auras.\n|cffFF0000This is global setting and will affect all your profiles.|r'] = [=[Устанавливает размер баффов в фрейме Blizzard.
 |cffFF0000Это глобальная настройка, она распространяется на все ваши профили.|r]=]
 
+--Skada
+L["Skada Backdrop"]= "Фон Скады"
+L['Show/hide Skada backdrop.'] = "Показать/скрыть фон окон аддона Skada."
+
+--Player Frame Indicators
+L["Player Frame Indicators"] = "Индикаторы игрока"
+L["PvP text on mouse over"] = "ПвП текст при наведении"
+L['Show PvP text on mouse over player frame.'] = "Отображать ПвП текст при наведении мыши на фрейм игрока. При отключении будет отображаться всегда."
+L["PvP Position"] = "Позизия PvP"
+L['Set the point to show pvp text'] = "Устанавливает позицию индикатора ПвП."
+L["Combat Position"] = "Иконка боя"
+L['Set the point to show combat icon'] = "Устанавливает позицию индикатора боя."
+
 --Raid Marks
 L["Marks"] = "Метки"
 L["Show/Hide raid marks."] = "Показать/скрыть фрейм рейдовых меток."
@@ -77,6 +90,8 @@ L["DP_4"] = "Панель 4"
 L["DP_5"] = "Панель 5"
 L["Bottom_Panel"] = "Нижняя панель"
 L["DP_6"] = "Панель 6"
+L['Show/Hide this panel.'] = "Показать/скрыть эту панель."
+L['Sets size of this panel'] = "Установить ширину панели"
 
 --Raid Utility--
 ----------------
