@@ -41,7 +41,6 @@ function DTP:CreateDataPanels()
 	top_center_left_bar:SetTemplate('Default', true)
 	top_center_left_bar:SetFrameStrata('LOW')
 	top_center_left_bar:Point("TOPRIGHT", Top_Center, "TOPLEFT", -1, 0)
-	--top_center_left_bar:Point("CENTER", E.UIParent, "CENTER", 0, 0)
 	E:GetModule('DataTexts'):RegisterPanel(DP_2, 3, 'ANCHOR_BOTTOM', 0, -4)
 	top_center_left_bar:Hide()
 	
@@ -95,6 +94,7 @@ function DTP:Resize()
 	DP_3:Size(E.db.dpe.datatext.dp3.width, 20)
 	DP_2:Size(E.db.dpe.datatext.dp2.width, 20)
 	Top_Center:Size(E.db.dpe.datatext.top.width, 20)
+	E:GetModule('DataTexts'):UpdateAllDimensions()
 end
 
 --Showing panels
