@@ -56,7 +56,20 @@ local function LoadSkin()
 		win.bargroup.button:SetBackdropColor(unpack(E["media"].backdropcolor))
 
 		skada:SetBackdrop(nil)
+		if E.db.dpe.skadaback then
+		if not skada.backdrop then
+			skada:CreateBackdrop('Default')
+		end
+			skada.backdrop:ClearAllPoints()
+			if win.db.enabletitle then
+				skada.backdrop:Point('TOPLEFT', win.bargroup.button, 'TOPLEFT', -2, 2)
+			else
+				skada.backdrop:Point('TOPLEFT', win.bargroup, 'TOPLEFT', -2, 2)
+			end
+			skada.backdrop:Point('BOTTOMRIGHT', win.bargroup, 'BOTTOMRIGHT', 2, -2)
+		end
 	end	
+	
 	
 	-- Update pre-existing displays
 	for _, window in ipairs(Skada:GetWindows()) do
