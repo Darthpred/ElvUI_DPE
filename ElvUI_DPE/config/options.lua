@@ -879,6 +879,70 @@ E.Options.args.dpe.args.raidutil = {
 	},
 }
 
+E.Options.args.dpe.args.uibuttons = {
+	type = "group",
+	name = L["UI Buttons"],
+	order = 6,
+	args = {
+		header = {
+			order = 1,
+			type = "header",
+			name = L["Additional Background Panels"],
+		},
+		intro = {
+			order = 2,
+			type = "description",
+			name = L["BG_DESC"]
+		},
+		enabled = {
+			order = 3,
+			type = "toggle",
+			name = L["Enable"],
+			desc = L["Show/Hide ui buttons."],
+			get = function(info) return E.db.dpe.uibuttons.enable end,
+			set = function(info, value) E.db.dpe.uibuttons.enable = value; E:GetModule('UIButtons'):Start() end
+		},
+		options = {
+			type = "group",
+			name = L["General"],
+			order = 4,
+			guiInline = true,
+			disabled = function() return not E.db.dpe.uibuttons.enable end,
+			args = {
+				size = {
+					order = 1,
+					type = "range",
+					name = L['Size'],
+					desc = L['Sets size of buttons'],
+					min = 12, max = 25, step = 1,
+					get = function(info) return E.db.dpe.uibuttons.size end,
+					set = function(info, value) E.db.dpe.uibuttons.size = value; E:GetModule('UIButtons'):FrameSize() end,
+				},
+				mouse = {
+					order = 2,
+					type = "toggle",
+					name = L["Mouse over"],
+					desc = L["Show on mouse over."],
+					get = function(info) return E.db.dpe.uibuttons.mouse end,
+					set = function(info, value) E.db.dpe.uibuttons.mouse = value; end
+				},
+				position = {
+					order = 10,
+					name = L["Font Outline"],
+					desc = L["Set the font outline."],
+					type = "select",
+					values = {
+						["uib_hor"] = L['Horizontal'],
+						["uib_vert"] = L['Vertical'],
+					},
+					get = function(info) return E.db.dpe.uibuttons.position end,
+					set = function(info, value) E.db.dpe.uibuttons.position = value; E:GetModule('UIButtons'):Positioning(); E:GetModule('UIButtons'):MoverSize() end,
+				},
+			},
+		},
+	},
+}
+
 --Adds a new option group is character is a druid.
 if E.myclass == "DRUID" then
 E.Options.args.dpe.args.druid = {

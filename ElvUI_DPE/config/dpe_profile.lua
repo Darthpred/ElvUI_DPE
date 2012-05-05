@@ -153,6 +153,14 @@ P['dpe'] = {
 	['combatico'] = {
 		['pos'] = 'TOPRIGHT',
 	},
+	
+	--UI Buttons
+	['uibuttons'] = {
+		['enable'] = true,
+		['size'] = 17,
+		['mouse'] = false,
+		['position'] = "uib_vert",
+	},
 }
 
 
