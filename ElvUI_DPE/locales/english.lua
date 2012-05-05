@@ -137,6 +137,31 @@ L["Click to toogle the Configuration/Option Window from the Bossmod (DXE, DBM or
 L["AddOns Manager"] = true
 L["Click to toogle the AddOn Managerframe (stAddOnManager or ACP) you have enabled."] = true
 
+--Microbar--
+------------
+L["2 rows"] = true
+L["3 rows"] = true
+L["4 rows"] = true
+L["6 rows"] = "true
+L["Change the positioning of buttons on Microbar."] = true
+L["Hide in Combat"] = true
+L["Hide Microbar in combat."] = true
+L["Hide microbar unless you mouse over it."] = true
+L["Microbar"] = true
+L["Microbar Layout"] = true
+L["Module for adding micromenu to ElvUI."] = true
+L["On Mouse Over"] = true
+L["Positioning"] = true
+L["Set Alpha"] = true
+L["Sets alpha of the microbar"] = true
+L["Set Scale"] = true
+L["Sets Scale of the microbar"] = true
+L["Sets X offset for microbar buttons"] = true
+L["Sets Y offset for microbar buttons"] = true
+L["Show backdrop for micromenu"] = true
+L["Your version of ElvUI is older than recommended to use with Microbar addon. Please, download the latest version from tukui.org."] = true
+
+
 --Balance Power Frame --
 ------------------------
 L["Druid"] = true

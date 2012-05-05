@@ -163,4 +163,14 @@ P['dpe'] = {
 	},
 }
 
+P['microbar'] = {
+	['mouse'] = false, --Mouseover
+    ['backdrop'] = true, --Backdrop
+	['combat'] = false, --Hide in combat
+	['alpha'] = 1, --Transparency
+	['scale'] = 1, --Scale
+	['layout'] = "Micro_Hor", --Button layuot format
+	['xoffset'] = 0,
+	['yoffset'] = 0,
+}
 

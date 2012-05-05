@@ -10,6 +10,7 @@
 	<Script file='chat\chat.lua'/>
 	<Script file='exprepbar\exprepbar.lua'/>
 	<Script file='marks\marks.lua'/>
+	<Script file='microbar\microbar.lua'/>
 	<Script file='raidutility\raidutility.lua'/>
 	<Script file='rbr\rbr.lua'/>
 	<Script file='testui\testui.lua'/>
