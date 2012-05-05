@@ -363,7 +363,11 @@ end
 
 --For recreate after portals and so on
 function MB:MenuShow()
-	microbar:Show();
+	if E.db.microbar.enable then
+		microbar:Show()
+	else
+		microbar:Hide()
+	end
 	MB:ButtonsSetup();
 	MB:MicroButtonsPositioning();
 	MB:ShowMicroButtons();

@@ -965,8 +965,14 @@ E.Options.args.dpe.args.microbar = {
 			type = "description",
 			name = L['Module for adding micromenu to ElvUI.'],
 		},
+		enable = {
+				order = 2,
+				type = 'toggle',
+				name = L['Enable'],
+				set = function(info, value) E.db.microbar.enable = value; MB:MenuShow(); end,
+		},
 		visibility = {
-			order = 2,
+			order = 3,
 			type = "group",
 			name = L["Visibility"],
 			guiInline = true,
@@ -1012,7 +1018,7 @@ E.Options.args.dpe.args.microbar = {
 			}
 		},
 		positioning = {
-			order = 3,
+			order = 4,
 			type = "group",
 			name = L["Positioning"],
 			guiInline = true,

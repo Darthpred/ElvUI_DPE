@@ -169,6 +169,7 @@ P['dpe'] = {
 }
 
 P['microbar'] = {
+	['enable'] = true,
 	['mouse'] = false, --Mouseover
     ['backdrop'] = true, --Backdrop
 	['combat'] = false, --Hide in combat
