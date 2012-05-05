@@ -2,9 +2,14 @@
 local CH = E:GetModule('Chat')
 
 --Replacement of chat tab position and size function
-CH.PositionChatDPE = CH.PositionChat
 function CH:PositionChat(override)
-	CH.PositionChatDPE(self)
+	if (InCombatLockdown() and not override and self.initialMove) or (IsMouseButtonDown("LeftButton") and not override) then return end
+	
+	RightChatPanel:Size(E.db.general.panelWidth, E.db.general.panelHeight)
+	LeftChatPanel:Size(E.db.general.panelWidth, E.db.general.panelHeight)	
+	
+	if E.private.chat.enable ~= true then return end
+	
 	local chat, chatbg, tab, id, point, button, isDocked, chatFound
 	for _, frameName in pairs(CHAT_FRAMES) do
 		chat = _G[frameName]
@@ -17,6 +22,12 @@ function CH:PositionChat(override)
 		end
 	end	
 
+	if chatFound then
+		self.RightChatWindowID = id
+	else
+		self.RightChatWindowID = nil
+	end
+	
 	CreatedFrames = id
 	
 	for i=1, CreatedFrames do
@@ -40,9 +51,8 @@ function CH:PositionChat(override)
 		end	
 		
 		if not chat.isInitialized then return end
-	
 		
-	if point == "BOTTOMRIGHT" and chat:IsShown() and not (id > NUM_CHAT_WINDOWS) and id == self.RightChatWindowID then
+		if point == "BOTTOMRIGHT" and chat:IsShown() and not (id > NUM_CHAT_WINDOWS) and id == self.RightChatWindowID then
 		if id ~= 2 then
 			chat:ClearAllPoints()
 			chat:Point("BOTTOMRIGHT", RightChatDataPanel, "TOPRIGHT", 10, 3) -- <<< Changed
@@ -84,6 +94,7 @@ function CH:PositionChat(override)
 			CH:SetupChatTabs(tab, false)
 		end			
 	end	
-
 	end
+	
+	self.initialMove = true;
 end
