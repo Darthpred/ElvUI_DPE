@@ -9,7 +9,7 @@ function DPE:Initialize()
 	Start_Questtracker()
 	
 	self:RegisterEvent("PLAYER_REGEN_DISABLED", "UpdateThings");
-	if self.db.general.loginmessage then
+	if E.db.general.loginmessage then
 		print(L['DPE_LOGIN_MSG'])
 	end
 end
