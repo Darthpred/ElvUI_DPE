@@ -29,6 +29,10 @@ L['Sets size of auras.\n|cffFF0000This is global setting and will affect all you
 L["Skada Backdrop"]= "Фон Skada"
 L['Show/hide Skada backdrop.'] = "Показать/скрыть фон окон аддона Skada."
 
+--Pet Autocast
+L["Pet autocast corners"] = "Автокаст питомца"
+L['Show/hide tringles in corners of autocastable buttons.'] = "Показать/скрыть треугольники в углах кнопок с автоматически применяемыми заклинаниями питомца."
+
 --Player Frame Indicators
 L["Player Frame Indicators"] = "Индикаторы игрока"
 L["PvP text on mouse over"] = "ПвП текст при наведении"

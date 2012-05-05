@@ -161,6 +161,11 @@ P['dpe'] = {
 		['mouse'] = false,
 		['position'] = "uib_vert",
 	},
+	
+	--Pet Bar Autocast
+	['petbar'] = {
+		['autocast'] = true,
+	},
 }
 
 P['microbar'] = {

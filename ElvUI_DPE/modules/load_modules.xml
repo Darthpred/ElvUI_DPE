@@ -2,6 +2,7 @@
 	<Include file="datatexts\load_datatexts.xml"/>
 	<Include file='skins\load_skins.xml'/>
 	<Include file='unitframes\load_unitframes.xml'/>
+	<Script file='actionbars\actionbars.lua'/>
 	<Script file='auras\auras.lua'/>
 	<Script file='autorelease\autorelease.lua'/>
 	<Script file='backgrounds\backgrounds.lua'/>

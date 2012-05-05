@@ -7,6 +7,7 @@ local DTP = E:GetModule('DTPanels')
 local RU = E:GetModule('RaidUtility')
 local UB = E:GetModule('UIButtons')
 local MB = E:GetModule('Microbar')
+local AB = E:GetModule('ActionBars')
 
 local positionValues = {
 	TOPLEFT = 'TOPLEFT',
@@ -74,6 +75,14 @@ E.Options.args.dpe = {
 					desc = L['Show/hide Skada backdrop.'],
 					get = function(info) return E.global.dpe.skadaback end,
 					set = function(info, value) E.global.dpe.skadaback = value; StaticPopup_Show("GLOBAL_RL") end
+				},
+				petautocast = {
+					order = 5,
+					type = "toggle",
+					name = L["Pet autocast corners"],
+					desc = L['Show/hide tringles in corners of autocastable buttons.'],
+					get = function(info) return E.db.dpe.petbar.autocast end,
+					set = function(info, value) E.db.dpe.petbar.autocast = value; AB:UpdatePet() end
 				},
 			},
 		},
