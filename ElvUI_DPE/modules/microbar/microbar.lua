@@ -217,7 +217,9 @@ end
 
 --Show after leaving combat
 function MB:LeaveCombat()
-	microbar:Show()
+	if E.db.microbar.enable then
+		microbar:Show()
+	end
 end
 
 --Sets mover size based on the frame layout
