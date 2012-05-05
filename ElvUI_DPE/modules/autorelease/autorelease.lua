@@ -3,11 +3,6 @@
 local E, L, V, P, G =  unpack(ElvUI); --Engine
 local AR = E:NewModule('AutoRelease', 'AceHook-3.0', 'AceEvent-3.0');
 
---Defaults
-P['general'] = {
-	['pvpautorelease'] = true,
-}
-
 function AR:Releasing()
 	local inInstance, instanceType = IsInInstance()
 	if (inInstance and (instanceType == "pvp")) then
