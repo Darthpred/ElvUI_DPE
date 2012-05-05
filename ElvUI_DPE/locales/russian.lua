@@ -26,7 +26,7 @@ L['Sets size of auras.\n|cffFF0000This is global setting and will affect all you
 |cffFF0000Это глобальная настройка, она распространяется на все ваши профили.|r]=]
 
 --Skada
-L["Skada Backdrop"]= "Фон Скады"
+L["Skada Backdrop"]= "Фон Skada"
 L['Show/hide Skada backdrop.'] = "Показать/скрыть фон окон аддона Skada."
 
 --Player Frame Indicators
@@ -44,6 +44,12 @@ L["Show/Hide raid marks."] = "Показать/скрыть фрейм рейд�
 L['Sets size of buttons'] = "Устанавливает размер кнопок"
 L["Direction"] = "Направление"
 L['Change the direction of buttons growth from "skull" mark'] = 'Изменяет направление роста кнопок от метки "череп".'
+
+--Quest Tracker
+L["Quest Tracker"] = "Слежение за заданиями"
+L['Quest Tracker Backdrop'] = "Фон слежения"
+L['Attaches a backdrop frame behind the quest tracker.'] = "Создает фон для фрейма слежения за заданиями."
+L["Sets size of quest tracker's font"] = "Устанавливает размер шрифта во фрейме слежения"
 
 --Exp/Rep Text--
 ----------------
@@ -104,6 +110,27 @@ L['X Position'] = "Позиция X"
 L['Sets X position of Raid Utility button.'] = "Задает координаты Управления рейдом по оси X."
 L['Y Position'] = "Позиция Y"
 L['Sets Y position of Raid Utility button.'] = "Задает координаты Управления рейдом по оси Y."
+
+--UI Buttons--
+--------------
+L["UI Buttons"] = "Меню интерфейса"
+L["Additional menu with useful buttons"] = "Дополнительное меню с полезными кнопками"
+L["Show/Hide UI buttons."] = "Показать/скрыть меню"
+L["Mouse over"] = "При наведении"
+L["Show on mouse over."] = "Отображать при наведении мыши."
+L["Buttons position"] = "Положение кнопок"
+L["Layout for UI buttons."] = "Режим положения кнопок"
+
+L["ElvUI Config"] = "Настройка ElvUI"
+L["Click to toggle config window"] = "Нажмите для отображения окна настроек"
+L["Reload UI"] = "Перезагрузить интерфейс"
+L["Click to reload your interface"] = "Нажмите для перезагрузки интерфейса"
+L["Move UI"] = "Разблокировать элементы"
+L["Click to unlock moving ElvUI elements"] = "Нажмите для входа в режим перемещения элементов"
+L["Boss Mod"] = "Босс мод"
+L["Click to toogle the Configuration/Option Window from the Bossmod (DXE, DBM or Bigwigs) you have enabled."] = "Нажмите для отображения окна настроек включенного босс мода. Поддерживаются DXE, DBM, Bigwigs."
+L["AddOns Manager"] = "Менеджер аддонов"
+L["Click to toogle the AddOn Managerframe (stAddOnManager or ACP) you have enabled."] = "Нажмите для отображения окна менеджера аддонов. Поддерживаются stAddOnManager, ACP"
 
 --Balance Power Frame--
 -----------------------
