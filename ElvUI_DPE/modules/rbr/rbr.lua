@@ -96,7 +96,7 @@ function M:UpdateSettings()
 	M.UpdateSettingsDPE(self)
 
 	if E.db.general.raidReminder then
-		E.RBRWidth = RBRWidthDPE
+		E.RBRWidth = ((E.MinimapSize - 6) / 7 + 4)
 	else
 		E.RBRWidth = 0;
 	end
