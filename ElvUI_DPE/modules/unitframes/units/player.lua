@@ -20,6 +20,7 @@ function UF:Update_PlayerFrame(frame, db)
 	UF:Update_PlayerFrameDPE(frame, db)
 	
 	local power = frame.Power
+		
 	--Text
 	if db.power.text then
 		power.value:Show()
@@ -35,4 +36,3 @@ function UF:Update_PlayerFrame(frame, db)
 end
 
 UF:Update_AllFrames()
---UF:Update_CombatIndicator(self)
