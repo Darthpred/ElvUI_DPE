@@ -110,6 +110,8 @@ L["DP_4"] = "DT Panel 4"
 L["DP_5"] = "DT Panel 5"
 L["Bottom_Panel"] = "Bottom Panel"
 L["DP_6"] = "DT Panel 6"
+L["Left Chat"] = true
+L["Right Chat"] = true
 L['Show/Hide this panel.'] = "Show/Hide this panel."
 L['Sets size of this panel'] = "Sets size of this panel"
 
