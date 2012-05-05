@@ -24,6 +24,7 @@ function E:UpdateAll()
     E.UpdateAllDPE(self)
 	E:GetModule('DTPanels'):Update()
 	E:GetModule('UnitFrames'):Update_CombatIndicator()
+	E:GetModule('UIButtons'):Start()
 	
 	E.db.auras.perRow = 19 --Forcing more auras to show after profile change as long as it's profile based setting
 end
