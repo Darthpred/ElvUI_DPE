@@ -13,4 +13,7 @@ G['dpe'] = {
 		['qtfontflags'] = "OUTLINE",
 		['qtbackdrop'] = false,
 	},
+		
+	--Skada Backdrop
+	['skadaback'] = true,
 }

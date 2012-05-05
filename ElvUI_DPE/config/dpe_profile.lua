@@ -143,9 +143,6 @@ P['dpe'] = {
 		['xprest'] = false,
 	},
 	
-	--Skada Backdrop
-	['skadaback'] = true,
-	
 	--PvP indicator
 	['pvp'] = {
 		['pos'] = 'BOTTOMLEFT',

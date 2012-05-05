@@ -66,8 +66,8 @@ E.Options.args.dpe = {
 					type = "toggle",
 					name = L["Skada Backdrop"],
 					desc = L['Show/hide Skada backdrop.'],
-					get = function(info) return E.db.dpe.skadaback end,
-					set = function(info, value) E.db.dpe.skadaback = value; StaticPopup_Show("GLOBAL_RL") end
+					get = function(info) return E.global.dpe.skadaback end,
+					set = function(info, value) E.global.dpe.skadaback = value; StaticPopup_Show("GLOBAL_RL") end
 				},
 			},
 		},

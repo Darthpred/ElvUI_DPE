@@ -56,7 +56,7 @@ local function LoadSkin()
 		win.bargroup.button:SetBackdropColor(unpack(E["media"].backdropcolor))
 
 		skada:SetBackdrop(nil)
-		if E.db.dpe.skadaback then
+		if E.global.dpe.skadaback then
 		if not skada.backdrop then
 			skada:CreateBackdrop('Default')
 		end
