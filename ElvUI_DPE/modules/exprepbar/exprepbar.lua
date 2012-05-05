@@ -7,7 +7,6 @@ local BAR_WIDTH --Set post load so we can set it to a percent of your screen wid
 local BAR_HEIGHT = 10 -- was 9
 local TOPBAR_HEIGHT = ((BAR_HEIGHT) * 3)+1 -- was ((BAR_HEIGHT + 2) * 4) + BAR_HEIGHT
 local showRepBar, showExpBar = false, false
-local text_shown = 0
 local RBRWidthDPE = ((E.MinimapSize - 6) / 7 + 4)
 
 local function GetXP(unit)
@@ -308,14 +307,18 @@ end
 function M:CreateRepTextString()
 	local name, reaction, min, max, value = GetWatchedFactionInfo()
 
-	if E.db.general.expRepPos == "TOP_SCREEN" and E.db.dpe.xprepinfo.xprepdet then
-		if E.db.dpe.xprepinfo.repreact then
-			UpperReputationBar.txt:SetText(name..': '..format('%d / %d ('.._G['FACTION_STANDING_LABEL'..reaction]..' '..'%d%%)', value - min, max - min, (value - min) / (max - min) * 100))
-		else
-			UpperReputationBar.txt:SetText(name..': '..format('%d / %d (%d%%)', value - min, max - min, (value - min) / (max - min) * 100))
-		end
+	if not name then
+		return
 	else
-		UpperReputationBar.txt:SetText(name..': '..format('%d%%', (value - min) / (max - min) * 100))
+		if E.db.general.expRepPos == "TOP_SCREEN" and E.db.dpe.xprepinfo.xprepdet then
+			if E.db.dpe.xprepinfo.repreact then
+				UpperReputationBar.txt:SetText(name..': '..format('%d / %d ('.._G['FACTION_STANDING_LABEL'..reaction]..' '..'%d%%)', value - min, max - min, (value - min) / (max - min) * 100))
+			else
+				UpperReputationBar.txt:SetText(name..': '..format('%d / %d (%d%%)', value - min, max - min, (value - min) / (max - min) * 100))
+			end
+		else
+			UpperReputationBar.txt:SetText(name..': '..format('%d%%', (value - min) / (max - min) * 100))
+		end
 	end
 end
 
