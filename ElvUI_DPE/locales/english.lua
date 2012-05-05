@@ -179,20 +179,23 @@ L['ELVUI_DPE_CREDITS'] = "I would like to point out the following people for hel
 L['Submodules and coding:'] = true
 L['ELVUI_DPE_CODERS'] = [=[Benik - core of exp/rep bars' text
 Catok - Test UI feature
-Repooc - core of auto release feature
+Repooc - core of auto release feature, some ideas, testing
 Tukz - helping with oUF
 Pvtschlag - Necrotic Strike oUF plugin
 Blazeflack - helping hooking, modules and profiles
 Camealion - teaching me the art of skining
+Swordyy - idea of ui buttons
+Rushty@EU-Alexstrasza - core of quest tracker skining
+Azilroka@US-Daggerspine - core of ExtVendor skin
 ]=]
 L['Other support:'] = true
 L['ELVUI_DPE_MISC'] = [=[BuG - brining fun to the chat while i was writing this
 TheSamaKutra - some good ideas
-Allaidia - moral support O_o
+The rest of TukUI community - the existance of community itself
+My guild, Эффект(Effect)@RU-Свежеватель Душ(Soulflyer) - not kicking me out while I was slacking :D
 ]=]
-L["DPE_AUTHOR_INFO"] = "Darth Predator's edit (Дартпредатор@Свежеватель Душ(Soulflyer) - EU)"
+L["DPE_AUTHOR_INFO"] = "Darth Predator's edit (Дартпредатор@RU-Свежеватель Душ(Soulflyer))"
 L["DPE_CONTACTS"] = [=[Bug reports, suggestions and other stuff accepted via:
 - In-game mail
 - Private Massage on TukUI.org to Darth Predator
-- Private Massage on Curse to Darth_Predator
 - Shadowmage.ru]=]
