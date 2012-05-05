@@ -865,7 +865,7 @@ E.Options.args.dpe.args.raidutil = {
 			desc = L['Sets X position of Raid Utility button.'],
 			min = 0, max = E.screenwidth, step = 1,
 			get = function(info) return E.db.dpe.raidutil.xpos end,
-			set = function(info, value) E.db.dpe.raidutil.xpos = value; E:GetModule('RaidUtility'):ButtonCoordinates() end,
+			set = function(info, value) E.db.dpe.raidutil.xpos = value; E:GetModule('RaidUtility'):MoveButton() end,
 		},
 		ypos = {
 			order = 4,
@@ -874,7 +874,7 @@ E.Options.args.dpe.args.raidutil = {
 			desc = L['Sets Y position of Raid Utility button.'],
 			min = 0, max = E.screenheight, step = 1,
 			get = function(info) return E.db.dpe.raidutil.ypos end,
-			set = function(info, value) E.db.dpe.raidutil.ypos = value; E:GetModule('RaidUtility'):ButtonCoordinates() end,
+			set = function(info, value) E.db.dpe.raidutil.ypos = value; E:GetModule('RaidUtility'):MoveButton() end,
 		},
 	},
 }
@@ -887,18 +887,13 @@ E.Options.args.dpe.args.uibuttons = {
 		header = {
 			order = 1,
 			type = "header",
-			name = L["Additional Background Panels"],
-		},
-		intro = {
-			order = 2,
-			type = "description",
-			name = L["BG_DESC"]
+			name = L["Additional menu with useful buttons"],
 		},
 		enabled = {
 			order = 3,
 			type = "toggle",
 			name = L["Enable"],
-			desc = L["Show/Hide ui buttons."],
+			desc = L["Show/Hide UI buttons."],
 			get = function(info) return E.db.dpe.uibuttons.enable end,
 			set = function(info, value) E.db.dpe.uibuttons.enable = value; E:GetModule('UIButtons'):Start() end
 		},
@@ -928,8 +923,8 @@ E.Options.args.dpe.args.uibuttons = {
 				},
 				position = {
 					order = 10,
-					name = L["Font Outline"],
-					desc = L["Set the font outline."],
+					name = L["Buttons position"],
+					desc = L["Layout for UI buttons."],
 					type = "select",
 					values = {
 						["uib_hor"] = L['Horizontal'],
