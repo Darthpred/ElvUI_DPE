@@ -1,6 +1,12 @@
 ﻿local E, L, V, P, G =  unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
---local DTP = E:GetModule('DTPanels');
---local DT = E:GetModule('DataTexts')
+local RM = E:GetModule('RaidMarks')
+local UF = E:GetModule('UnitFrames')
+local M = E:GetModule('Misc')
+local BG = E:GetModule('BackGrounds')
+local DTP = E:GetModule('DTPanels')
+local RU = E:GetModule('RaidUtility')
+local UB = E:GetModule('UIButtons')
+local MB = E:GetModule('Microbar')
 
 local positionValues = {
 	TOPLEFT = 'TOPLEFT',
@@ -83,7 +89,7 @@ E.Options.args.dpe = {
 					name = L["Enable"],
 					desc = L["Show/Hide raid marks."],
 					get = function(info) return E.db.dpe.marks.enabled end,
-					set = function(info, value) E.db.dpe.marks.enabled = value; E:GetModule('RaidMarks'):UpdateVisibility() end
+					set = function(info, value) E.db.dpe.marks.enabled = value; RM:UpdateVisibility() end
 				},
 				size = {
 					order = 2,
@@ -92,7 +98,7 @@ E.Options.args.dpe = {
 					desc = L['Sets size of buttons'],
 					min = 15, max = 30, step = 1,
 					get = function(info) return E.db.dpe.marks.size end,
-					set = function(info, value) E.db.dpe.marks.size = value; E:GetModule('RaidMarks'):FrameButtonsGrowth(); E:GetModule('RaidMarks'):FrameButtonsSize() end,
+					set = function(info, value) E.db.dpe.marks.size = value; RM:FrameButtonsGrowth(); RM:FrameButtonsSize() end,
 				},
 				growth = {
 					order = 3,
@@ -100,7 +106,7 @@ E.Options.args.dpe = {
 					name = L["Direction"],
 					desc = L['Change the direction of buttons growth from "skull" mark'],
 					get = function(info) return E.db.dpe.marks.growth end,
-					set = function(info, value) E.db.dpe.marks.growth = value; E:GetModule('RaidMarks'):FrameButtonsGrowth() end,
+					set = function(info, value) E.db.dpe.marks.growth = value; RM:FrameButtonsGrowth() end,
 					values = {
 						['RIGHT'] = L["Right"],
 						['LEFT'] = L["Left"],
@@ -139,7 +145,7 @@ E.Options.args.dpe = {
 					name = L["Combat Position"],
 					desc = L['Set the point to show combat icon'],
 					get = function(info) return E.db.dpe.combatico.pos end,
-					set = function(info, value) E.db.dpe.combatico.pos = value; E:GetModule('UnitFrames'):Update_CombatIndicator() end,
+					set = function(info, value) E.db.dpe.combatico.pos = value; UF:Update_CombatIndicator() end,
 					values = positionValues
 				},
 			},
@@ -209,7 +215,7 @@ E.Options.args.dpe.args.exprep = {
 				name = L["Enable"],
 				desc = L['Show/Hide XP-Rep Info.'],
 				get = function(info) return E.db.dpe.xprepinfo.enabled end,
-				set = function(info, value) E.db.dpe.xprepinfo.enabled = value; E:GetModule('Misc'):UpdateExpRepBarAnchor() end
+				set = function(info, value) E.db.dpe.xprepinfo.enabled = value; M:UpdateExpRepBarAnchor() end
 				},
 				xprepdet = {
 				order = 2,
@@ -217,7 +223,7 @@ E.Options.args.dpe.args.exprep = {
 				name = L['Detailed'],
 				desc = L['More XP-Rep Info. Shown only when bars are on top.'],
 				get = function(info) return E.db.dpe.xprepinfo.xprepdet end,
-				set = function(info, value) E.db.dpe.xprepinfo.xprepdet = value; E:GetModule('Misc'):UpdateExpRepBarAnchor() end
+				set = function(info, value) E.db.dpe.xprepinfo.xprepdet = value; M:UpdateExpRepBarAnchor() end
 				},
 			},
 		},
@@ -234,7 +240,7 @@ E.Options.args.dpe.args.exprep = {
 				name = L['Reaction Name'],
 				desc = L['Show/Hide Reaction status on bar.'],
 				get = function(info) return E.db.dpe.xprepinfo.repreact end,
-				set = function(info, value) E.db.dpe.xprepinfo.repreact = value; E:GetModule('Misc'):UpdateExpRepBarAnchor() end
+				set = function(info, value) E.db.dpe.xprepinfo.repreact = value; M:UpdateExpRepBarAnchor() end
 				},
 				xprest = {
 				order = 2,
@@ -242,7 +248,7 @@ E.Options.args.dpe.args.exprep = {
 				name = L['Rested Value'],
 				desc = L['Show/Hide Rested value.'],
 				get = function(info) return E.db.dpe.xprepinfo.xprest end,
-				set = function(info, value) E.db.dpe.xprepinfo.xprest = value; E:GetModule('Misc'):UpdateExpRepBarAnchor() end
+				set = function(info, value) E.db.dpe.xprepinfo.xprest = value; M:UpdateExpRepBarAnchor() end
 				},
 			},
 		},
@@ -272,7 +278,7 @@ E.Options.args.dpe.args.backgrounds = {
 			name = L["Bottom BG"],
 			desc = L['Show/Hide this frame.'],
 			get = function(info) return E.db.dpe.backgrounds.bottom.enabled end,
-			set = function(info, value) E.db.dpe.backgrounds.bottom.enabled = value; E:GetModule('BackGrounds'):FramesVisibility() end
+			set = function(info, value) E.db.dpe.backgrounds.bottom.enabled = value; BG:FramesVisibility() end
 		},
 		left_enabled = {
 			order = 4,
@@ -280,7 +286,7 @@ E.Options.args.dpe.args.backgrounds = {
 			name = L["Left BG"],
 			desc = L['Show/Hide this frame.'],
 			get = function(info) return E.db.dpe.backgrounds.left.enabled end,
-			set = function(info, value) E.db.dpe.backgrounds.left.enabled = value; E:GetModule('BackGrounds'):FramesVisibility() end
+			set = function(info, value) E.db.dpe.backgrounds.left.enabled = value; BG:FramesVisibility() end
 		},
 		spacer = {
 			order = 5,
@@ -293,7 +299,7 @@ E.Options.args.dpe.args.backgrounds = {
 			name = L["Right BG"],
 			desc = L['Show/Hide this frame.'],
 			get = function(info) return E.db.dpe.backgrounds.right.enabled end,
-			set = function(info, value) E.db.dpe.backgrounds.right.enabled = value; E:GetModule('BackGrounds'):FramesVisibility() end
+			set = function(info, value) E.db.dpe.backgrounds.right.enabled = value; BG:FramesVisibility() end
 		},
 		action_enabled = {
 			order = 7,
@@ -301,7 +307,7 @@ E.Options.args.dpe.args.backgrounds = {
 			name = L["Actionbar BG"],
 			desc = L['Show/Hide this frame.'],
 			get = function(info) return E.db.dpe.backgrounds.action.enabled end,
-			set = function(info, value) E.db.dpe.backgrounds.action.enabled = value; E:GetModule('BackGrounds'):FramesVisibility() end
+			set = function(info, value) E.db.dpe.backgrounds.action.enabled = value; BG:FramesVisibility() end
 		},
 	}
 }
@@ -319,7 +325,7 @@ E.Options.args.dpe.args.backgrounds.args.bottom = {
 			desc = L['Sets width of the frame'],
 			min = 200, max = E.screenwidth, step = 1,
 			get = function(info) return E.db.dpe.backgrounds.bottom.width end,
-			set = function(info, value) E.db.dpe.backgrounds.bottom.width = value; E:GetModule('BackGrounds'):FramesSize() end,
+			set = function(info, value) E.db.dpe.backgrounds.bottom.width = value; BG:FramesSize() end,
 		},
 		height = {
 			order = 4,
@@ -328,7 +334,7 @@ E.Options.args.dpe.args.backgrounds.args.bottom = {
 			desc = L['Sets height of the frame'],
 			min = 50, max = E.screenheight/2, step = 1,
 			get = function(info) return E.db.dpe.backgrounds.bottom.height end,
-			set = function(info, value) E.db.dpe.backgrounds.bottom.height = value; E:GetModule('BackGrounds'):FramesSize() end,
+			set = function(info, value) E.db.dpe.backgrounds.bottom.height = value; BG:FramesSize() end,
 		},
 		spacer = { --Empty slot for making sliders move to next line
 			order = 5,
@@ -343,7 +349,7 @@ E.Options.args.dpe.args.backgrounds.args.bottom = {
 			desc = L['Sets X offset of the frame'],
 			min = -E.screenwidth/2, max = E.screenwidth/2, step = 1,
 			get = function(info) return E.db.dpe.backgrounds.bottom.xoffset end,
-			set = function(info, value) E.db.dpe.backgrounds.bottom.xoffset = value; E:GetModule('BackGrounds'):FramesPositions() end,
+			set = function(info, value) E.db.dpe.backgrounds.bottom.xoffset = value; BG:FramesPositions() end,
 		},
 		yoffset = {
 			order = 7,
@@ -352,7 +358,7 @@ E.Options.args.dpe.args.backgrounds.args.bottom = {
 			desc = L['Sets Y offset of the frame'],
 			min = -21, max = E.screenheight, step = 1,
 			get = function(info) return E.db.dpe.backgrounds.bottom.yoffset end,
-			set = function(info, value) E.db.dpe.backgrounds.bottom.yoffset = value; E:GetModule('BackGrounds'):FramesPositions() end,
+			set = function(info, value) E.db.dpe.backgrounds.bottom.yoffset = value; BG:FramesPositions() end,
 		},
 		--Setting custom texture for those who like it
 		texture = {
@@ -365,7 +371,7 @@ E.Options.args.dpe.args.backgrounds.args.bottom = {
 			set = function(info, value) 
 				E.db.dpe.backgrounds.bottom.texture = value
 				E:UpdateMedia()
-				E:GetModule('BackGrounds'):UpdateTex()
+				BG:UpdateTex()
 			end,
 		},
 	},
@@ -384,7 +390,7 @@ E.Options.args.dpe.args.backgrounds.args.left = {
 			desc = L['Sets width of the frame'],
 			min = 150, max = E.screenwidth, step = 1,
 			get = function(info) return E.db.dpe.backgrounds.left.width end,
-			set = function(info, value) E.db.dpe.backgrounds.left.width = value; E:GetModule('BackGrounds'):FramesSize() end,
+			set = function(info, value) E.db.dpe.backgrounds.left.width = value; BG:FramesSize() end,
 		},
 		height = {
 			order = 4,
@@ -393,7 +399,7 @@ E.Options.args.dpe.args.backgrounds.args.left = {
 			desc = L['Sets height of the frame'],
 			min = 50, max = E.screenheight/2, step = 1,
 			get = function(info) return E.db.dpe.backgrounds.left.height end,
-			set = function(info, value) E.db.dpe.backgrounds.left.height = value; E:GetModule('BackGrounds'):FramesSize() end,
+			set = function(info, value) E.db.dpe.backgrounds.left.height = value; BG:FramesSize() end,
 		},
 		spacer = {
 			order = 5,
@@ -407,7 +413,7 @@ E.Options.args.dpe.args.backgrounds.args.left = {
 			desc = L['Sets X offset of the frame'],
 			min = -E.screenwidth/2, max = E.screenwidth/2, step = 1,
 			get = function(info) return E.db.dpe.backgrounds.left.xoffset end,
-			set = function(info, value) E.db.dpe.backgrounds.left.xoffset = value; E:GetModule('BackGrounds'):FramesPositions() end,
+			set = function(info, value) E.db.dpe.backgrounds.left.xoffset = value; BG:FramesPositions() end,
 		},
 		yoffset = {
 			order = 7,
@@ -416,7 +422,7 @@ E.Options.args.dpe.args.backgrounds.args.left = {
 			desc = L['Sets Y offset of the frame'],
 			min = -21, max = E.screenheight, step = 1,
 			get = function(info) return E.db.dpe.backgrounds.left.yoffset end,
-			set = function(info, value) E.db.dpe.backgrounds.left.yoffset = value; E:GetModule('BackGrounds'):FramesPositions() end,
+			set = function(info, value) E.db.dpe.backgrounds.left.yoffset = value; BG:FramesPositions() end,
 		},
 		texture = {
 			order = 8,
@@ -428,7 +434,7 @@ E.Options.args.dpe.args.backgrounds.args.left = {
 			set = function(info, value) 
 				E.db.dpe.backgrounds.left.texture = value
 				E:UpdateMedia()
-				E:GetModule('BackGrounds'):UpdateTex()
+				BG:UpdateTex()
 			end,
 		},
 	},
@@ -447,7 +453,7 @@ E.Options.args.dpe.args.backgrounds.args.right = {
 			desc = L['Sets width of the frame'],
 			min = 150, max = E.screenwidth, step = 1,
 			get = function(info) return E.db.dpe.backgrounds.right.width end,
-			set = function(info, value) E.db.dpe.backgrounds.right.width = value; E:GetModule('BackGrounds'):FramesSize() end,
+			set = function(info, value) E.db.dpe.backgrounds.right.width = value; BG:FramesSize() end,
 		},
 		height = {
 			order = 4,
@@ -456,7 +462,7 @@ E.Options.args.dpe.args.backgrounds.args.right = {
 			desc = L['Sets height of the frame'],
 			min = 50, max = E.screenheight/2, step = 1,
 			get = function(info) return E.db.dpe.backgrounds.right.height end,
-			set = function(info, value) E.db.dpe.backgrounds.right.height = value; E:GetModule('BackGrounds'):FramesSize() end,
+			set = function(info, value) E.db.dpe.backgrounds.right.height = value; BG:FramesSize() end,
 		},
 		spacer = {
 			order = 5,
@@ -470,7 +476,7 @@ E.Options.args.dpe.args.backgrounds.args.right = {
 			desc = L['Sets X offset of the frame'],
 			min = -E.screenwidth/2, max = E.screenwidth/2, step = 1,
 			get = function(info) return E.db.dpe.backgrounds.right.xoffset end,
-			set = function(info, value) E.db.dpe.backgrounds.right.xoffset = value; E:GetModule('BackGrounds'):FramesPositions() end,
+			set = function(info, value) E.db.dpe.backgrounds.right.xoffset = value; BG:FramesPositions() end,
 		},
 		yoffset = {
 			order = 7,
@@ -479,7 +485,7 @@ E.Options.args.dpe.args.backgrounds.args.right = {
 			desc = L['Sets Y offset of the frame'],
 			min = -21, max = E.screenheight, step = 1,
 			get = function(info) return E.db.dpe.backgrounds.right.yoffset end,
-			set = function(info, value) E.db.dpe.backgrounds.right.yoffset = value; E:GetModule('BackGrounds'):FramesPositions() end,
+			set = function(info, value) E.db.dpe.backgrounds.right.yoffset = value; BG:FramesPositions() end,
 		},
 		texture = {
 			order = 8,
@@ -491,7 +497,7 @@ E.Options.args.dpe.args.backgrounds.args.right = {
 			set = function(info, value) 
 				E.db.dpe.backgrounds.right.texture = value
 				E:UpdateMedia()
-				E:GetModule('BackGrounds'):UpdateTex()
+				BG:UpdateTex()
 			end,
 		},
 	},
@@ -510,7 +516,7 @@ E.Options.args.dpe.args.backgrounds.args.action = {
 			desc = L['Sets width of the frame'],
 			min = 200, max = E.screenwidth, step = 1,
 			get = function(info) return E.db.dpe.backgrounds.action.width end,
-			set = function(info, value) E.db.dpe.backgrounds.action.width = value; E:GetModule('BackGrounds'):FramesSize() end,
+			set = function(info, value) E.db.dpe.backgrounds.action.width = value; BG:FramesSize() end,
 		},
 		height = {
 			order = 4,
@@ -519,7 +525,7 @@ E.Options.args.dpe.args.backgrounds.args.action = {
 			desc = L['Sets height of the frame'],
 			min = 50, max = E.screenheight/2, step = 1,
 			get = function(info) return E.db.dpe.backgrounds.action.height end,
-			set = function(info, value) E.db.dpe.backgrounds.action.height = value; E:GetModule('BackGrounds'):FramesSize() end,
+			set = function(info, value) E.db.dpe.backgrounds.action.height = value; BG:FramesSize() end,
 		},
 		spacer = {
 			order = 5,
@@ -533,7 +539,7 @@ E.Options.args.dpe.args.backgrounds.args.action = {
 			desc = L['Sets X offset of the frame'],
 			min = -E.screenwidth/2, max = E.screenwidth/2, step = 1,
 			get = function(info) return E.db.dpe.backgrounds.action.xoffset end,
-			set = function(info, value) E.db.dpe.backgrounds.action.xoffset = value; E:GetModule('BackGrounds'):FramesPositions() end,
+			set = function(info, value) E.db.dpe.backgrounds.action.xoffset = value; BG:FramesPositions() end,
 		},
 		yoffset = {
 			order = 7,
@@ -542,7 +548,7 @@ E.Options.args.dpe.args.backgrounds.args.action = {
 			desc = L['Sets Y offset of the frame'],
 			min = -21, max = E.screenheight, step = 1,
 			get = function(info) return E.db.dpe.backgrounds.action.yoffset end,
-			set = function(info, value) E.db.dpe.backgrounds.action.yoffset = value; E:GetModule('BackGrounds'):FramesPositions() end,
+			set = function(info, value) E.db.dpe.backgrounds.action.yoffset = value; BG:FramesPositions() end,
 		},
 		texture = {
 			order = 8,
@@ -554,7 +560,7 @@ E.Options.args.dpe.args.backgrounds.args.action = {
 			set = function(info, value) 
 				E.db.dpe.backgrounds.action.texture = value
 				E:UpdateMedia()
-				E:GetModule('BackGrounds'):UpdateTex()
+				BG:UpdateTex()
 			end,
 		},
 	},
@@ -589,7 +595,7 @@ E.Options.args.dpe.args.datatext = {
 					name = L["Enable"],
 					desc = L['Show/Hide this panel.'],
 					get = function(info) return E.db.dpe.datatext.dp1.enabled end,
-					set = function(info, value) E.db.dpe.datatext.dp1.enabled = value; E:GetModule('DTPanels'):ExtraDataBarSetup() end
+					set = function(info, value) E.db.dpe.datatext.dp1.enabled = value; DTP:ExtraDataBarSetup() end
 				},
 				width = {
 					order = 2,
@@ -599,7 +605,7 @@ E.Options.args.dpe.args.datatext = {
 					disabled = function() return not E.db.dpe.datatext.dp1.enabled end,
 					min = 100, max = E.screenwidth/2, step = 1,
 					get = function(info) return E.db.dpe.datatext.dp1.width end,
-					set = function(info, value) E.db.dpe.datatext.dp1.width = value; E:GetModule('DTPanels'):Resize() end,
+					set = function(info, value) E.db.dpe.datatext.dp1.width = value; DTP:Resize() end,
 				},
 			},
 		},
@@ -615,7 +621,7 @@ E.Options.args.dpe.args.datatext = {
 					name = L["Enable"],
 					desc = L['Show/Hide this panel.'],
 					get = function(info) return E.db.dpe.datatext.dp2.enabled end,
-					set = function(info, value) E.db.dpe.datatext.dp2.enabled = value; E:GetModule('DTPanels'):ExtraDataBarSetup() end
+					set = function(info, value) E.db.dpe.datatext.dp2.enabled = value; DTP:ExtraDataBarSetup() end
 				},
 				width = {
 					order = 2,
@@ -625,7 +631,7 @@ E.Options.args.dpe.args.datatext = {
 					disabled = function() return not E.db.dpe.datatext.dp2.enabled end,
 					min = 100, max = E.screenwidth/2, step = 1,
 					get = function(info) return E.db.dpe.datatext.dp2.width end,
-					set = function(info, value) E.db.dpe.datatext.dp2.width = value; E:GetModule('DTPanels'):Resize() end,
+					set = function(info, value) E.db.dpe.datatext.dp2.width = value; DTP:Resize() end,
 				},
 			},
 		},
@@ -651,7 +657,7 @@ E.Options.args.dpe.args.datatext = {
 					desc = L['Sets size of this panel'],
 					min = 100, max = E.screenwidth/2, step = 1,
 					get = function(info) return E.db.dpe.datatext.top.width end,
-					set = function(info, value) E.db.dpe.datatext.top.width = value; E:GetModule('DTPanels'):Resize() end,
+					set = function(info, value) E.db.dpe.datatext.top.width = value; DTP:Resize() end,
 				},
 			},
 		},
@@ -667,7 +673,7 @@ E.Options.args.dpe.args.datatext = {
 					name = L["Enable"],
 					desc = L['Show/Hide this panel.'],
 					get = function(info) return E.db.dpe.datatext.dp3.enabled end,
-					set = function(info, value) E.db.dpe.datatext.dp3.enabled = value; E:GetModule('DTPanels'):ExtraDataBarSetup() end
+					set = function(info, value) E.db.dpe.datatext.dp3.enabled = value; DTP:ExtraDataBarSetup() end
 				},
 				width = {
 					order = 2,
@@ -677,7 +683,7 @@ E.Options.args.dpe.args.datatext = {
 					disabled = function() return not E.db.dpe.datatext.dp3.enabled end,
 					min = 100, max = E.screenwidth/2, step = 1,
 					get = function(info) return E.db.dpe.datatext.dp3.width end,
-					set = function(info, value) E.db.dpe.datatext.dp3.width = value; E:GetModule('DTPanels'):Resize() end,
+					set = function(info, value) E.db.dpe.datatext.dp3.width = value; DTP:Resize() end,
 				},
 			},
 		},
@@ -693,7 +699,7 @@ E.Options.args.dpe.args.datatext = {
 					name = L["Enable"],
 					desc = L['Show/Hide this panel.'],
 					get = function(info) return E.db.dpe.datatext.dp4.enabled end,
-					set = function(info, value) E.db.dpe.datatext.dp4.enabled = value; E:GetModule('DTPanels'):ExtraDataBarSetup() end
+					set = function(info, value) E.db.dpe.datatext.dp4.enabled = value; DTP:ExtraDataBarSetup() end
 				},
 				width = {
 					order = 2,
@@ -703,7 +709,7 @@ E.Options.args.dpe.args.datatext = {
 					disabled = function() return not E.db.dpe.datatext.dp4.enabled end,
 					min = 100, max = E.screenwidth/2, step = 1,
 					get = function(info) return E.db.dpe.datatext.dp4.width end,
-					set = function(info, value) E.db.dpe.datatext.dp4.width = value; E:GetModule('DTPanels'):Resize() end,
+					set = function(info, value) E.db.dpe.datatext.dp4.width = value; DTP:Resize() end,
 				},
 			},
 		},
@@ -719,7 +725,7 @@ E.Options.args.dpe.args.datatext = {
 					name = L["Enable"],
 					desc = L['Show/Hide this panel.'],
 					get = function(info) return E.db.dpe.datatext.dp5.enabled end,
-					set = function(info, value) E.db.dpe.datatext.dp5.enabled = value; E:GetModule('DTPanels'):ExtraDataBarSetup() end
+					set = function(info, value) E.db.dpe.datatext.dp5.enabled = value; DTP:ExtraDataBarSetup() end
 				},
 				width = {
 					order = 2,
@@ -729,7 +735,7 @@ E.Options.args.dpe.args.datatext = {
 					disabled = function() return not E.db.dpe.datatext.dp5.enabled end,
 					min = 100, max = E.screenwidth/2, step = 1,
 					get = function(info) return E.db.dpe.datatext.dp5.width end,
-					set = function(info, value) E.db.dpe.datatext.dp5.width = value; E:GetModule('DTPanels'):Resize() end,
+					set = function(info, value) E.db.dpe.datatext.dp5.width = value; DTP:Resize() end,
 				},
 			},
 		},
@@ -745,7 +751,7 @@ E.Options.args.dpe.args.datatext = {
 					name = L["Enable"],
 					desc = L['Show/Hide this panel.'],
 					get = function(info) return E.db.dpe.datatext.bottom.enabled end,
-					set = function(info, value) E.db.dpe.datatext.bottom.enabled = value; E:GetModule('DTPanels'):ExtraDataBarSetup() end
+					set = function(info, value) E.db.dpe.datatext.bottom.enabled = value; DTP:ExtraDataBarSetup() end
 				},
 				width = {
 					order = 2,
@@ -755,7 +761,7 @@ E.Options.args.dpe.args.datatext = {
 					disabled = function() return not E.db.dpe.datatext.bottom.enabled end,
 					min = 100, max = E.screenwidth/2, step = 1,
 					get = function(info) return E.db.dpe.datatext.bottom.width end,
-					set = function(info, value) E.db.dpe.datatext.bottom.width = value; E:GetModule('DTPanels'):Resize() end,
+					set = function(info, value) E.db.dpe.datatext.bottom.width = value; DTP:Resize() end,
 				},
 			},
 		},
@@ -771,7 +777,7 @@ E.Options.args.dpe.args.datatext = {
 					name = L["Enable"],
 					desc = L['Show/Hide this panel.'],
 					get = function(info) return E.db.dpe.datatext.dp6.enabled end,
-					set = function(info, value) E.db.dpe.datatext.dp6.enabled = value; E:GetModule('DTPanels'):ExtraDataBarSetup() end
+					set = function(info, value) E.db.dpe.datatext.dp6.enabled = value; DTP:ExtraDataBarSetup() end
 				},
 				width = {
 					order = 2,
@@ -781,7 +787,7 @@ E.Options.args.dpe.args.datatext = {
 					disabled = function() return not E.db.dpe.datatext.dp6.enabled end,
 					min = 100, max = E.screenwidth/2, step = 1,
 					get = function(info) return E.db.dpe.datatext.dp6.width end,
-					set = function(info, value) E.db.dpe.datatext.dp6.width = value; E:GetModule('DTPanels'):Resize() end,
+					set = function(info, value) E.db.dpe.datatext.dp6.width = value; DTP:Resize() end,
 				},
 			},
 		},
@@ -808,7 +814,7 @@ E.Options.args.dpe.args.datatext = {
 					disabled = function() return not E.db.dpe.datatext.chatleft.enabled end,
 					min = 100, max = E.screenwidth/2, step = 1,
 					get = function(info) return E.db.dpe.datatext.chatleft.width end,
-					set = function(info, value) E.db.dpe.datatext.chatleft.width = value; E:GetModule('DTPanels'):ChatResize() end,
+					set = function(info, value) E.db.dpe.datatext.chatleft.width = value; DTP:ChatResize() end,
 				},
 			},
 		},
@@ -835,7 +841,7 @@ E.Options.args.dpe.args.datatext = {
 					disabled = function() return not E.db.dpe.datatext.chatright.enabled end,
 					min = 100, max = E.screenwidth/2, step = 1,
 					get = function(info) return E.db.dpe.datatext.chatright.width end,
-					set = function(info, value) E.db.dpe.datatext.chatright.width = value; E:GetModule('DTPanels'):ChatResize() end,
+					set = function(info, value) E.db.dpe.datatext.chatright.width = value; DTP:ChatResize() end,
 				},
 			},
 		},
@@ -865,7 +871,7 @@ E.Options.args.dpe.args.raidutil = {
 			desc = L['Sets X position of Raid Utility button.'],
 			min = 0, max = E.screenwidth, step = 1,
 			get = function(info) return E.db.dpe.raidutil.xpos end,
-			set = function(info, value) E.db.dpe.raidutil.xpos = value; E:GetModule('RaidUtility'):MoveButton() end,
+			set = function(info, value) E.db.dpe.raidutil.xpos = value; RU:MoveButton() end,
 		},
 		ypos = {
 			order = 4,
@@ -874,7 +880,7 @@ E.Options.args.dpe.args.raidutil = {
 			desc = L['Sets Y position of Raid Utility button.'],
 			min = 0, max = E.screenheight, step = 1,
 			get = function(info) return E.db.dpe.raidutil.ypos end,
-			set = function(info, value) E.db.dpe.raidutil.ypos = value; E:GetModule('RaidUtility'):MoveButton() end,
+			set = function(info, value) E.db.dpe.raidutil.ypos = value; RU:MoveButton() end,
 		},
 	},
 }
@@ -895,7 +901,7 @@ E.Options.args.dpe.args.uibuttons = {
 			name = L["Enable"],
 			desc = L["Show/Hide UI buttons."],
 			get = function(info) return E.db.dpe.uibuttons.enable end,
-			set = function(info, value) E.db.dpe.uibuttons.enable = value; E:GetModule('UIButtons'):Start() end
+			set = function(info, value) E.db.dpe.uibuttons.enable = value; UB:Start() end
 		},
 		options = {
 			type = "group",
@@ -911,7 +917,7 @@ E.Options.args.dpe.args.uibuttons = {
 					desc = L['Sets size of buttons'],
 					min = 12, max = 25, step = 1,
 					get = function(info) return E.db.dpe.uibuttons.size end,
-					set = function(info, value) E.db.dpe.uibuttons.size = value; E:GetModule('UIButtons'):FrameSize() end,
+					set = function(info, value) E.db.dpe.uibuttons.size = value; UB:FrameSize() end,
 				},
 				mouse = {
 					order = 2,
@@ -931,7 +937,7 @@ E.Options.args.dpe.args.uibuttons = {
 						["uib_vert"] = L['Vertical'],
 					},
 					get = function(info) return E.db.dpe.uibuttons.position end,
-					set = function(info, value) E.db.dpe.uibuttons.position = value; E:GetModule('UIButtons'):Positioning(); E:GetModule('UIButtons'):MoverSize() end,
+					set = function(info, value) E.db.dpe.uibuttons.position = value; UB:Positioning(); UB:MoverSize() end,
 				},
 			},
 		},
