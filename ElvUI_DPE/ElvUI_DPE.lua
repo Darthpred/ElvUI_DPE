@@ -9,7 +9,9 @@ function DPE:Initialize()
 	Start_Questtracker()
 	
 	self:RegisterEvent("PLAYER_REGEN_DISABLED", "UpdateThings");
-	print("DPE initialized")
+	if self.db.general.loginmessage then
+		print(L['DPE_LOGIN_MSG'])
+	end
 end
 
 --Updating things that must be updated only after everything loads

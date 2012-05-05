@@ -9,7 +9,12 @@ end
 
 if not L then return; end
 
---Main config
+
+L['DPE_LOGIN_MSG'] = [=[You are using the edited version of ElvUI by Darth Predator.
+If you wish to use original ElvUI disable this edit's plugin in your AddOns manager.
+Have a nice day.]=]
+--Main config--
+---------------
 L["Additional options"] = true
 L["Darth Predator's edit of ElvUI"] = "Darth Predator's edit of ElvUI"
 L['DPE_DESC'] = [=[This plugin changes ElvUI according to my personal taste. For maximum and comfortable usage 1920x1080 resolution is recommended.
@@ -113,8 +118,7 @@ L['Sets size of this panel'] = "Sets size of this panel"
 L["Raid Utility"] = true
 L["Raid Utility coordinates"] = true
 L["RU_DESC"] = [=[This config group allows you to freely move your Raid Utility button starting position.
-Unfortunately movement of this buttom with mouse will produse errors after clicking on the moved button.
-Those errors are not critical but may cause perfomance issues in case of long and active RU usage.]=]
+Moving Raid Utility with mouse is disabled. Use the sliders to move the button around.]=]
 L['X Position'] = true
 L['Sets X position of Raid Utility button.'] = true
 L['Y Position'] = true
