@@ -1,0 +1,11 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">	
+	<Script file='addons\auctionator.lua'/>
+	<Script file='addons\dbmopt.lua'/>
+	<Script file='addons\skada.lua'/>
+	<Script file='addons\notes.lua'/>
+	<Script file='addons\tdb.lua'/>
+	<Script file='addons\tellmewhen.lua'/>
+	<Script file='addons\moveanything.lua'/>
+	<Script file='addons\extvendor.lua'/>
+	<Script file='blizzard\questtracker.lua'/>
+</Ui>

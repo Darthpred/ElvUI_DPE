@@ -6,6 +6,7 @@ local DPE = E:NewModule('DPE', 'AceHook-3.0', 'AceEvent-3.0');
 
 function DPE:Initialize()
 	E.db.auras.perRow = 19 --Forcing more auras to show
+	Start_Questtracker()
 	
 	self:RegisterEvent("PLAYER_REGEN_DISABLED", "UpdateThings");
 	print("DPE initialized")

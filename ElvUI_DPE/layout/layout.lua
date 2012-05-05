@@ -92,3 +92,17 @@ function LO:UpdateConfigButton()
 	local RBRWidthDPE = ((E.MinimapSize - 6) / 7 + 4)
 	ElvConfigToggle:Width(RBRWidthDPE)
 end
+
+function SetupQuestTrackerPanel(top, bottom)
+	if QuestTrackerPanel == nil then 
+		qtpanel = CreateFrame('Frame', 'QuestTrackerPanel', E.UIParent)
+	else
+		qtpanel = QuestTrackerPanel
+	end
+    qtpanel:SetFrameStrata('BACKGROUND')
+	qtpanel:SetFrameLevel(0)
+    qtpanel:Width(E.UIParent:GetWidth() + (E.mult * 2))
+    qtpanel:Point("TOPLEFT", top, "TOPLEFT", -30, 10)
+    qtpanel:Point("BOTTOMRIGHT", bottom, "BOTTOMRIGHT", 20, -10)
+    qtpanel:SetTemplate('Transparent')
+end

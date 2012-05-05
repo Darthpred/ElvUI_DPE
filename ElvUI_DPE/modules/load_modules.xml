@@ -3,7 +3,7 @@
 	<Include file="chat\load_chat.xml"/>
 	<Include file="bags\load_bags.xml"/>
 	<Include file="misc\load_misc.xml"/>
-	<Include file='skins\addons\load_addons.xml'/>
+	<Include file='skins\load_skins.xml'/>
 	<Include file='unitframes\load_unitframes.xml'/>
 	<Script file='testui\testui.lua'/>
 	<Script file='maps\minimap.lua'/>
