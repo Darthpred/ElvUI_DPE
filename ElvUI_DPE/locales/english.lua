@@ -142,7 +142,7 @@ L["Click to toogle the AddOn Managerframe (stAddOnManager or ACP) you have enabl
 L["2 rows"] = true
 L["3 rows"] = true
 L["4 rows"] = true
-L["6 rows"] = "true
+L["6 rows"] = true
 L["Change the positioning of buttons on Microbar."] = true
 L["Hide in Combat"] = true
 L["Hide Microbar in combat."] = true
