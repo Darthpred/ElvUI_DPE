@@ -7,5 +7,6 @@
 	<Script file='addons\tellmewhen.lua'/>
 	<Script file='addons\moveanything.lua'/>
 	<Script file='addons\extvendor.lua'/>
+	<Include file='addons\altoholic\load_altoholic.xml'/>
 	<Script file='blizzard\questtracker.lua'/>
 </Ui>

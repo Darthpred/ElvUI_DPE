@@ -192,7 +192,7 @@ Blazeflack - helping hooking, modules and profiles
 Camealion - teaching me the art of skining
 Swordyy - idea of ui buttons
 Rushty@EU-Alexstrasza - core of quest tracker skining
-Azilroka@US-Daggerspine - core of ExtVendor skin
+Azilroka@US-Daggerspine - core of ExtVendor and Altoholic skins
 ]=]
 L['Other support:'] = true
 L['ELVUI_DPE_MISC'] = [=[BuG - brining fun to the chat while i was writing this
