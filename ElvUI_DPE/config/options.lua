@@ -894,6 +894,7 @@ E.Options.args.dpe.args.raidutil = {
 	},
 }
 
+--UI Buttons
 E.Options.args.dpe.args.uibuttons = {
 	type = "group",
 	name = L["UI Buttons"],
@@ -953,6 +954,7 @@ E.Options.args.dpe.args.uibuttons = {
 	},
 }
 
+--Microbar
 E.Options.args.dpe.args.microbar = {
 	type = "group",
     name = L["Microbar"],
@@ -1061,6 +1063,27 @@ E.Options.args.dpe.args.microbar = {
 	},
 }
 
+--DBM Font size
+if IsAddOnLoaded("DBM-Core") then
+E.Options.args.dpe.args.dbm = {
+	type = "group",
+	name = "DBM",
+	order = 6,
+	guiInline = true,
+	args = {
+		fontsize = {
+			order = 2,
+			type = "range",
+			name = L['Font Size'],
+			desc = L["Sets size on DMB bars"],
+			min = 8, max = 14, step = 1,
+			get = function(info) return E.global.dpe.dbm.size end,
+			set = function(info, value) E.global.dpe.dbm.size = value; StaticPopup_Show("CONFIG_RL") end,
+		},
+	},
+}
+end
+		
 --Adds a new option group is character is a druid.
 if E.myclass == "DRUID" then
 E.Options.args.dpe.args.druid = {

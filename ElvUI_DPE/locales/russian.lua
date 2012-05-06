@@ -59,6 +59,9 @@ L['Quest Tracker Backdrop'] = "Фон слежения"
 L['Attaches a backdrop frame behind the quest tracker.'] = "Создает фон для фрейма слежения за заданиями."
 L["Sets size of quest tracker's font"] = "Устанавливает размер шрифта во фрейме слежения"
 
+--DBM
+L["Sets size on DMB bars"] = "Устанавливает размер текста на полосах DBM"
+
 --Exp/Rep Text--
 ----------------
 L["Xp-Rep Text"] = "Текст Опыта/Репутации"

@@ -16,4 +16,8 @@ G['dpe'] = {
 		
 	--Skada Backdrop
 	['skadaback'] = true,
+	
+	['dbm'] = {
+		['size'] = 10,
+	},
 }

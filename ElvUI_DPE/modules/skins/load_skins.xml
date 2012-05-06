@@ -1,5 +1,6 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">	
 	<Script file='addons\auctionator.lua'/>
+	<Script file='addons\dbm.lua'/>
 	<Script file='addons\dbmopt.lua'/>
 	<Script file='addons\skada.lua'/>
 	<Script file='addons\notes.lua'/>

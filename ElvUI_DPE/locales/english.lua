@@ -65,6 +65,9 @@ L['Quest Tracker Backdrop'] = true
 L['Attaches a backdrop frame behind the quest tracker.'] = true
 L["Sets size of quest tracker's font"] = true
 
+--DBM
+L["Sets size on DMB bars"] = true
+
 --Exp/Rep Text--
 ----------------
 L["Xp-Rep Text"] = true
