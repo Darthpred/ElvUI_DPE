@@ -21,7 +21,7 @@ L['LFR Lockdown'] = "Состояние ЛФР"
 L["Show/Hide LFR lockdown info in time datatext's tooltip."] = "Отображать/скрывать информацию о сохранении ЛФР"
 
 --PvP Autorelease
-L["PvP Autorelease"] = "Автовыход из тела"
+L["PvP Auto Release"] = "Автоматический выход из тела"
 L['Automatically release body when killed inside a battleground.'] = "Автоматически выходить из тела на полях боя."
 
 --Auras

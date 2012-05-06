@@ -28,7 +28,7 @@ L["LFR Lockdown"] = true
 L["Show/Hide LFR lockdown info in time datatext's tooltip."] = true
 
 --PvP auto release
-L["PvP Autorelease"] = true
+L["PvP Auto Release"] = true
 L['Automatically release body when killed inside a battleground.'] = true
 
 --Auras

@@ -54,7 +54,7 @@ E.Options.args.dpe = {
 				pvpautorelease = {
 					order = 2,
 					type = "toggle",
-					name = L["PvP Autorelease"],
+					name = L["PvP Auto Release"],
 					desc = L['Automatically release body when killed inside a battleground.'],
 					get = function(info) return E.db.dpe.pvpautorelease end,
 					set = function(info, value) E.db.dpe.pvpautorelease = value; end
