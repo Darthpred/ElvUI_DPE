@@ -22,7 +22,7 @@ AltoholicFrameSummary:SetTemplate("Transparent")
 AltoholicFramePortrait:Kill()
 --Buttons
 S:HandleButton(AltoholicFrame_ResetButton)
-AltoholicFrame_ResetButton:Point("TOPLEFT", AltoholicFrame, "TOPLEFT", 55, -77)
+AltoholicFrame_ResetButton:Point("TOPLEFT", AltoholicFrame, "TOPLEFT", 35, -77)
 S:HandleButton(AltoholicFrame_SearchButton)
 AltoholicFrame_ResetButton:Size(85, 24)
 AltoholicFrame_SearchButton:Size(85, 24)
