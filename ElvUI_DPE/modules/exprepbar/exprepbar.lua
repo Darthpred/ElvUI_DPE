@@ -7,7 +7,7 @@ local BAR_WIDTH --Set post load so we can set it to a percent of your screen wid
 local BAR_HEIGHT = 10 -- was 9
 local TOPBAR_HEIGHT = ((BAR_HEIGHT) * 3)+1 -- was ((BAR_HEIGHT + 2) * 4) + BAR_HEIGHT
 local showRepBar, showExpBar = false, false
-local RBRWidthDPE = ((E.MinimapSize - 6) / 7 + 4)
+local RBRWidth = ((E.MinimapSize - 6) / 6 + 4)
 
 local function GetXP(unit)
 	if(unit == 'pet') then
@@ -123,7 +123,7 @@ function M:UpdateExpBar(event)
 	local bar = UpperExperienceBar
 	if not bar then
 		bar = CreateFrame('StatusBar', 'UpperExperienceBar', UpperRepExpBar)
-		bar:Size(BAR_WIDTH + RBRWidthDPE, BAR_HEIGHT)
+		bar:Size(BAR_WIDTH + RBRWidth, BAR_HEIGHT)
 		bar:CreateBackdrop('Default')
 		bar:SetStatusBarTexture(E.media.normTex)
 		bar:SetFrameLevel(UpperRepExpBar:GetFrameLevel() + 3)
@@ -203,7 +203,7 @@ function M:UpdateRepBar(event)
 	local name, reaction, min, max, value = GetWatchedFactionInfo()
 	if not bar then
 		bar = CreateFrame('StatusBar', 'UpperReputationBar', UpperRepExpBar)
-		bar:Size(BAR_WIDTH + RBRWidthDPE, BAR_HEIGHT)
+		bar:Size(BAR_WIDTH + RBRWidth, BAR_HEIGHT)
 		bar:CreateBackdrop('Default')
 		bar:SetStatusBarTexture(E.media.normTex)
 		bar:SetFrameLevel(UpperRepExpBar:GetFrameLevel() + 3)
@@ -251,15 +251,15 @@ function M:UpdateExpRepBarAnchor()
 		
 	else
 		BAR_WIDTH = E.MinimapSize+1 -- strange... should be fine without this +1 but it's needed :(
-		UpperRepExpBarHolder:Point('TOP', MMHolder, 'BOTTOM', -1, -4)  
+		UpperRepExpBarHolder:Point('TOP', MMHolder, 'BOTTOM', 1, -4)  
 		UpperRepExpBarHolder:SetParent(Minimap)
 	end
 	
 	UpperRepExpBarHolder:SetFrameLevel(0)
-	UpperRepExpBarHolder:Size(BAR_WIDTH - 30 + RBRWidthDPE, TOPBAR_HEIGHT)
+	UpperRepExpBarHolder:Size(BAR_WIDTH - 30 + RBRWidth, TOPBAR_HEIGHT)
 
 	if UpperReputationBar then
-		UpperReputationBar:Size(BAR_WIDTH + RBRWidthDPE, BAR_HEIGHT)
+		UpperReputationBar:Size(BAR_WIDTH + RBRWidth, BAR_HEIGHT)
 		if E.db.dpe.xprepinfo.enabled then
 			M:CreateRepTextString()
 		else
@@ -268,7 +268,7 @@ function M:UpdateExpRepBarAnchor()
 	end
 	
 	if UpperExperienceBar then
-		UpperExperienceBar:Size(BAR_WIDTH + RBRWidthDPE, BAR_HEIGHT)
+		UpperExperienceBar:Size(BAR_WIDTH + RBRWidth, BAR_HEIGHT)
 		if E.db.dpe.xprepinfo.enabled then
 			M:CreateExpTextString()
 		else

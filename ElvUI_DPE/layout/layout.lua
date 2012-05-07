@@ -87,12 +87,6 @@ function LO:CreateChatPanels()
 	RightChatTab:Point('BOTTOMLEFT', RightChatPanel, 'TOPLEFT', 2, -PANEL_HEIGHT)
 end
 
---Config button was loading before my minimap changes were taking place. So that's the way to force the correct size
-function LO:UpdateConfigButton()
-	local RBRWidthDPE = ((E.MinimapSize - 6) / 7 + 4)
-	ElvConfigToggle:Width(RBRWidthDPE)
-end
-
 function SetupQuestTrackerPanel(top, bottom)
 	if QuestTrackerPanel == nil then 
 		qtpanel = CreateFrame('Frame', 'QuestTrackerPanel', E.UIParent)
