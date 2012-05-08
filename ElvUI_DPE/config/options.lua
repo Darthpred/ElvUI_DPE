@@ -1044,6 +1044,46 @@ E.Options.args.dpe.args.dbm = {
 	},
 }
 end
+
+--Movable Classbar
+if E.myclass == "DEATHKNIGHT" or E.myclass == "DRUID" or E.myclass == "PALADIN" or E.myclass == "SHAMAN" or E.myclass == "WARLOCK" then
+E.Options.args.dpe.args.classbar = {
+	type = "group",
+	name = L['Classbar'],
+	order = 7,
+	guiInline = true,
+	args = {
+		enable = {
+			order = 2,
+			type = 'toggle',
+			name = L['Enable offset'],
+			desc = L["Enable classbar movement"],
+			get = function(info) return E.db.classoffset.enable end,
+			set = function(info, value) E.db.classoffset.enable = value; UF:ClassbarMove() end, --UF:CreateAndUpdateUF('player') end,
+		},
+		xoffset = {
+			order = 2,
+			type = "range",
+			name = L['X Offset'],
+			desc = L['Sets X offset of the frame'],
+			disabled = function() return not E.db.classoffset.enable end,
+			min = -E.screenwidth, max = E.screenwidth, step = 1,
+			get = function(info) return E.db.classoffset.xoffset end,
+			set = function(info, value) E.db.classoffset.xoffset = value; UF:ClassbarMove() end, --UF:CreateAndUpdateUF('player') end,
+		},
+		yoffset = {
+			order = 3,
+			type = "range",
+			name = L['Y Offset'],
+			desc = L['Sets Y offset of the frame'],
+			disabled = function() return not E.db.dpe.classbar.enable end,
+			min = -E.screenheight, max = E.screenheight, step = 1,
+			get = function(info) return E.db.dpe.classbar.yoffset end,
+			set = function(info, value) E.db.dpe.classbar.yoffset = value; UF:CreateAndUpdateUF('player') end,
+		},
+	},
+}
+end
 		
 --Adds a new option group is character is a druid.
 if E.myclass == "DRUID" then
