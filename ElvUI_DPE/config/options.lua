@@ -159,45 +159,6 @@ E.Options.args.dpe = {
 				},
 			},
 		},
-		questtracker = {
-			type = "group",
-			name = L["Quest Tracker"],
-			order = 5,
-			guiInline = true,
-			args = {
-				qtbackdrop = {
-					order = 1,
-					type = "toggle",
-					name = L['Quest Tracker Backdrop'],
-					desc = L['Attaches a backdrop frame behind the quest tracker.'],
-					get = function(info) return E.global.dpe.questtracker.qtbackdrop end,
-					set = function(info, value) E.global.dpe.questtracker.qtbackdrop = value; StaticPopup_Show("CONFIG_RL") end
-				},
-				fontsize = {
-					order = 2,
-					type = "range",
-					name = L['Font Size'],
-					desc = L["Sets size of quest tracker's font"],
-					min = 6, max = 22, step = 1,
-					get = function(info) return E.global.dpe.questtracker.qtfontsize end,
-					set = function(info, value) E.global.dpe.questtracker.qtfontsize = value; StaticPopup_Show("CONFIG_RL") end,
-				},
-				fontoutline = {
-					order = 3,
-					name = L["Font Outline"],
-					desc = L["Set the font outline."],
-					type = "select",
-					values = {
-						[''] = L['None'],
-						['OUTLINE'] = 'OUTLINE',
-						['MONOCHROME'] = 'MONOCHROME',
-						['THICKOUTLINE'] = 'THICKOUTLINE',
-					},
-					get = function(info) return E.global.dpe.questtracker.qtfontflags end,
-					set = function(info, value) E.global.dpe.questtracker.qtfontflags = value; StaticPopup_Show("CONFIG_RL") end,
-				},
-			},
-		},
 	},
 }
 

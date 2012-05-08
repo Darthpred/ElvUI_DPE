@@ -86,17 +86,3 @@ function LO:CreateChatPanels()
 	RightChatTab:Point('TOPRIGHT', RightChatPanel, 'TOPRIGHT', -2, -2)
 	RightChatTab:Point('BOTTOMLEFT', RightChatPanel, 'TOPLEFT', 2, -PANEL_HEIGHT)
 end
-
-function SetupQuestTrackerPanel(top, bottom)
-	if QuestTrackerPanel == nil then 
-		qtpanel = CreateFrame('Frame', 'QuestTrackerPanel', E.UIParent)
-	else
-		qtpanel = QuestTrackerPanel
-	end
-    qtpanel:SetFrameStrata('BACKGROUND')
-	qtpanel:SetFrameLevel(0)
-    qtpanel:Width(E.UIParent:GetWidth() + (E.mult * 2))
-    qtpanel:Point("TOPLEFT", top, "TOPLEFT", -30, 10)
-    qtpanel:Point("BOTTOMRIGHT", bottom, "BOTTOMRIGHT", 20, -10)
-    qtpanel:SetTemplate('Transparent')
-end
