@@ -166,13 +166,6 @@ P['dpe'] = {
 	['petbar'] = {
 		['autocast'] = true,
 	},
-	
-	--[[Classbar offset
-	['classbar'] = {
-		['enable'] = false,
-		['xoffset'] = 0,
-		['yoffset'] = 0,
-	}]]
 }
 
 P['microbar'] = {
