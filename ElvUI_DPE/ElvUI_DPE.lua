@@ -5,7 +5,7 @@ local E, L, V, P, G =  unpack(ElvUI); --Engine, Locales, Profile, Global
 local DPE = E:NewModule('DPE', 'AceHook-3.0', 'AceEvent-3.0');
 
 function DPE:Initialize()
-	E.db.auras.perRow = 19 --Forcing more auras to show
+	--E.db.auras.perRow = 19 --Forcing more auras to show
 	
 	self:RegisterEvent("PLAYER_REGEN_DISABLED", "UpdateThings");
 	if E.db.general.loginmessage then
@@ -26,7 +26,7 @@ function E:UpdateAll()
 	E:GetModule('UIButtons'):Start()
 	E:GetModule('DPE'):BPUpdate()
 	
-	E.db.auras.perRow = 19 --Forcing more auras to show after profile change as long as it's profile based setting
+	--E.db.auras.perRow = 19 --Forcing more auras to show after profile change as long as it's profile based setting
 end
 
 E:RegisterModule(DPE:GetName())
