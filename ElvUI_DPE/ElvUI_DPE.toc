@@ -10,8 +10,8 @@
 ## DefaultState: Enabled
 
 ElvUI_DPE.lua
+libs\load_libs.xml
 locales\load_locales.xml
 modules\load_modules.xml
-layout\layout.lua
 config\load_config.xml
-libs\load_libs.xml
+layout\layout.lua
