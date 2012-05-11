@@ -15,5 +15,5 @@
 	<Include file='testui\load_testui.xml'/>
 	<Include file='uibuttons\load_uibuttons.xml'/>
 	<Include file='unitframes\load_unitframes.xml'/>
-	<!--<Script file='anchorpoints.lua'/>-->
+	<Script file='anchorpoints.lua'/>
 </Ui>
