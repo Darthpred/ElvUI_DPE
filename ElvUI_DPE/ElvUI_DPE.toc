@@ -12,6 +12,8 @@
 ElvUI_DPE.lua
 libs\load_libs.xml
 locales\load_locales.xml
+core\load_core.xml
+options.lua
 modules\load_modules.xml
 config\load_config.xml
 layout\layout.lua
