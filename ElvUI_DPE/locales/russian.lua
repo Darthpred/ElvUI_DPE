@@ -47,7 +47,7 @@ L["Combat Position"] = "Иконка боя"
 L['Set the point to show combat icon'] = "Устанавливает позицию индикатора боя."
 
 --Raid Marks
-L["Marks"] = "Метки"
+L["Raid Marks"] = "Рейдовые Метки"
 L["Show/Hide raid marks."] = "Показать/скрыть фрейм рейдовых меток."
 L['Sets size of buttons'] = "Устанавливает размер кнопок"
 L["Direction"] = "Направление"

@@ -53,7 +53,7 @@ L["Combat Position"] = true
 L['Set the point to show combat icon'] = true
 
 --Raid Marks
-L["Marks"] = true
+L["Raid Marks"] = true
 L["Show/Hide raid marks."] = true
 L['Sets size of buttons'] = true
 L["Direction"] = true
