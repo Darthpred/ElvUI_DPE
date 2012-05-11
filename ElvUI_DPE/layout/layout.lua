@@ -61,11 +61,6 @@ function LO:ToggleChatPanels()
 	end
 end
 
-function DTP:ChatResize()
-	LeftChatDataPanel:Point('TOPRIGHT', LeftChatPanel, 'BOTTOMRIGHT', -(E.db.general.panelWidth - E.db.dpe.datatext.chatleft.width), -1)
-	RightChatDataPanel:Point('BOTTOMLEFT', RightChatPanel, 'BOTTOMLEFT', E.db.general.panelWidth - E.db.dpe.datatext.chatright.width, -21)
-end
-
 LO.CreateChatPanelsDPE = LO.CreateChatPanels
 function LO:CreateChatPanels()
 	LO.CreateChatPanelsDPE(self)

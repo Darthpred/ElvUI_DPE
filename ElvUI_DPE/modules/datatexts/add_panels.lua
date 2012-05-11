@@ -97,6 +97,11 @@ function DTP:Resize()
 	E:GetModule('DataTexts'):UpdateAllDimensions()
 end
 
+function DTP:ChatResize()
+	LeftChatDataPanel:Point('TOPRIGHT', LeftChatPanel, 'BOTTOMRIGHT', -(E.db.general.panelWidth - E.db.dpe.datatext.chatleft.width), -1)
+	RightChatDataPanel:Point('BOTTOMLEFT', RightChatPanel, 'BOTTOMLEFT', E.db.general.panelWidth - E.db.dpe.datatext.chatright.width, -21)
+end
+
 --Showing panels
 function DTP:ExtraDataBarSetup()
 	if E.db.dpe.datatext.dp1.enabled then
