@@ -2,4 +2,5 @@
 	<Script file='version.lua'/>
 	<Script file='time.lua'/>
 	<Script file='add_panels.lua'/>
+	<Script file='options.lua'/>
 </Ui>
