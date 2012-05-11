@@ -58,7 +58,7 @@ local microbuttons = {
 --Setting loacle shortnames and on update script for mouseover/alpha (can't get rid of using it at the moment)
 function MB:SetNames()
 	microbar = CreateFrame('Frame', "MicroParent", E.UIParent); --Setting a main frame for Menu
-	microbarcontrol = CreateFrame('Frame', "MicroControl", E.UIParent); --Setting Control Fraqme to handle events
+	microbarcontrol = CreateFrame('Frame', "MicroControl", E.UIParent); --Setting Control Frame to handle events
 	
 	CharB = CharacterMicroButton
 	SpellB = SpellbookMicroButton
