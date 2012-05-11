@@ -74,15 +74,15 @@ P['dpe'] = {
 			['width'] = E.screenwidth/5,
 		},	
 		['dp5'] = {
-			['enabled'] = false,
+			['enabled'] = true,
 			['width'] = E.screenwidth/4 - 60,
 		},	
 		['bottom'] = {
-			['enabled'] = false,
+			['enabled'] = true,
 			['width'] = E.screenwidth/10 - 4,
 		},
 		['dp6'] = {
-			['enabled'] = false,
+			['enabled'] = true,
 			['width'] = E.screenwidth/4 - 60,
 		},
 		['chatleft'] = {
