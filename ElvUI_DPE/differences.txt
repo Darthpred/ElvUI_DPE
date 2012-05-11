@@ -18,3 +18,9 @@ Smart Raid filter is now disabled by default
 Health bars are now class colored instead ov value colored by default
 Names are now not class colored by default
 
+--Actionbars
+Default positions are now 21 pixel higher
+Stanse bar is now over left chat by default
+
+--Unitframes
+Default positions are now little higher
