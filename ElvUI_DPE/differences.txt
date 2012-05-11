@@ -1,11 +1,11 @@
 --General
 Vendor Grays is now enabled by default
-Fint Size is now 10 by default
+Font Size is now 10 by default
 Sticky Frames are now disabled by default (I hope)
 
 --Nameplates
 Health values are now shown by default
-Ypour debuffs are now shown by default
+Your debuffs are now shown by default
 
 --Auras
 Number per row is now set in defaults instead of dpe main lua
