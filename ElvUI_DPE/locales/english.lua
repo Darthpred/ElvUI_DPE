@@ -190,12 +190,14 @@ L['ELVUI_DPE_CODERS'] = [=[Benik - core of exp/rep bars' text
 Catok - Test UI feature
 Repooc - core of auto release feature, some ideas, testing
 Tukz - helping with oUF
+Elv - for making creation of this edit much easier
 Pvtschlag - Necrotic Strike oUF plugin
 Blazeflack - helping hooking, modules and profiles
 Camealion - teaching me the art of skining
 Swordyy - idea of ui buttons
 Rushty@EU-Alexstrasza - core of quest tracker skining
 Azilroka@US-Daggerspine - core of ExtVendor and Altoholic skins
+Pat - skinning options dropdowns and checkboxes missed by Elv
 ]=]
 L['Other support:'] = true
 L['ELVUI_DPE_MISC'] = [=[BuG - brining fun to the chat while i was writing this
