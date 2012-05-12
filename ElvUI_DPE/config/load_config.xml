@@ -1,5 +1,4 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">	
 	<Script file="profile.lua"/>
 	<Script file="dpe_global.lua"/>
-	<Script file="options.lua"/>
 </Ui>
