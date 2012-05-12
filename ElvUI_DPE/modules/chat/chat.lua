@@ -51,8 +51,8 @@ local strfind = string.find
 local format = string.format
 local strlower = string.lower
 local Wrapper = "|cff71D5FF[%s]|r"
-local MyName = GetUnitName('player') --gsub(UnitName("player"), "%u", strlower, 1)
-local NameList = {MyName, "Ваззули", "Repooc", "Repøøc", "Sliceoflife", "Junbao", "Rovert", "Dapooc"}
+local MyName = gsub(UnitName("player"), "%u", strlower, 1)
+local NameList = {MyName, "Дартпредатор", "Дарт", "Дартэ", "Пред", "Darth", "Darthpred"}
 
 -- Finding our name in a URL breaks the hyperlink, so check & exclude them
 local FindURL = function(msg)
@@ -67,20 +67,19 @@ local FindURL = function(msg)
 end
 
 local FindMyName = function(self, event, message, author, ...)
-	local msg = strlower(message)
-
+	if not E.db.dpe.chat.namehighlight then return end
 	for i = 1, #NameList do
-		if strfind(msg, NameList[i]) then
-			local Start, Stop = strfind(msg, NameList[i])
+		if strfind(message, NameList[i]) then
+			local Start, Stop = strfind(message, NameList[i])
 			local Name = strsub(message, Start, Stop)
 			local Link = FindURL(message)
 
 			if (not Link) or (Link and not strfind(Link, Name)) then
-				-- PlaySoundFile(E.media.whispersound, "Master")
+				if E.db.dpe.chat.sound then
+					PlaySoundFile(LSM:Fetch("sound", E.db.dpe.chat.warningsound));
+				end
 				return false, gsub(message, Name, format(Wrapper, Name)), author, ...
 			end
-		else
-			print("1")
 		end
 	end
 end

@@ -135,6 +135,9 @@ P['dpe'] = {
 	
 	['chat'] = {
 		['fade'] = false,
+		['namehighlight'] = false,
+		['sound'] = true,
+		['warningsound'] = "ElvUI Warning",
 	},
 }
 

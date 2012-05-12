@@ -1,6 +1,7 @@
 ﻿local E, L, V, P, G =  unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 local UF = E:GetModule('UnitFrames')
 local AB = E:GetModule('ActionBars')
+local CH = E:GetModule('Chat')
 
 local positionValues = {
 	TOPLEFT = 'TOPLEFT',
