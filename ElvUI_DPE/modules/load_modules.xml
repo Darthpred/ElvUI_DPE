@@ -12,7 +12,6 @@
 	<Include file='microbar\load_microbar.xml'/>
 	<Include file='raidutility\load_raidutility.xml'/>
 	<Include file='skins\load_skins.xml'/>
-	<Include file='testui\load_testui.xml'/>
 	<Include file='uibuttons\load_uibuttons.xml'/>
 	<Include file='unitframes\load_unitframes.xml'/>
 	<Script file='anchorpoints.lua'/>
