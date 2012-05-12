@@ -52,7 +52,7 @@ local format = string.format
 local strlower = string.lower
 local Wrapper = "|cff71D5FF[%s]|r"
 local MyName = gsub(UnitName("player"), "%u", strlower, 1)
-local NameList = {MyName, "Дартпредатор", "Дарт", "Дартэ", "Пред", "Darth", "Darthpred"}
+local NameList = {MyName, "Дартпредатор", "Дарт", "Дартэ", "Пред", "Darthpred", "Darth"}
 
 -- Finding our name in a URL breaks the hyperlink, so check & exclude them
 local FindURL = function(msg)
@@ -68,9 +68,12 @@ end
 
 local FindMyName = function(self, event, message, author, ...)
 	if not E.db.dpe.chat.namehighlight then return end
+	local msg = strlower(message)
+
 	for i = 1, #NameList do
-		if strfind(message, NameList[i]) then
-			local Start, Stop = strfind(message, NameList[i])
+		local lowName = strlower(NameList[i])
+		if strfind(msg, lowName) then
+			local Start, Stop = string.find(msg, lowName)
 			local Name = strsub(message, Start, Stop)
 			local Link = FindURL(message)
 
