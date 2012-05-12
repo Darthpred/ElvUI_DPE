@@ -132,6 +132,10 @@ P['dpe'] = {
 	['petbar'] = {
 		['autocast'] = true,
 	},
+	
+	['chat'] = {
+		['fade'] = false,
+	},
 }
 
 P['microbar'] = {
@@ -188,6 +192,8 @@ P['general'] = {
 	['minimapPanels'] = true,
 	['tinyWorldMap'] = true,
 };
+
+P.chat.editboxhistory = 5
 
 P.nameplate.showhealth = true
 P.nameplate.trackauras = true

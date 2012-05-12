@@ -1,6 +1,43 @@
 ﻿local E, L, V, P, G =  unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 local CH = E:GetModule('Chat')
 
+function CH:FadeUpdate()
+	for _, frameName in pairs(CHAT_FRAMES) do
+		local frame = _G[frameName]
+	CH:StyleChat(frame)
+	end
+end
+
+CH.StyleChatRE = CH.StyleChat
+function CH:StyleChat(frame)
+	self:StyleChatRE(frame)
+	local name = frame:GetName()
+	if E.db.dpe.chat.fade then
+		_G[name]:SetFading(true) --Enable chat text fading after some time
+	else
+		_G[name]:SetFading(false) --Disable chat text fading after some time
+	end
+end
+
+function CH:ChatEdit_AddHistory(editBox, line)
+	if line:find("/rl") then return; end
+
+	if ( strlen(line) > 0 ) then
+		for i, text in pairs(ElvCharacterData.ChatEditHistory) do
+			if text == line then
+				return
+			end
+		end
+
+		table.insert(ElvCharacterData.ChatEditHistory, #ElvCharacterData.ChatEditHistory + 1, line)
+		if #ElvCharacterData.ChatEditHistory > E.db.chat.editboxhistory then
+			for i=1,(#ElvCharacterData.ChatEditHistory - E.db.chat.editboxhistory) do
+				table.remove(ElvCharacterData.ChatEditHistory, 1)
+			end
+		end
+	end
+end
+
 --Replacement of chat tab position and size function
 function CH:PositionChat(override)
 	if (InCombatLockdown() and not override and self.initialMove) or (IsMouseButtonDown("LeftButton") and not override) then return end
