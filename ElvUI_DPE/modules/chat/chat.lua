@@ -1,5 +1,6 @@
 ﻿local E, L, V, P, G =  unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 local CH = E:GetModule('Chat')
+local LSM = LibStub("LibSharedMedia-3.0")
 
 function CH:FadeUpdate()
 	for _, frameName in pairs(CHAT_FRAMES) do
@@ -37,6 +38,60 @@ function CH:ChatEdit_AddHistory(editBox, line)
 		end
 	end
 end
+
+-------------------------------------------------------
+-- Highlight your own name when someone mentions you
+-- Credit: Hydra
+-- Todo: Add some options for it later
+-------------------------------------------------------
+local string = string
+local gsub = string.gsub
+local strsub = string.sub
+local strfind = string.find
+local format = string.format
+local strlower = string.lower
+local Wrapper = "|cff71D5FF[%s]|r"
+local MyName = GetUnitName('player') --gsub(UnitName("player"), "%u", strlower, 1)
+local NameList = {MyName, "Ваззули", "Repooc", "Repøøc", "Sliceoflife", "Junbao", "Rovert", "Dapooc"}
+
+-- Finding our name in a URL breaks the hyperlink, so check & exclude them
+local FindURL = function(msg)
+	local NewString, Found = gsub(msg, "(%a+)://(%S+)%s?", "%1://%2")
+	if Found > 0 then return NewString end
+
+	NewString, Found = gsub(msg, "www%.([_A-Za-z0-9-]+)%.(%S+)%s?", "www.%1.%2")
+	if Found > 0 then return NewString end
+
+	NewString, Found = gsub(msg, "([_A-Za-z0-9-%.]+)@([_A-Za-z0-9-]+)(%.+)([_A-Za-z0-9-%.]+)%s?", "%1@%2%3%4")
+	if Found > 0 then return NewString end
+end
+
+local FindMyName = function(self, event, message, author, ...)
+	local msg = strlower(message)
+
+	for i = 1, #NameList do
+		if strfind(msg, NameList[i]) then
+			local Start, Stop = strfind(msg, NameList[i])
+			local Name = strsub(message, Start, Stop)
+			local Link = FindURL(message)
+
+			if (not Link) or (Link and not strfind(Link, Name)) then
+				-- PlaySoundFile(E.media.whispersound, "Master")
+				return false, gsub(message, Name, format(Wrapper, Name)), author, ...
+			end
+		else
+			print("1")
+		end
+	end
+end
+
+ChatFrame_AddMessageEventFilter("CHAT_MSG_GUILD", FindMyName)
+ChatFrame_AddMessageEventFilter("CHAT_MSG_PARTY", FindMyName)
+ChatFrame_AddMessageEventFilter("CHAT_MSG_PARTY_LEADER", FindMyName)
+ChatFrame_AddMessageEventFilter("CHAT_MSG_RAID", FindMyName)
+ChatFrame_AddMessageEventFilter("CHAT_MSG_RAID_LEADER", FindMyName)
+ChatFrame_AddMessageEventFilter("CHAT_MSG_BATTLEGROUND", FindMyName)
+ChatFrame_AddMessageEventFilter("CHAT_MSG_BATTLEGROUND_LEADER", FindMyName)
 
 --Replacement of chat tab position and size function
 function CH:PositionChat(override)
