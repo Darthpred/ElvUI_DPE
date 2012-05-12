@@ -133,11 +133,14 @@ P['dpe'] = {
 		['autocast'] = true,
 	},
 	
+	--Chat
 	['chat'] = {
 		['fade'] = false,
 		['namehighlight'] = false,
 		['sound'] = true,
 		['warningsound'] = "ElvUI Warning",
+		['name1'] = "",
+		['name2'] = "",
 	},
 }
 

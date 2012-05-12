@@ -68,6 +68,34 @@ E.Options.args.dpe.args.chat = {
 					get = function(info) return E.db.dpe.chat.warningsound end,
 					set = function(info, value) E.db.dpe.chat.warningsound = value; end		
 				},
+			--Block for names
+			namelist = {
+				order = 4,
+				type = "group",
+				name = L["List of additional names"],
+				guiInline = true,
+				disabled = function() return not E.db.dpe.chat.namehighlight end,
+					args = {
+						first = {
+							order = 1,
+							type = 'input',
+							width = '60',
+							name = L["Alternative Name"],
+							desc = L["Set alternative name to use in warnings on par with your character name."],
+							get = function(info) return E.db.dpe.chat.name1 end,
+							set = function(info, value) E.db.dpe.chat.name1 = value; CH:NamesListUpdate() end,
+						},
+						second = {
+							order = 2,
+							type = 'input',
+							width = '60',
+							name = L["Alternative Name"],
+							desc = L["Set alternative name to use in warnings on par with your character name."],
+							get = function(info) return E.db.dpe.chat.name2 end,
+							set = function(info, value) E.db.dpe.chat.name2 = value; CH:NamesListUpdate() end,
+						},
+					},
+				},
 			},
 		},
 	},

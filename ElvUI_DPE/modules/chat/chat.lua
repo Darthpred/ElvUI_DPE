@@ -52,7 +52,13 @@ local format = string.format
 local strlower = string.lower
 local Wrapper = "|cff71D5FF[%s]|r"
 local MyName = gsub(UnitName("player"), "%u", strlower, 1)
-local NameList = {MyName, "Дартпредатор", "Дарт", "Дартэ", "Пред", "Darthpred", "Darth"}
+local NameList
+function CH:NamesListUpdate()
+	if E.db.dpe.chat.name1 == nil then E.db.dpe.chat.name1 = "" end
+	if E.db.dpe.chat.name2 == nil then E.db.dpe.chat.name2 = "" end
+	NameList = {MyName, E.db.dpe.chat.name1, E.db.dpe.chat.name2}
+end
+CH:NamesListUpdate()
 
 -- Finding our name in a URL breaks the hyperlink, so check & exclude them
 local FindURL = function(msg)
@@ -72,7 +78,7 @@ local FindMyName = function(self, event, message, author, ...)
 
 	for i = 1, #NameList do
 		local lowName = strlower(NameList[i])
-		if strfind(msg, lowName) then
+		if strfind(msg, lowName) and lowName ~= "" then
 			local Start, Stop = string.find(msg, lowName)
 			local Name = strsub(message, Start, Stop)
 			local Link = FindURL(message)
