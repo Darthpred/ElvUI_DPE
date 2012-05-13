@@ -44,7 +44,7 @@ function CH:DeleteName()
 end
 
 E.Options.args.dpe.args.chat = {
-	order = 300,
+	order = 8,
 	type = "group",
 	name = L["Chat"],
 	args = {
@@ -62,8 +62,8 @@ E.Options.args.dpe.args.chat = {
 				chatwindowfade = {
 					order = 1,
 					type = "toggle",
-					name = L["Enable/Disable Chat Fade"],
-					desc = L["You can enable/disable the text fading in the chat window."],
+					name = L["Chat Fade"],
+					desc = L["Enable/disable the text fading in the chat window."],
 					get = function(info) return E.db.dpe.chat.fade end,
 					set = function(info, value) E.db.dpe.chat.fade = value; CH:FadeUpdate() end, --StaticPopup_Show("CONFIG_RL") end,
 				},
@@ -87,7 +87,7 @@ E.Options.args.dpe.args.chat = {
 				info = {
 					order = 1,
 					type = "description",
-					name = L["The options for highlighting and sound warning if someone mentions your name in chat. Names are stored character-based, so you can have different names lists on different characters"],
+					name = L["TOON_DESC"],
 				},
 				enable = {
 					order = 2,
@@ -119,6 +119,7 @@ E.Options.args.dpe.args.chat = {
 					type = 'input',
 					order = 5,
 					name = L['Add Name'],
+					desc = L["Add a name different from your current character's to be looked for"],
 					get = function(info) return "" end,
 					set = function(info, value) 
 						E.Options.args.dpe.args.chat.args.nameGroup = nil

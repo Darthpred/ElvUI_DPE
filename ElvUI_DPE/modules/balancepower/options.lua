@@ -3,7 +3,7 @@
 --Adds a new option group is character is a druid.
 if E.myclass == "DRUID" then
 E.Options.args.dpe.args.druid = {
-	order = 50,
+	order = 15,
 	type = 'group',
 	name = L["Druid"],
 	args = {

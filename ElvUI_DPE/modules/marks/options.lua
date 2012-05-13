@@ -3,7 +3,7 @@ local RM = E:GetModule('RaidMarks')
 
 --Main options group
 E.Options.args.dpe.args.marks = {
-	order = 4,
+	order = 5,
 	type = "group",
 	name = L["Raid Marks"],
 	--guiInline = true,

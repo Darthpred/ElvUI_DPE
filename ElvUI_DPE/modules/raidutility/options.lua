@@ -3,7 +3,7 @@ local RU = E:GetModule('RaidUtility')
 
 --Raid Utility
 E.Options.args.dpe.args.raidutil = {
-	order = 5,
+	order = 10,
 	type = 'group',
 	name = L["Raid Utility"],
 	args = {

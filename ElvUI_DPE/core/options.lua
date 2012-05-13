@@ -6,7 +6,7 @@ local CH = E:GetModule('Chat')
 --Main options group
 E.Options.args.dpe = {
 	type = "group",
-    name = L["Additional options"],
+    name = L["Darth Predator's Edit"],
     order = 50,
    	args = {
 		header = {
@@ -49,45 +49,6 @@ E.Options.args.dpe = {
 					desc = L['Show/hide tringles in corners of autocastable buttons.'],
 					get = function(info) return E.db.dpe.petbar.autocast end,
 					set = function(info, value) E.db.dpe.petbar.autocast = value; AB:UpdatePet() end
-				},
-			},
-		},
-		marks = {
-			order = 4,
-			type = "group",
-			name = L["Marks"],
-			guiInline = true,
-			args = {
-				enabled = {
-					order = 1,
-					type = "toggle",
-					name = L["Enable"],
-					desc = L["Show/Hide raid marks."],
-					get = function(info) return E.db.dpe.marks.enabled end,
-					set = function(info, value) E.db.dpe.marks.enabled = value; RM:UpdateVisibility() end
-				},
-				size = {
-					order = 2,
-					type = "range",
-					name = L['Size'],
-					desc = L['Sets size of buttons'],
-					min = 15, max = 30, step = 1,
-					get = function(info) return E.db.dpe.marks.size end,
-					set = function(info, value) E.db.dpe.marks.size = value; RM:FrameButtonsGrowth(); RM:FrameButtonsSize() end,
-				},
-				growth = {
-					order = 3,
-					type = "select",
-					name = L["Direction"],
-					desc = L['Change the direction of buttons growth from "skull" mark'],
-					get = function(info) return E.db.dpe.marks.growth end,
-					set = function(info, value) E.db.dpe.marks.growth = value; RM:FrameButtonsGrowth() end,
-					values = {
-						['RIGHT'] = L["Right"],
-						['LEFT'] = L["Left"],
-						['UP'] = L["Up"],
-						['DOWN'] = L["Down"],
-					},
 				},
 			},
 		},

@@ -16,17 +16,17 @@ local positionValues = {
 E.Options.args.dpe.args.unitframes = {
 	type = "group",
 	name = L["UnitFrames"],
-	order = 6,
+	order = 1,
 	args = {
 		header = {
 			order = 1,
 			type = "header",
-			name = L["Additional menu with useful buttons"],
+			name = L["Additional unit frames options"],
 		},
 		info = {
 			order = 2,
 			type = "description",
-			name = L["Options for customizing unit frames. Please don't change these setting when ElvUI's testing frames for bosses and arena teams are shown. That will make them invisible."],
+			name = L["Options for customizing unit frames. Please don't change these setting when ElvUI's testing frames for bosses and arena teams are shown. That will make them invisible until retoggling."],
 		},
 		health = {
 			type = "group",

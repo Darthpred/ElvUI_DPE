@@ -7,7 +7,7 @@ E.Options.args.dpe.args.microbar = {
     name = L["Microbar"],
     get = function(info) return E.db.microbar[ info[#info] ] end,
     set = function(info, value) E.db.microbar[ info[#info] ] = value; end, 
-	order = 50,
+	order = 4,
    	args = {
 		intro = {
 			order = 1,

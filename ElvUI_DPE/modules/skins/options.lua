@@ -1,7 +1,7 @@
 ﻿local E, L, V, P, G =  unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 
 E.Options.args.dpe.args.skins = {
-	order = 3,
+	order = 7,
 	type = "group",
 	name = L["Skins"],
 	args = {
@@ -15,7 +15,7 @@ E.Options.args.dpe.args.skins = {
 					order = 2,
 					type = "range",
 					name = L['Font Size'],
-					desc = L["Sets size on DBM bars"],
+					desc = L["Sets font size on DBM bars"],
 					min = 8, max = 14, step = 1,
 					get = function(info) return E.private.dpe.dbm.size end,
 					set = function(info, value) E.private.dpe.dbm.size = value; StaticPopup_Show("PRIVATE_RL") end,
