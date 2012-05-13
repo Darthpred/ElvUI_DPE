@@ -13,7 +13,7 @@ function A:StyleBuffs(buttonName, index, debuff)
 		icon:Point("TOPLEFT", buff, 2, -2)
 		icon:Point("BOTTOMRIGHT", buff, -2, 2)
 		
-		buff:Size(E.global.dpe.auras.size)
+		buff:Size(E.private.dpe.auras.size)
 		--buff:Size(35)
 				
 		duration:ClearAllPoints()
