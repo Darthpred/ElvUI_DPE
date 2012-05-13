@@ -3,18 +3,6 @@ local UF = E:GetModule('UnitFrames')
 local AB = E:GetModule('ActionBars')
 local CH = E:GetModule('Chat')
 
-local positionValues = {
-	TOPLEFT = 'TOPLEFT',
-	LEFT = 'LEFT',
-	BOTTOMLEFT = 'BOTTOMLEFT',
-	RIGHT = 'RIGHT',
-	TOPRIGHT = 'TOPRIGHT',
-	BOTTOMRIGHT = 'BOTTOMRIGHT',
-	CENTER = 'CENTER',
-	TOP = 'TOP',
-	BOTTOM = 'BOTTOM',
-};
-
 --Main options group
 E.Options.args.dpe = {
 	type = "group",
@@ -49,10 +37,10 @@ E.Options.args.dpe = {
 					order = 3,
 					type = "range",
 					name = L['Aura Size'],
-					desc = L['Sets size of auras.\n|cffFF0000This is global setting and will affect all your profiles.|r'],
+					desc = L['Sets size of auras. This setting is character based.'],
 					min = 20, max = 50, step = 1,
-					get = function(info) return E.global.dpe.auras.size end,
-					set = function(info, value) E.global.dpe.auras.size = value; StaticPopup_Show("GLOBAL_RL") end,
+					get = function(info) return E.private.dpe.auras.size end,
+					set = function(info, value) E.private.dpe.auras.size = value; StaticPopup_Show("PRIVATE_RL") end,
 				},
 				petautocast = {
 					order = 5,
@@ -100,40 +88,6 @@ E.Options.args.dpe = {
 						['UP'] = L["Up"],
 						['DOWN'] = L["Down"],
 					},
-				},
-			},
-		},
-		indicators = {
-			order = 4,
-			type = "group",
-			name = L["Player Frame Indicators"],
-			guiInline = true,
-			args = {
-				pvpmouse = {
-					order = 1,
-					type = "toggle",
-					name = L["PvP text on mouse over"],
-					desc = L['Show PvP text on mouse over player frame.'],
-					get = function(info) return E.db.dpe.pvp.mouse end,
-					set = function(info, value) E.db.dpe.pvp.mouse = value; end,
-				},
-				pvp = {
-					order = 3,
-					type = "select",
-					name = L["PvP Position"],
-					desc = L['Set the point to show pvp text'],
-					get = function(info) return E.db.dpe.pvp.pos end,
-					set = function(info, value) E.db.dpe.pvp.pos = value; end,
-					values = positionValues
-				},
-				combatico = {
-					order = 4,
-					type = "select",
-					name = L["Combat Position"],
-					desc = L['Set the point to show combat icon'],
-					get = function(info) return E.db.dpe.combatico.pos end,
-					set = function(info, value) E.db.dpe.combatico.pos = value; UF:Update_CombatIndicator() end,
-					values = positionValues
 				},
 			},
 		},

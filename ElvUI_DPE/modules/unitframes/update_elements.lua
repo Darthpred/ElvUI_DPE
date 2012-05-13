@@ -14,102 +14,194 @@ function UF:GetInfoText(frame, unit, r, g, b, min, max, reverse, type)
 	end
 	
 	if reverse then
-		if type == 'health' then
+		if type == 'health' then --Health for Target frames
 			if db[type].text_format == 'current-percent' then
 				if min ~= max then
-					value = format("|cff%02x%02x%02x%.1f%%|r |cffD7BEA5-|r |cffAF5050%s|r", r * 255, g * 255, b * 255, format("%.1f", min / max * 100), E:ShortValue(min))
+					if E.db.dpe.unitframes.reverse.health then
+						value = format("|cff%02x%02x%02x%.2f%%|r |cffD7BEA5-|r |cffAF5050%s|r", r * 255, g * 255, b * 255, format("%.2f", min / max * 100), min)
+					else
+						value = format("|cff%02x%02x%02x%.2f%%|r |cffD7BEA5-|r |cffAF5050%s|r", r * 255, g * 255, b * 255, format("%.2f", min / max * 100), E:ShortValue(min))
+					end	
 				else
-					value = format("|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, E:ShortValue(max))	
+					if E.db.dpe.unitframes.reverse.health then
+						value = format("|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, max)
+					else
+						value = format("|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, E:ShortValue(max))
+					end
 				end
 			elseif db[type].text_format == 'current-max' then
 				if min == max then
-					value = format("|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, E:ShortValue(max))	
+					if E.db.dpe.unitframes.reverse.health then
+						value = format("|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, max)
+					else
+						value = format("|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, E:ShortValue(max))
+					end		
 				else
-					value = format("|cff%02x%02x%02x%s|r |cffD7BEA5-|r |cffAF5050%s|r", r * 255, g * 255, b * 255, E:ShortValue(max), E:ShortValue(min))
+					if E.db.dpe.unitframes.reverse.health then
+						value = format("|cff%02x%02x%02x%s|r |cffD7BEA5-|r |cffAF5050%s|r", r * 255, g * 255, b * 255, max, min)
+					else
+						value = format("|cff%02x%02x%02x%s|r |cffD7BEA5-|r |cffAF5050%s|r", r * 255, g * 255, b * 255, E:ShortValue(max), E:ShortValue(min))
+					end	
 				end
 			elseif db[type].text_format == 'current' then
-				value = format("|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, E:ShortValue(min))	
+				if E.db.dpe.unitframes.reverse.health then
+					value = format("|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, min)
+				else
+					value = format("|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, E:ShortValue(min))
+				end	
 			elseif db[type].text_format == 'percent' then
-				value = format("|cff%02x%02x%02x%.1f%%|r", r * 255, g * 255, b * 255, format("%.1f", min / max * 100))
+				value = format("|cff%02x%02x%02x%.2f%%|r", r * 255, g * 255, b * 255, format("%.2f", min / max * 100))
 			elseif db[type].text_format == 'deficit' then
 				if min == max then
 					value = ""
-				else			
-					value = format("|cffAF5050-|r|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, E:ShortValue(max - min))
+				else	
+					if E.db.dpe.unitframes.reverse.health then
+						value = format("|cffAF5050-|r|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, max - min)
+					else
+						value = format("|cffAF5050-|r|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, E:ShortValue(max - min))
+					end	
 				end
 			end	
-		else
-			if db[type].text_format == 'current-percent' then
+		else --Mana for Player, Boss, Arena, party, raid frames
+			if db[type].text_format == 'current-percent' then --
 				if min ~= max then
-					value = format("%d%% |cffD7BEA5-|r %s", floor(min / max * 100), min)
+					if E.db.dpe.unitframes.reverse.mana then
+						value = format("%.2f%% |cffD7BEA5-|r %s", format("%.2f", min / max * 100), min)
+					else
+						value = format("%.2f%% |cffD7BEA5-|r %s", format("%.2f", min / max * 100), E:ShortValue(min))
+					end
 				else
 					value = format("%s", max)	
 				end
-			elseif db[type].text_format == 'current-max' then
+			elseif db[type].text_format == 'current-max' then --
 				if min == max then
-					value = format("%s", E:ShortValue(max))	
+					if E.db.dpe.unitframes.reverse.mana then
+						value = format("%s", max)
+					else
+						value = format("%s", E:ShortValue(max))	
+					end
 				else
-					value = format("%s |cffD7BEA5-|r %s", E:ShortValue(max), E:ShortValue(min))
+					if E.db.dpe.unitframes.reverse.mana then
+						value = format("%s |cffD7BEA5-|r %s", max, min)
+					else
+						value = format("%s |cffD7BEA5-|r %s", E:ShortValue(max), E:ShortValue(min))
+					end
 				end
-			elseif db[type].text_format == 'current' then
-				value = format("%s", min)	
-			elseif db[type].text_format == 'percent' then
-				value = format("%d%%", floor(min / max * 100))
-			elseif db[type].text_format == 'deficit' then
+			elseif db[type].text_format == 'current' then --
+				if E.db.dpe.unitframes.reverse.mana then
+					value = format("%s", min)
+				else
+					value = format("%s", E:ShortValue(min))	
+				end	
+			elseif db[type].text_format == 'percent' then --
+				value = format("%.2f%%", format("%.2f", min / max * 100))
+			elseif db[type].text_format == 'deficit' then --
 				if min == max then
 					value = ""
-				else			
-					value = format("|cffAF5050-|r%s", E:ShortValue(max - min))
+				else
+					if E.db.dpe.unitframes.reverse.mana then
+						value = format("|cffAF5050-|r%s", max - min)
+					else
+						value = format("|cffAF5050-|r%s", E:ShortValue(max - min))
+					end
 				end
 			end			
 		end
 	else
-		if type == 'health' then
+		if type == 'health' then --Health for player, focus, focus target, target of target, party, boss, arena, raid frames
 			if db[type].text_format == 'current-percent' then
 				if min ~= max then
-					value = format("|cffAF5050%s|r |cffD7BEA5-|r |cff%02x%02x%02x%.1f%%|r", min, r * 255, g * 255, b * 255, format("%.1f", min / max * 100))
+					if E.db.dpe.unitframes.normal.health then
+						value = format("|cffAF5050%s|r |cffD7BEA5-|r |cff%02x%02x%02x%.2f%%|r", min, r * 255, g * 255, b * 255, format("%.2f", min / max * 100))
+					else
+						value = format("|cffAF5050%s|r |cffD7BEA5-|r |cff%02x%02x%02x%.2f%%|r", E:ShortValue(min), r * 255, g * 255, b * 255, format("%.2f", min / max * 100))	
+					end	
 				else
-					value = format("|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, max)
+					if E.db.dpe.unitframes.normal.health then
+						value = format("|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, max)
+					else
+						value = format("|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, E:ShortValue(max))
+					end
 				end
 			elseif db[type].text_format == 'current-max' then
 				if min == max then
-					value = format("|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, E:ShortValue(max))	
+					if E.db.dpe.unitframes.normal.health then
+						value = format("|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, max)					
+					else
+						value = format("|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, E:ShortValue(max))
+					end
 				else
-					value = format("|cffAF5050%s|r |cffD7BEA5-|r |cff%02x%02x%02x%s|r", E:ShortValue(min), r * 255, g * 255, b * 255, E:ShortValue(max))
+					if E.db.dpe.unitframes.normal.health then
+						value = format("|cffAF5050%s|r |cffD7BEA5-|r |cff%02x%02x%02x%s|r", min, r * 255, g * 255, b * 255, max)					
+					else
+						value = format("|cffAF5050%s|r |cffD7BEA5-|r |cff%02x%02x%02x%s|r", E:ShortValue(min), r * 255, g * 255, b * 255, E:ShortValue(max))					
+					end
 				end
 			elseif db[type].text_format == 'current' then
-				value = format("|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, E:ShortValue(min))	
+				if E.db.dpe.unitframes.normal.health then
+					value = format("|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, min)
+				else
+					value = format("|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, E:ShortValue(min))					
+				end
 			elseif db[type].text_format == 'percent' then
-				value = format("|cff%02x%02x%02x%.1f%%|r", r * 255, g * 255, b * 255, format("%.1f", min / max * 100))
+				value = format("|cff%02x%02x%02x%.2f%%|r", r * 255, g * 255, b * 255, format("%.2f", min / max * 100))
 			elseif db[type].text_format == 'deficit' then
 				if min == max then
 					value = ""
-				else			
-					value = format("|cffAF5050-|r|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, E:ShortValue(max - min))
+				else
+					if E.db.dpe.unitframes.normal.health then
+						value = format("|cffAF5050-|r|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, max - min)					
+					else
+						value = format("|cffAF5050-|r|cff%02x%02x%02x%s|r", r * 255, g * 255, b * 255, E:ShortValue(max - min))					
+					end
 				end
 			end
-		else
+		else --Mana for Target of target, focus, focus target
 			if db[type].text_format == 'current-percent' then
 				if min ~= max then
-					value = format("%s |cffD7BEA5-|r %d%%", min, floor(min / max * 100))
+					if E.db.dpe.unitframes.normal.mana then
+						value = format("%s |cffD7BEA5-|r %.2f%%", min, format("%.2f", min / max * 100))
+					else
+						value = format("%s |cffD7BEA5-|r %.2f%%", E:ShortValue(min), format("%.2f", min / max * 100))
+					end
 				else
-					value = format("%s", max)
+					if E.db.dpe.unitframes.normal.mana then
+						value = format("%s", max)
+					else
+						value = format("%s", E:ShortValue(max))
+					end
 				end
 			elseif db[type].text_format == 'current-max' then
 				if min == max then
-					value = format("%s", E:ShortValue(max))	
+					if E.db.dpe.unitframes.normal.mana then
+						value = format("%s", max)
+					else
+						value = format("%s", E:ShortValue(max))
+					end
 				else
-					value = format("%s |cffD7BEA5-|r %s", E:ShortValue(min), E:ShortValue(max))
+					if E.db.dpe.unitframes.normal.mana then
+						value = format("%s |cffD7BEA5-|r %s", min, max)
+					else
+						value = format("%s |cffD7BEA5-|r %s", E:ShortValue(min), E:ShortValue(max))
+					end
 				end
 			elseif db[type].text_format == 'current' then
-				value = format("%s", min)	
+				if E.db.dpe.unitframes.normal.mana then
+					value = format("%s", min)
+				else
+					value = format("%s", E:ShortValue(min))	
+				end	
 			elseif db[type].text_format == 'percent' then
-				value = format("%d%%", floor(min / max * 100))
+				value = format("%.2f%%", format("%.2f", min / max * 100))
 			elseif db[type].text_format == 'deficit' then
 				if min == max then
 					value = ""
-				else			
-					value = format("|cffAF5050-|r%s", E:ShortValue(max - min))
+				else
+					if E.db.dpe.unitframes.normal.mana then
+						value = format("|cffAF5050-|r%s", max - min)
+					else
+						value = format("|cffAF5050-|r%s", E:ShortValue(max - min))
+					end
 				end
 			end		
 		end

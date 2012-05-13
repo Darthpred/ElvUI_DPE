@@ -142,6 +142,18 @@ P['dpe'] = {
 		['name1'] = "",
 		['name2'] = "",
 	},
+	
+	--Unit Frames text formatting
+	['unitframes'] = {
+		['reverse'] = {
+			['health'] = false,
+			['mana'] = true,
+		},
+		['normal'] = {
+			['health'] = false,
+			['mana'] = false,
+		},
+	},
 }
 
 P['microbar'] = {
