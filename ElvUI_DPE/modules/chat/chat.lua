@@ -54,9 +54,15 @@ local Wrapper = "|cff71D5FF[%s]|r"
 local MyName = gsub(UnitName("player"), "%u", strlower, 1)
 local NameList
 function CH:NamesListUpdate()
-	if E.db.dpe.chat.name1 == nil then E.db.dpe.chat.name1 = "" end
-	if E.db.dpe.chat.name2 == nil then E.db.dpe.chat.name2 = "" end
-	NameList = {MyName, E.db.dpe.chat.name1, E.db.dpe.chat.name2}
+	local name
+	local names
+	NameList = {MyName}
+	names = {}
+	if E.private.namelist == nil then return end
+	for name in pairs(E.private.namelist) do
+		names[name] = name
+		table.insert(NameList, name)
+	end
 end
 CH:NamesListUpdate()
 
