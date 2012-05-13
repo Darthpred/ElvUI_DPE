@@ -23,7 +23,6 @@ function E:UpdateAll()
 	E:GetModule('UnitFrames'):Update_CombatIndicator()
 	E:GetModule('UIButtons'):Start()
 	E:GetModule('DPE'):BPUpdate()
-	E:GetModule('Chat'):NamesListUpdate()
 end
 
 E:RegisterModule(DPE:GetName())
