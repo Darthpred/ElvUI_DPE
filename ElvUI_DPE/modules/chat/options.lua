@@ -264,13 +264,13 @@ E.Options.args.dpe.args.chat = {
 							get = function(info) return E.private.channelcheck.trade end,
 							set = function(info, value) E.private.channelcheck.trade = value; end, 
 						},
-						defence = {
+						defense = {
 							order = 10,
 							type = "toggle",
-							name = L["Defence"],
+							name = L["Defense"],
 							desc = L["Enable/disable checking of this channel."],
-							get = function(info) return E.private.channelcheck.defence end,
-							set = function(info, value) E.private.channelcheck.defence = value; end,
+							get = function(info) return E.private.channelcheck.defense end,
+							set = function(info, value) E.private.channelcheck.defense = value; end,
 						},
 						lfg = {
 							order = 11,

@@ -180,7 +180,7 @@ L["You can delete selected name from the list here by clicking the button below"
 L["Delete this name from the list"] = true
 L["Channels"] = true
 L["Enable/disable checking of this channel."] = true
-L["Defence"] = true
+L["Defense"] = true
 L['LFG'] = true
 L['Add channel'] = true
 L["Add a custom channel name."] = true

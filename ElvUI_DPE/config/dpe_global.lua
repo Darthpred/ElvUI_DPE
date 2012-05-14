@@ -13,7 +13,7 @@ V['channelcheck'] = {
 	['officer'] = false,
 	['general'] = false,
 	['trade'] = false,
-	['defence'] = false,
+	['defense'] = false,
 	['lfg'] = false,
 }
 

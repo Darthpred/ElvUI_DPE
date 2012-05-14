@@ -122,7 +122,7 @@ local CustomFindMyName = function(self, event, message, author, arg1, arg2, arg3
 	local msg = strlower(message)
 
 	--Checking if the custom channel is one of Blizz's
-	if (channelNum == 1 and E.private.channelcheck.general) or (channelNum == 2 and E.private.channelcheck.trade) or (channelNum == 3 and E.private.channelcheck.defence) or (channelNum == 4 and E.private.channelcheck.lfg) then
+	if (channelNum == 1 and E.private.channelcheck.general) or (channelNum == 2 and E.private.channelcheck.trade) or (channelNum == 3 and E.private.channelcheck.defense) or (channelNum == 4 and E.private.channelcheck.lfg) then
 			for i = 1, #NameList do
 				local lowName = strlower(NameList[i])
 				if strfind(msg, lowName) and lowName ~= "" then
