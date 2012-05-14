@@ -139,9 +139,18 @@ local CustomFindMyName = function(self, event, message, author, arg1, arg2, arg3
 				end
 			end
 	else --if not then check custom channels list
+		local chanMatch = 0
+
 		if ChannelList == nil then return end
 		for i = 1, #ChannelList do
-			if channelName ~= ChannelList[i] then return end
+			if channelName == ChannelList[i] then
+				chanMatch = 1
+				print(chanMatch)
+				print("--")
+			end
+		end
+
+		if chanMatch == 1 then
 			for i = 1, #NameList do
 				local lowName = strlower(NameList[i])
 				if strfind(msg, lowName) and lowName ~= "" then
