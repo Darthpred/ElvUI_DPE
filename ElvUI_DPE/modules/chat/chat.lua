@@ -145,8 +145,6 @@ local CustomFindMyName = function(self, event, message, author, arg1, arg2, arg3
 		for i = 1, #ChannelList do
 			if channelName == ChannelList[i] then
 				chanMatch = 1
-				print(chanMatch)
-				print("--")
 			end
 		end
 
