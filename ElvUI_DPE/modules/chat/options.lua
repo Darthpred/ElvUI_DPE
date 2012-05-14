@@ -2,7 +2,9 @@
 local CH = E:GetModule('Chat')
 
 local selectedName
+local selectedChannel
 local names
+local channels
 
 local function UpdateName(reset)
 	if not selectedName or not E.private['namelist'][selectedName] or reset then
@@ -35,12 +37,51 @@ local function UpdateName(reset)
 	}	
 end
 
+local function UpdateChannel(reset)
+	if not selectedChannel or not E.private['channellist'][selectedChannel] or reset then
+		E.Options.args.nameplate.args.channelGroup = nil
+		if not reset then
+			return
+		end
+	end
+	
+	E.Options.args.dpe.args.chat.args.channelGroup = {
+		type = 'group',
+		name = selectedChannel,
+		guiInline = true,
+		order = -20,	
+		args = {},	
+	}
+	
+	E.Options.args.dpe.args.chat.args.channelGroup.args.info = {
+		order = 1,
+		type = "description",
+		name = L["You can delete selected channel from the list here by clicking the button below"],
+	}
+	
+	E.Options.args.dpe.args.chat.args.channelGroup.args.delete = {
+		order = 2,
+		type = "execute",
+		name = L["Remove Channel"],
+		desc = L["Delete this channel from the list"],
+		func = function() CH:DeleteChannel() end,
+	}	
+end
+
 function CH:DeleteName()
 	E.private['namelist'][selectedName] = nil
 	selectedName = nil;
 	E.Options.args.dpe.args.chat.args.nameGroup = nil
 	UpdateName()
 	CH:NamesListUpdate()
+end
+
+function CH:DeleteChannel()
+	E.private['channellist'][selectedChannel] = nil
+	selectedChannel = nil;
+	E.Options.args.dpe.args.chat.args.channelGroup = nil
+	UpdateChannel()
+	CH:ChannelListUpdate()
 end
 
 E.Options.args.dpe.args.chat = {
@@ -142,6 +183,42 @@ E.Options.args.dpe.args.chat = {
 						end
 						return names
 					end,
+				},
+				warning = {
+					order = 10,
+					type = "group",
+					name = L["Channels"],
+					guiInline = true,
+					args = {
+						addChannel = {
+							type = 'input',
+							order = 5,
+							name = L['Add channel'],
+							--desc = L["Add a name different from your current character's to be looked for"],
+							get = function(info) return "" end,
+							set = function(info, value) 
+								E.Options.args.dpe.args.chat.args.channelGroup = nil
+								E.private['channellist'][value] = {};	
+								E.private['channellist'][value].enable = true
+								UpdateName()
+								CH:ChannelListUpdate()
+							end,
+						},
+						selectChannel = {
+							order = 7,
+							type = 'select',
+							name = L['Channels list'],
+							get = function(info) return selectedChannel end,
+							set = function(info, value) selectedChannel = value; UpdateChannel(true) end,							
+							values = function()
+								channels = {}
+								for channel in pairs(E.private.channellist) do
+									channels[channel] = channel
+								end
+								return channels
+							end,
+						},
+					},
 				},
 			},
 		},

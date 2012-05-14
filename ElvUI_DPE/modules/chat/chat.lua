@@ -66,6 +66,20 @@ function CH:NamesListUpdate()
 end
 CH:NamesListUpdate()
 
+local ChannelList
+function CH:ChannelListUpdate()
+	local channel
+	local channels
+	ChannelList = {}
+	channels = {}
+	if E.private.channellist == nil then return end
+	for channel in pairs(E.private.channellist) do
+		channels[channel] = channel
+		table.insert(ChannelList, channel)
+	end
+end
+CH:ChannelListUpdate()
+
 -- Finding our name in a URL breaks the hyperlink, so check & exclude them
 local FindURL = function(msg)
 	local NewString, Found = gsub(msg, "(%a+)://(%S+)%s?", "%1://%2")
@@ -89,14 +103,63 @@ local FindMyName = function(self, event, message, author, ...)
 			local Name = strsub(message, Start, Stop)
 			local Link = FindURL(message)
 
+			if channelName == nil then 
 			if (not Link) or (Link and not strfind(Link, Name)) then
 				if E.db.dpe.chat.sound then
 					PlaySoundFile(LSM:Fetch("sound", E.db.dpe.chat.warningsound));
 				end
 				return false, gsub(message, Name, format(Wrapper, Name)), author, ...
 			end
+			else
+			print("custom")
+			end
 		end
 	end
+end
+
+local CustomFindMyName = function(self, event, message, author, arg1, arg2, arg3, arg4, arg5, channelNum, channelName, ...)
+	if not E.db.dpe.chat.namehighlight then return end
+	local msg = strlower(message)
+
+	for i = 1, #ChannelList do
+		for i = 1, #NameList do
+			local lowName = strlower(NameList[i])
+			if strfind(msg, lowName) and lowName ~= "" then
+				local Start, Stop = string.find(msg, lowName)
+				local Name = strsub(message, Start, Stop)
+				local Link = FindURL(message)
+	
+					if (not Link) or (Link and not strfind(Link, Name)) then
+					if E.db.dpe.chat.sound then
+						PlaySoundFile(LSM:Fetch("sound", E.db.dpe.chat.warningsound));
+					end
+					return false, gsub(message, Name, format(Wrapper, Name)), author, arg1, arg2, arg3, arg4, arg5, channelNum, channelName, ...
+				end
+			end
+		end
+	end
+end
+
+local TestMyName = function(self, event, message, author, arg1, arg2, arg3, arg4, arg5, arg6, channelName, ...)
+	print("Сообщение:")
+	print(message)
+	print("Автор:")
+	print(author)
+	print("Язык:")
+	print(arg1)
+	print("Полное имя:")
+	print(arg2)
+	print("Цель:")
+	print(arg3)
+	print("Флаги:") --flags
+	print(arg4)
+	print("Арг5:") --hz
+	print(arg5)
+	print("Номер канала:") --number
+	print(arg6)
+	print("Имя канала:") --name
+	print(channelName)
+	print("---")
 end
 
 ChatFrame_AddMessageEventFilter("CHAT_MSG_GUILD", FindMyName)
@@ -106,6 +169,8 @@ ChatFrame_AddMessageEventFilter("CHAT_MSG_RAID", FindMyName)
 ChatFrame_AddMessageEventFilter("CHAT_MSG_RAID_LEADER", FindMyName)
 ChatFrame_AddMessageEventFilter("CHAT_MSG_BATTLEGROUND", FindMyName)
 ChatFrame_AddMessageEventFilter("CHAT_MSG_BATTLEGROUND_LEADER", FindMyName)
+ChatFrame_AddMessageEventFilter("CHAT_MSG_CHANNEL", CustomFindMyName)
+--ChatFrame_AddMessageEventFilter("CHAT_MSG_CHANNEL", TestMyName)
 
 --Replacement of chat tab position and size function
 function CH:PositionChat(override)
