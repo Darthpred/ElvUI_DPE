@@ -9,6 +9,7 @@ function DPE:Initialize()
 	if E.db.general.loginmessage then
 		print(L['DPE_LOGIN_MSG'])
 	end
+	E:GetModule('Chat'):SetChannelsCheck() --If called before Edit loaded from chat.lua will cause errors
 end
 
 --Updating things that must be updated only after everything loads

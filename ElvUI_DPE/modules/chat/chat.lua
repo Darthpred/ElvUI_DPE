@@ -53,6 +53,7 @@ local strlower = string.lower
 local Wrapper = "|cff71D5FF[%s]|r"
 local MyName = gsub(UnitName("player"), "%u", strlower, 1)
 local NameList
+--Name list
 function CH:NamesListUpdate()
 	local name
 	local names
@@ -66,6 +67,7 @@ function CH:NamesListUpdate()
 end
 CH:NamesListUpdate()
 
+--Channel list
 local ChannelList
 function CH:ChannelListUpdate()
 	local channel
@@ -92,6 +94,7 @@ local FindURL = function(msg)
 	if Found > 0 then return NewString end
 end
 
+--For finding names in regular channels
 local FindMyName = function(self, event, message, author, ...)
 	if not E.db.dpe.chat.namehighlight then return end
 	local msg = strlower(message)
@@ -103,74 +106,104 @@ local FindMyName = function(self, event, message, author, ...)
 			local Name = strsub(message, Start, Stop)
 			local Link = FindURL(message)
 
-			if channelName == nil then 
 			if (not Link) or (Link and not strfind(Link, Name)) then
 				if E.db.dpe.chat.sound then
 					PlaySoundFile(LSM:Fetch("sound", E.db.dpe.chat.warningsound));
 				end
 				return false, gsub(message, Name, format(Wrapper, Name)), author, ...
 			end
-			else
-			print("custom")
-			end
 		end
 	end
 end
 
+--For finding names in custom channels
 local CustomFindMyName = function(self, event, message, author, arg1, arg2, arg3, arg4, arg5, channelNum, channelName, ...)
 	if not E.db.dpe.chat.namehighlight then return end
 	local msg = strlower(message)
 
-	for i = 1, #ChannelList do
-		for i = 1, #NameList do
-			local lowName = strlower(NameList[i])
-			if strfind(msg, lowName) and lowName ~= "" then
-				local Start, Stop = string.find(msg, lowName)
-				local Name = strsub(message, Start, Stop)
-				local Link = FindURL(message)
-	
-					if (not Link) or (Link and not strfind(Link, Name)) then
-					if E.db.dpe.chat.sound then
-						PlaySoundFile(LSM:Fetch("sound", E.db.dpe.chat.warningsound));
+	--Checking if the custom channel is one of Blizz's
+	if (channelNum == 1 and E.private.channelcheck.general) or (channelNum == 2 and E.private.channelcheck.trade) or (channelNum == 3 and E.private.channelcheck.defence) or (channelNum == 4 and E.private.channelcheck.lfg) then
+			for i = 1, #NameList do
+				local lowName = strlower(NameList[i])
+				if strfind(msg, lowName) and lowName ~= "" then
+					local Start, Stop = string.find(msg, lowName)
+					local Name = strsub(message, Start, Stop)
+					local Link = FindURL(message)
+		
+						if (not Link) or (Link and not strfind(Link, Name)) then
+						if E.db.dpe.chat.sound then
+							PlaySoundFile(LSM:Fetch("sound", E.db.dpe.chat.warningsound));
+						end
+						return false, gsub(message, Name, format(Wrapper, Name)), author, arg1, arg2, arg3, arg4, arg5, channelNum, channelName, ...
 					end
-					return false, gsub(message, Name, format(Wrapper, Name)), author, arg1, arg2, arg3, arg4, arg5, channelNum, channelName, ...
+				end
+			end
+	else --if not then check custom channels list
+		for i = 1, #ChannelList do
+			for i = 1, #NameList do
+				local lowName = strlower(NameList[i])
+				if strfind(msg, lowName) and lowName ~= "" then
+					local Start, Stop = string.find(msg, lowName)
+					local Name = strsub(message, Start, Stop)
+					local Link = FindURL(message)
+		
+						if (not Link) or (Link and not strfind(Link, Name)) then
+						if E.db.dpe.chat.sound then
+							PlaySoundFile(LSM:Fetch("sound", E.db.dpe.chat.warningsound));
+						end
+						return false, gsub(message, Name, format(Wrapper, Name)), author, arg1, arg2, arg3, arg4, arg5, channelNum, channelName, ...
+					end
 				end
 			end
 		end
 	end
 end
 
-local TestMyName = function(self, event, message, author, arg1, arg2, arg3, arg4, arg5, arg6, channelName, ...)
-	print("Сообщение:")
-	print(message)
-	print("Автор:")
-	print(author)
-	print("Язык:")
-	print(arg1)
-	print("Полное имя:")
-	print(arg2)
-	print("Цель:")
-	print(arg3)
-	print("Флаги:") --flags
-	print(arg4)
-	print("Арг5:") --hz
-	print(arg5)
-	print("Номер канала:") --number
-	print(arg6)
-	print("Имя канала:") --name
-	print(channelName)
-	print("---")
+--Checking which channel to search for toon's name
+function CH:SetChannelsCheck()
+	if E.private.channelcheck.say then
+		ChatFrame_AddMessageEventFilter("CHAT_MSG_SAY", FindMyName)
+	else
+		ChatFrame_RemoveMessageEventFilter("CHAT_MSG_SAY", FindMyName)
+	end
+	if E.private.channelcheck.yell then
+		ChatFrame_AddMessageEventFilter("CHAT_MSG_YELL", FindMyName)
+	else
+		ChatFrame_RemoveMessageEventFilter("CHAT_MSG_YELL", FindMyName)
+	end
+	if E.private.channelcheck.party then
+		ChatFrame_AddMessageEventFilter("CHAT_MSG_PARTY", FindMyName)
+		ChatFrame_AddMessageEventFilter("CHAT_MSG_PARTY_LEADER", FindMyName)
+	else
+		ChatFrame_RemoveMessageEventFilter("CHAT_MSG_PARTY", FindMyName)
+		ChatFrame_RemoveMessageEventFilter("CHAT_MSG_PARTY_LEADER", FindMyName)
+	end
+	if E.private.channelcheck.raid then
+		ChatFrame_AddMessageEventFilter("CHAT_MSG_RAID", FindMyName)
+		ChatFrame_AddMessageEventFilter("CHAT_MSG_RAID_LEADER", FindMyName)
+	else
+		ChatFrame_RemoveMessageEventFilter("CHAT_MSG_RAID", FindMyName)
+		ChatFrame_RemoveMessageEventFilter("CHAT_MSG_RAID_LEADER", FindMyName)
+	end
+	if E.private.channelcheck.battleground then
+		ChatFrame_AddMessageEventFilter("CHAT_MSG_BATTLEGROUND", FindMyName)
+		ChatFrame_AddMessageEventFilter("CHAT_MSG_BATTLEGROUND_LEADER", FindMyName)
+	else
+		ChatFrame_RemoveMessageEventFilter("CHAT_MSG_BATTLEGROUND", FindMyName)
+		ChatFrame_RemoveMessageEventFilter("CHAT_MSG_BATTLEGROUND_LEADER", FindMyName)
+	end
+	if E.private.channelcheck.guild then
+		ChatFrame_AddMessageEventFilter("CHAT_MSG_GUILD", FindMyName)
+	else
+		ChatFrame_RemoveMessageEventFilter("CHAT_MSG_GUILD", FindMyName)
+	end
+	if E.private.channelcheck.officer then
+		ChatFrame_AddMessageEventFilter("CHAT_MSG_OFFICER", FindMyName)
+	else
+		ChatFrame_RemoveMessageEventFilter("CHAT_MSG_OFFICER", FindMyName)
+	end
+	ChatFrame_AddMessageEventFilter("CHAT_MSG_CHANNEL", CustomFindMyName) --Custom channels are always watvhed. their check is in other place
 end
-
-ChatFrame_AddMessageEventFilter("CHAT_MSG_GUILD", FindMyName)
-ChatFrame_AddMessageEventFilter("CHAT_MSG_PARTY", FindMyName)
-ChatFrame_AddMessageEventFilter("CHAT_MSG_PARTY_LEADER", FindMyName)
-ChatFrame_AddMessageEventFilter("CHAT_MSG_RAID", FindMyName)
-ChatFrame_AddMessageEventFilter("CHAT_MSG_RAID_LEADER", FindMyName)
-ChatFrame_AddMessageEventFilter("CHAT_MSG_BATTLEGROUND", FindMyName)
-ChatFrame_AddMessageEventFilter("CHAT_MSG_BATTLEGROUND_LEADER", FindMyName)
-ChatFrame_AddMessageEventFilter("CHAT_MSG_CHANNEL", CustomFindMyName)
---ChatFrame_AddMessageEventFilter("CHAT_MSG_CHANNEL", TestMyName)
 
 --Replacement of chat tab position and size function
 function CH:PositionChat(override)

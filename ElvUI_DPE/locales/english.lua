@@ -178,6 +178,17 @@ L["Add a name different from your current character's to be looked for"] = true
 L['Names list'] = true
 L["You can delete selected name from the list here by clicking the button below"] = true
 L["Delete this name from the list"] = true
+L["Channels"] = true
+L["Enable/disable checking of this channel."] = true
+L["Defence"] = true
+L['LFG'] = true
+L['Add channel'] = true
+L["Add a custom channel name."] = true
+L['Channels list'] = true
+L["You can delete selected channel from the list here by clicking the button below"] = true
+L["Remove Channel"] = true
+L["Delete this channel from the list"] = true
+
 
 ---------------
 --Backgrounds--

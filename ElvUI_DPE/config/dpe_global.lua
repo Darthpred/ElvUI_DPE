@@ -3,6 +3,20 @@
 V['namelist'] = {};
 V['channellist'] = {};
 
+V['channelcheck'] = {
+	['say'] = false,
+	['yell'] = false,
+	['party'] = true,
+	['raid'] = true,
+	['battleground'] = false,
+	['guild'] = true,
+	['officer'] = false,
+	['general'] = false,
+	['trade'] = false,
+	['defence'] = false,
+	['lfg'] = false,
+}
+
 V['dpe'] = {
 	--Auras Frame
 	['auras'] = {

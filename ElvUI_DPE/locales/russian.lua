@@ -174,6 +174,16 @@ L["Add a name different from your current character's to be looked for"] = "До
 L['Names list'] = "Список имен"
 L["You can delete selected name from the list here by clicking the button below"] = "Здесь вы можете удалить выбранное имя из списка, нажав на кнопку ниже."
 L["Delete this name from the list"] = "Удалить это имя из списка"
+L["Channels"] = "Каналы"
+L["Enable/disable checking of this channel."] = "Включить/выключить проверку этого канала"
+L["Defence"] = "Оборона"
+L['LFG'] = "Поиск спутников"
+L['Add channel'] = "Добавить канал"
+L["Add a custom channel name."] = "Добавить имя пользовательского канала."
+L['Channels list'] = "Список каналов"
+L["You can delete selected channel from the list here by clicking the button below"] = "Здесь вы можете удалить выбранный канал из списка, нажав на кнопку ниже."
+L["Remove Channel"] = "Удалить канал"
+L["Delete this channel from the list"] = "Удалить этот канал из списка"
 
 ---------------
 --Backgrounds--
