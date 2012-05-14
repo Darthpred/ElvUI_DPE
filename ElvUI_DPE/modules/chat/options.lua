@@ -295,7 +295,7 @@ E.Options.args.dpe.args.chat = {
 								E.Options.args.dpe.args.chat.args.channelGroup = nil
 								E.private['channellist'][value] = {};	
 								E.private['channellist'][value].enable = true
-								UpdateName()
+								UpdateChannel()
 								CH:ChannelListUpdate()
 							end,
 						},
