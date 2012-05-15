@@ -246,6 +246,7 @@ Camealion - обучение меня созданию скинов
 Swordyy - идея меню интерфейса
 Azilroka@US-Daggerspine - ядро скинов для ExtVendor и Altoholic
 Pat - скины меню и опций, пропущенных Элвом
+Boradan - идея перемещения полос класса
 ]]
 L['Other support:'] = "Прочая поддержка:"
 L['ELVUI_DPE_MISC'] = [[BuG - веселье в чате, пока я писал это все

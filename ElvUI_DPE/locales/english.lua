@@ -251,6 +251,7 @@ Camealion - teaching me the art of skining
 Swordyy - idea of ui buttons
 Azilroka@US-Daggerspine - core of ExtVendor and Altoholic skins
 Pat - skinning options dropdowns and checkboxes missed by Elv
+Boradan - the idea of classbar movement
 ]=]
 L['Other support:'] = true
 L['ELVUI_DPE_MISC'] = [=[BuG - brining fun to the chat while i was writing this
