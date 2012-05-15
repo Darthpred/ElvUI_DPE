@@ -61,6 +61,10 @@ L['Set the point to show pvp text'] = true
 L["Combat Position"] = true
 L['Set the point to show combat icon'] = true
 
+--Classbar offset
+L["Classbar Offset"] = true
+L["This options will allow you to detach your classbar from player's frame and move it in other location."] = true
+
 ----------------
 --Exp/Rep Text--
 ----------------
@@ -175,6 +179,8 @@ L["Enable sound"] = true
 L["Play sound when your name is mentioned in chat."] = true
 L["Sound that will play when your name is mentioned in chat."] = true
 L["Add a name different from your current character's to be looked for"] = true
+L['Invalid name entered!'] = true
+L['Name already exists!'] = true
 L['Names list'] = true
 L["You can delete selected name from the list here by clicking the button below"] = true
 L["Delete this name from the list"] = true
@@ -183,6 +189,8 @@ L["Enable/disable checking of this channel."] = true
 L["Defense"] = true
 L['LFG'] = true
 L['Add channel'] = true
+L['Invalid channel entered!'] = true
+L['Channel already exists!'] = true
 L["Add a custom channel name."] = true
 L['Channels list'] = true
 L["You can delete selected channel from the list here by clicking the button below"] = true

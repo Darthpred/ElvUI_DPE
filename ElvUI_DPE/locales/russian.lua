@@ -58,6 +58,10 @@ L['Set the point to show pvp text'] = "Устанавливает позицию
 L["Combat Position"] = "Иконка боя"
 L['Set the point to show combat icon'] = "Устанавливает позицию индикатора боя."
 
+--Classbar offset
+L["Classbar Offset"] = "Отступ полосы класса"
+L["This options will allow you to detach your classbar from player's frame and move it in other location."] = "Эти опции позволят вам открепить полосу класса от рамки игрока и передвинуть ее в другое место."
+
 ----------------
 --Exp/Rep Text--
 ----------------
@@ -171,6 +175,8 @@ L["Enable sound"] = "Включить звук"
 L["Play sound when your name is mentioned in chat."] = "Проигрывать звук, когда ваше имя появляется в чате"
 L["Sound that will play when your name is mentioned in chat."] = "Звук, который будет проигрываться, когда ваше имя появляется в чате"
 L["Add a name different from your current character's to be looked for"] = "Добавьте в список имя отличное от имени вашего текуущего персонажа для отслеживания в чате."
+L['Invalid name entered!'] = "Неверное имя!"
+L['Name already exists!'] = "Такое имя уже существует!"
 L['Names list'] = "Список имен"
 L["You can delete selected name from the list here by clicking the button below"] = "Здесь вы можете удалить выбранное имя из списка, нажав на кнопку ниже."
 L["Delete this name from the list"] = "Удалить это имя из списка"
@@ -179,6 +185,8 @@ L["Enable/disable checking of this channel."] = "Включить/выключи
 L["Defense"] = "Оборона"
 L['LFG'] = "Поиск спутников"
 L['Add channel'] = "Добавить канал"
+L['Invalid channel entered!'] = "Неверное имя канала!"
+L['Channel already exists!'] = "Такой канал уже существует!"
 L["Add a custom channel name."] = "Добавить имя пользовательского канала."
 L['Channels list'] = "Список каналов"
 L["You can delete selected channel from the list here by clicking the button below"] = "Здесь вы можете удалить выбранный канал из списка, нажав на кнопку ниже."

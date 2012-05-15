@@ -277,4 +277,7 @@ P.unitframe.smartRaidFilter = false
 P.unitframe.colors.healthclass = true
 P.unitframe.colors.colorhealthbyvalue = false
 P.unitframe.colors.classNames = false
+P.unitframe.units.player.classbar.xOffset = 0
+P.unitframe.units.player.classbar.yOffset = 0
+P.unitframe.units.player.classbar.offset = false
 

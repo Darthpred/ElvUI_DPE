@@ -112,3 +112,44 @@ E.Options.args.dpe.args.unitframes = {
 		},
 	},
 }
+
+if E.myclass == "PALADIN" or E.myclass == "WARLOCK" or E.myclass == "DEATHKNIGHT" or E.myclass == "SHAMAN" or E.myclass == "DRUID" then
+E.Options.args.dpe.args.unitframes.args.classbar = {
+	order = 6,
+	type = "group",
+	name = L["Classbar Offset"],
+	guiInline = true,
+	args = {
+		info = {
+			order = 1,
+			type = "description",
+			name = L["This options will allow you to detach your classbar from player's frame and move it in other location."],
+		},
+		enable = {
+			order = 2,
+			type = "toggle",
+			name = L["Enable"],
+			get = function(info) return E.db.unitframe.units.player.classbar.offset end,
+			set = function(info, value) E.db.unitframe.units.player.classbar.offset = value; UF:CreateAndUpdateUF('player') end,
+		},
+		xOffset = {
+			order = 7,
+			name = L['X Offset'],
+			type = 'range',
+			disabled = function() return not E.db.unitframe.units.player.classbar.offset end,
+			min = -E.screenwidth, max = E.screenwidth, step = 1,
+			get = function(info) return E.db.unitframe.units.player.classbar.xOffset end,
+			set = function(info, value) E.db.unitframe.units.player.classbar.xOffset = value; UF:CreateAndUpdateUF('player') end,
+		},
+		yOffset = {
+			order = 8,
+			name = L['Y Offset'],
+			type = 'range',
+			disabled = function() return not E.db.unitframe.units.player.classbar.offset end,
+			min = -E.screenheight, max = E.screenheight, step = 1,
+			get = function(info) return E.db.unitframe.units.player.classbar.yOffset end,
+			set = function(info, value) E.db.unitframe.units.player.classbar.yOffset = value; UF:CreateAndUpdateUF('player') end,
+		},				
+	},
+}
+end
