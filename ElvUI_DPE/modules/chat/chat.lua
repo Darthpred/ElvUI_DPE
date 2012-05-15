@@ -116,18 +116,10 @@ local FindMyName = function(self, event, message, author, ...)
 	end
 end
 
-local cycleRun = 0 --Counter for how many times we were running the function
 --For finding names in custom channels
 local CustomFindMyName = function(self, event, message, author, arg1, arg2, arg3, arg4, arg5, channelNum, channelName, ...)
 	if not E.db.dpe.chat.namehighlight then return end
 	local msg = strlower(message)
-	cycleRun = cycleRun + 1 --Actual number of cycle 
-	
-	if cycleRun == 10 then --If that's the 10th cycle -> drop the counter and end the function
-		cycleRun = 0
-		return 
-	end
-	if cycleRun >= 2 then return end --If it's not the first cycle -> end the function
 
 	--Checking if the custom channel is one of Blizz's
 	if (channelNum == 1 and E.private.channelcheck.general) or (channelNum == 2 and E.private.channelcheck.trade) or (channelNum == 3 and E.private.channelcheck.defense) or (channelNum == 4 and E.private.channelcheck.lfg) then
@@ -174,9 +166,6 @@ local CustomFindMyName = function(self, event, message, author, arg1, arg2, arg3
 			end
 		end
 	end
-	--Debugging messages
-	print(cycleRun) --Ended cycles number
-	print("Cycle ended") --To tell cycles apart if more then 1 was ended.
 end
 
 --Checking which channel to search for toon's name
