@@ -165,6 +165,13 @@ E.Options.args.dpe.args.chat = {
 					desc = L["Add a name different from your current character's to be looked for"],
 					get = function(info) return "" end,
 					set = function(info, value) 
+						if value:match("^%s*$") then
+							E:Print(L['Invalid name entered!'])
+						return
+						elseif E.private['namelist'][value] then
+							E:Print(L['Name already exists!'])
+						return end
+					
 						E.Options.args.dpe.args.chat.args.nameGroup = nil
 						E.private['namelist'][value] = {};	
 						E.private['namelist'][value].enable = true
@@ -292,6 +299,13 @@ E.Options.args.dpe.args.chat = {
 							desc = L["Add a custom channel name."],
 							get = function(info) return "" end,
 							set = function(info, value) 
+								if value:match("^%s*$") then
+									E:Print(L['Invalid channel entered!'])
+								return
+								elseif E.private['channellist'][value] then
+									E:Print(L['Channel already exists!'])
+								return end
+							
 								E.Options.args.dpe.args.chat.args.channelGroup = nil
 								E.private['channellist'][value] = {};	
 								E.private['channellist'][value].enable = true
