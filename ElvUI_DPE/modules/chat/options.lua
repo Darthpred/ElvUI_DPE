@@ -162,8 +162,9 @@ E.Options.args.dpe.args.chat = {
 					order = 5,
 					type = "range",
 					name = L['Timer'],
-					desc = L['Sound will be played only once in this number of seconds. Set 0 to disable'],
-					min = 0, max = 20, step = 1,
+					desc = L['Sound will be played only once in this number of seconds.'],
+					min = 1, max = 20, step = 1,
+					disabled = function() return not E.db.dpe.chat.sound or not E.db.dpe.chat.namehighlight end,
 					get = function(info) return E.private.channelcheck.time end,
 					set = function(info, value) E.private.channelcheck.time = value; end,
 				},
@@ -182,6 +183,7 @@ E.Options.args.dpe.args.chat = {
 					order = 8,
 					name = L['Add Name'],
 					desc = L["Add a name different from your current character's to be looked for"],
+					disabled = function() return not E.db.dpe.chat.namehighlight end,
 					get = function(info) return "" end,
 					set = function(info, value) 
 						if value:match("^%s*$") then
@@ -203,7 +205,8 @@ E.Options.args.dpe.args.chat = {
 					type = 'select',
 					name = L['Names list'],
 					get = function(info) return selectedName end,
-					set = function(info, value) selectedName = value; UpdateName(true) end,							
+					set = function(info, value) selectedName = value; UpdateName(true) end,	
+					disabled = function() return not E.db.dpe.chat.namehighlight end,
 					values = function()
 						names = {}
 						for name in pairs(E.private.namelist) do
@@ -217,6 +220,7 @@ E.Options.args.dpe.args.chat = {
 					type = "group",
 					name = L["Channels"],
 					guiInline = true,
+					disabled = function() return not E.db.dpe.chat.namehighlight end,
 					args = {
 						say = {
 							order = 1,
