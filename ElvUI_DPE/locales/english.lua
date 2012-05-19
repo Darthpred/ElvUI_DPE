@@ -178,6 +178,8 @@ Your current character's name will be on the list automaticaly.]=]
 L["Enable sound"] = true
 L["Play sound when your name is mentioned in chat."] = true
 L["Sound that will play when your name is mentioned in chat."] = true
+L['Timer'] = true
+L['Sound will be played only once in this number of seconds.'] = true
 L["Add a name different from your current character's to be looked for"] = true
 L['Invalid name entered!'] = true
 L['Name already exists!'] = true
@@ -252,6 +254,7 @@ Swordyy - idea of ui buttons
 Azilroka@US-Daggerspine - core of ExtVendor and Altoholic skins
 Pat - skinning options dropdowns and checkboxes missed by Elv
 Boradan - the idea of classbar movement
+Hydra - basic core of toon name highlight feature
 ]=]
 L['Other support:'] = true
 L['ELVUI_DPE_MISC'] = [=[BuG - brining fun to the chat while i was writing this
@@ -264,4 +267,3 @@ L["DPE_CONTACTS"] = [=[Bug reports, suggestions and other stuff accepted via:
 - In-game mail
 - Private Massage on TukUI.org to Darth Predator
 - Shadowmage.ru]=]
-
