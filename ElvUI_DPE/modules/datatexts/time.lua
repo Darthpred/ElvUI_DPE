@@ -186,7 +186,8 @@ local function OnEnter(self)
 		end
 	end
 	--LFR lockout end
-
+	end
+	
 	local oneraid, lockoutColor
 	for i = 1, GetNumSavedInstances() do
 		local name, _, reset, difficulty, locked, extended, _, isRaid, maxPlayers, _, numEncounters, encounterProgress  = GetSavedInstanceInfo(i)
@@ -201,7 +202,6 @@ local function OnEnter(self)
 			GameTooltip:AddDoubleLine(format(lockoutInfoFormat, maxPlayers, difficultyInfo[difficulty], name, encounterProgress, numEncounters), formatResetTime(reset), 1,1,1, lockoutColor.r,lockoutColor.g,lockoutColor.b)
 		end
 	end	
-	end
 	
 	GameTooltip:Show()
 end
