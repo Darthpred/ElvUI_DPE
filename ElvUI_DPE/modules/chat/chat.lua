@@ -97,8 +97,10 @@ end
 local NormalCycleCount = 0
 local CustomCycleCount = 0
 local SoundPalyed = 0
-if E.private.channelcheck.time == nil then
-	E.private.channelcheck.time = 3
+function CH:SetTimer()
+	if E.private.channelcheck.time == nil then
+		E.private.channelcheck.time = 3
+	end
 end
 
 --For finding names in regular channels
