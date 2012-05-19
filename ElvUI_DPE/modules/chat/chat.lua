@@ -156,8 +156,6 @@ local CustomFindMyName = function(self, event, message, author, arg1, arg2, arg3
 	else --if not then check custom channels list
 		local chanMatch = 0
 
-		frame.SoundTimer = CH:ScheduleTimer('EnableSound', 3)
-		
 		if ChannelList == nil then return end
 		for i = 1, #ChannelList do
 			if channelName == ChannelList[i] then
@@ -237,7 +235,7 @@ function CH:SetChannelsCheck()
 	else
 		ChatFrame_RemoveMessageEventFilter("CHAT_MSG_OFFICER", FindMyName)
 	end
-	ChatFrame_AddMessageEventFilter("CHAT_MSG_CHANNEL", CustomFindMyName) --Custom channels are always watvhed. their check is in other place
+	ChatFrame_AddMessageEventFilter("CHAT_MSG_CHANNEL", CustomFindMyName) --Custom channels are always watched. their check is in other place
 end
 
 --Replacement of chat tab position and size function
