@@ -94,11 +94,18 @@ local FindURL = function(msg)
 	if Found > 0 then return NewString end
 end
 
+local NormalCycleCount = 0
+local CustomCycleCount = 0
+local SoundPalyed = 0
+if E.private.channelcheck.time == nil then
+	E.private.channelcheck.time = 3
+end
+
 --For finding names in regular channels
 local FindMyName = function(self, event, message, author, ...)
 	if not E.db.dpe.chat.namehighlight then return end
 	local msg = strlower(message)
-
+	
 	for i = 1, #NameList do
 		local lowName = strlower(NameList[i])
 		if strfind(msg, lowName) and lowName ~= "" then
@@ -108,7 +115,11 @@ local FindMyName = function(self, event, message, author, ...)
 
 			if (not Link) or (Link and not strfind(Link, Name)) then
 				if E.db.dpe.chat.sound then
-					PlaySoundFile(LSM:Fetch("sound", E.db.dpe.chat.warningsound));
+					if SoundPalyed == 0 then --Check for sound played
+						PlaySoundFile(LSM:Fetch("sound", E.db.dpe.chat.warningsound));
+						SoundPalyed = 1 --Setting sound as played
+						frame.SoundTimer = CH:ScheduleTimer('EnableSound', E.private.channelcheck.time) --Starting Timer
+					end
 				end
 				return false, gsub(message, Name, format(Wrapper, Name)), author, ...
 			end
@@ -132,7 +143,11 @@ local CustomFindMyName = function(self, event, message, author, arg1, arg2, arg3
 		
 						if (not Link) or (Link and not strfind(Link, Name)) then
 						if E.db.dpe.chat.sound then
-							PlaySoundFile(LSM:Fetch("sound", E.db.dpe.chat.warningsound));
+							if SoundPalyed == 0 then
+								PlaySoundFile(LSM:Fetch("sound", E.db.dpe.chat.warningsound));
+								SoundPalyed = 1
+								frame.SoundTimer = CH:ScheduleTimer('EnableSound', E.private.channelcheck.time)
+							end
 						end
 						return false, gsub(message, Name, format(Wrapper, Name)), author, arg1, arg2, arg3, arg4, arg5, channelNum, channelName, ...
 					end
@@ -141,6 +156,8 @@ local CustomFindMyName = function(self, event, message, author, arg1, arg2, arg3
 	else --if not then check custom channels list
 		local chanMatch = 0
 
+		frame.SoundTimer = CH:ScheduleTimer('EnableSound', 3)
+		
 		if ChannelList == nil then return end
 		for i = 1, #ChannelList do
 			if channelName == ChannelList[i] then
@@ -158,7 +175,11 @@ local CustomFindMyName = function(self, event, message, author, arg1, arg2, arg3
 		
 						if (not Link) or (Link and not strfind(Link, Name)) then
 						if E.db.dpe.chat.sound then
-							PlaySoundFile(LSM:Fetch("sound", E.db.dpe.chat.warningsound));
+							if SoundPalyed == 0 then
+								PlaySoundFile(LSM:Fetch("sound", E.db.dpe.chat.warningsound));
+								SoundPalyed = 1
+								frame.SoundTimer = CH:ScheduleTimer('EnableSound', E.private.channelcheck.time)
+							end
 						end
 						return false, gsub(message, Name, format(Wrapper, Name)), author, arg1, arg2, arg3, arg4, arg5, channelNum, channelName, ...
 					end
@@ -166,6 +187,11 @@ local CustomFindMyName = function(self, event, message, author, arg1, arg2, arg3
 			end
 		end
 	end
+end
+
+--Action at the end of timer
+function CH:EnableSound(frame)
+	SoundPalyed = 0
 end
 
 --Checking which channel to search for toon's name

@@ -15,6 +15,7 @@ V['channelcheck'] = {
 	['trade'] = false,
 	['defense'] = false,
 	['lfg'] = false,
+	['time'] = 3,
 }
 
 V['dpe'] = {

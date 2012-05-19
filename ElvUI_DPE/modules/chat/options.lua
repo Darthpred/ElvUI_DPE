@@ -158,9 +158,28 @@ E.Options.args.dpe.args.chat = {
 					get = function(info) return E.db.dpe.chat.warningsound end,
 					set = function(info, value) E.db.dpe.chat.warningsound = value; end		
 				},
+				timer = {
+					order = 5,
+					type = "range",
+					name = L['Timer'],
+					desc = L['Sound will be played only once in this number of seconds. Set 0 to disable'],
+					min = 0, max = 20, step = 1,
+					get = function(info) return E.private.channelcheck.time end,
+					set = function(info, value) E.private.channelcheck.time = value; end,
+				},
+				spacer1 = {
+					order = 6,
+					type = "description",
+					name = "",
+				},
+				spacer2 = {
+					order = 7,
+					type = "description",
+					name = "",
+				},
 				addName = {
 					type = 'input',
-					order = 5,
+					order = 8,
 					name = L['Add Name'],
 					desc = L["Add a name different from your current character's to be looked for"],
 					get = function(info) return "" end,
@@ -180,7 +199,7 @@ E.Options.args.dpe.args.chat = {
 					end,
 				},
 				selectName = {
-					order = 7,
+					order = 9,
 					type = 'select',
 					name = L['Names list'],
 					get = function(info) return selectedName end,
