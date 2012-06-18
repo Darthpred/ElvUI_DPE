@@ -81,7 +81,7 @@ end
 
 --Creating buttons
 function AB:CreateMicroBar()
-	microbar:Point("TOPLEFT", E.UIParent, "TOPLEFT", 2, -2);
+	microbar:Point("BOTTOMRIGHT", RightChatTab, "TOPRIGHT", 2, 4);
 	microbar:Hide()
 	
 	--Backdrop creation
@@ -166,7 +166,7 @@ function AB:CreateMicroBar()
 		GuildMicroButtonTabard.ClearAllPoints = E.noop
 	end
 	
-	MicroParent:SetPoint("TOPLEFT", E.UIParent, "TOPLEFT", 4, -4) --Default microbar position
+	--MicroParent:SetPoint("BOTTOMRIGHT", RightChatTab, "TOPRIGHT", 2, 3) --Default microbar position
 
 	MicroParent:SetWidth(((CharacterMicroButton:GetWidth() + 4) * 9) + 12)
 	MicroParent:SetHeight(CharacterMicroButton:GetHeight() - 28)
@@ -315,17 +315,17 @@ end
 --Setting frame size to change view of backdrop
 function MB:MicroFrameSize()
 	if E.db.microbar.layout == "Micro_Hor" then
-		microbar:Size(305 + (E.db.microbar.xoffset * 11), 36)
+		microbar:Size(305 + (E.db.microbar.xoffset * 11), 35)
 	elseif E.db.microbar.layout == "Micro_Ver" then
-		microbar:Size(30, 399 + (E.db.microbar.yoffset * 11))
+		microbar:Size(30, 398 + (E.db.microbar.yoffset * 11))
 	elseif E.db.microbar.layout == "Micro_26" then
-		microbar:Size(55 + E.db.microbar.xoffset, 201 + (E.db.microbar.yoffset * 5))
+		microbar:Size(55 + E.db.microbar.xoffset, 200 + (E.db.microbar.yoffset * 5))
 	elseif E.db.microbar.layout == "Micro_34" then
-		microbar:Size(80 + (E.db.microbar.xoffset * 2), 135 + (E.db.microbar.yoffset * 3))
+		microbar:Size(80 + (E.db.microbar.xoffset * 2), 134 + (E.db.microbar.yoffset * 3))
 	elseif E.db.microbar.layout == "Micro_43" then
 		microbar:Size(105 + (E.db.microbar.xoffset * 3), 101 + (E.db.microbar.yoffset * 2))
 	elseif E.db.microbar.layout == "Micro_62" then
-		microbar:Size(155 + (E.db.microbar.xoffset * 5), 69 + E.db.microbar.yoffset)
+		microbar:Size(155 + (E.db.microbar.xoffset * 5), 68 + E.db.microbar.yoffset)
 	else
 		microbar:Size(305, 36)
 	end
