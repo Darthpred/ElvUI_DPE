@@ -185,7 +185,7 @@ function E:SetupResolution(noDataReset)
 			E.db.actionbar.bar5.enabled = false;
 		end
 		
-		E.db.movers.ElvAB_2 = "CENTERUIParentBOTTOM056.18"
+		E.db.movers.ElvAB_2 = "CENTERUIParentBOTTOM074.18"
 		
 		if not noDataReset then
 			E:CopyTable(E.db.unitframe.units, P.unitframe.units)
@@ -214,20 +214,36 @@ function E:SetupResolution(noDataReset)
 			E.db.unitframe.units.arena.castbar.width = 200;			
 		end
 		
-		E.db.movers.ElvUF_PlayerMover = "BOTTOMUIParentBOTTOM-106135"
-		E.db.movers.ElvUF_TargetTargetMover = "BOTTOMUIParentBOTTOM10680"
-		E.db.movers.ElvUF_TargetMover = "BOTTOMUIParentBOTTOM106135"
-		E.db.movers.ElvUF_PetMover = "BOTTOMUIParentBOTTOM-10680"
+		E.db.movers.ElvUF_PlayerMover = "BOTTOMUIParentBOTTOM-106151"
+		E.db.movers.ElvUF_TargetTargetMover = "BOTTOMUIParentBOTTOM10696"
+		E.db.movers.ElvUF_TargetMover = "BOTTOMUIParentBOTTOM106151"
+		E.db.movers.ElvUF_PetMover = "BOTTOMUIParentBOTTOM-10696"
 		E.db.movers.ElvUF_FocusMover = "BOTTOMUIParentBOTTOM310332"
+		E.db.movers.ElvUF_Raid40Mover = "BOTTOMLEFTUIParentBOTTOMLEFT0200"
+		E.db.movers.ElvUF_Raid25Mover = "BOTTOMLEFTUIParentBOTTOMLEFT0200"
+		E.db.movers.ElvUF_Raid10Mover = "BOTTOMLEFTUIParentBOTTOMLEFT0200"
+		E.db.movers.ElvUF_PartyMover = "BOTTOMLEFTUIParentBOTTOMLEFT0200"
+		--"BOTTOMRIGHT", RightChatTab, "TOPRIGHT", 2, 4
 		
 		E.db.lowresolutionset = true;
 	elseif not noDataReset then
+		if not E.db.movers then E.db.movers = {}; end
 		E.db.general.panelWidth = P.general.panelWidth
 		E.db.general.panelHeight = P.general.panelHeight
 		
 		E:CopyTable(E.db.actionbar, P.actionbar)
 		E:CopyTable(E.db.unitframe.units, P.unitframe.units)
 
+		E.db.movers.ElvUF_PlayerMover = "BOTTOMUIParentBOTTOM-28888"
+		E.db.movers.ElvUF_TargetMover = "BOTTOMUIParentBOTTOM28888"
+		E.db.movers.ElvUF_TargetTargetMover = "BOTTOMUIParentBOTTOM099"
+		E.db.movers.ElvUF_PetMover = "BOTTOMUIParentBOTTOM0136"
+		E.db.movers.ElvUF_FocusMover = "BOTTOMUIParentBOTTOM280332"
+		E.db.movers.ElvUF_Raid40Mover = "BOTTOMLEFTUIParentBOTTOMLEFT0200"
+		E.db.movers.ElvUF_Raid25Mover = "BOTTOMLEFTUIParentBOTTOMLEFT0200"
+		E.db.movers.ElvUF_Raid10Mover = "BOTTOMLEFTUIParentBOTTOMLEFT0200"
+		E.db.movers.ElvUF_PartyMover = "BOTTOMLEFTUIParentBOTTOMLEFT0200"
+		
 		E.db.lowresolutionset = nil;
 	end
 
@@ -301,38 +317,47 @@ function E:SetupLayout(layout, noDataReset)
 			
 		if not E.db.movers then E.db.movers = {}; end
 		if E.db.lowresolutionset then
-			E.db.movers.ElvUF_PlayerMover = "BOTTOMUIParentBOTTOM-305242"
-			E.db.movers.ElvUF_TargetMover = "BOTTOMUIParentBOTTOM305242"
-			E.db.movers.ElvUF_Raid40Mover = "BOTTOMUIParentBOTTOM080"
-			E.db.movers.ElvUF_Raid25Mover = "BOTTOMUIParentBOTTOM080"
-			E.db.movers.ElvUF_Raid10Mover = "BOTTOMUIParentBOTTOM080"
-			E.db.movers.ElvUF_TargetTargetMover = "BOTTOMUIParentBOTTOM305187"
-			E.db.movers.ElvUF_PartyMover = "BOTTOMUIParentBOTTOM0104"
-			E.db.movers.ElvUF_PetMover = "BOTTOMUIParentBOTTOM-305187"
+			E.db.movers.ElvUF_PlayerMover = "BOTTOMUIParentBOTTOM-305256"
+			E.db.movers.ElvUF_TargetMover = "BOTTOMUIParentBOTTOM305256"
+			E.db.movers.ElvUF_Raid40Mover = "BOTTOMUIParentBOTTOM096"
+			E.db.movers.ElvUF_Raid25Mover = "BOTTOMUIParentBOTTOM096"
+			E.db.movers.ElvUF_Raid10Mover = "BOTTOMUIParentBOTTOM096"
+			E.db.movers.ElvUF_TargetTargetMover = "BOTTOMUIParentBOTTOM305203"
+			E.db.movers.ElvUF_PartyMover = "BOTTOMUIParentBOTTOM0120"
+			E.db.movers.ElvUF_PetMover = "BOTTOMUIParentBOTTOM-305203"
 			E.db.movers.ElvUF_FocusMover = "BOTTOMUIParentBOTTOM310432"
 			
 		else
-			E.db.movers.ElvUF_PlayerMover = "BOTTOMLEFTUIParentBOTTOMLEFT464242"
-			E.db.movers.ElvUF_TargetMover = "BOTTOMRIGHTUIParentBOTTOMRIGHT-464242"
-			E.db.movers.ElvUF_Raid40Mover = "BOTTOMUIParentBOTTOM050"
-			E.db.movers.ElvUF_Raid25Mover = "BOTTOMUIParentBOTTOM050"
-			E.db.movers.ElvUF_Raid10Mover = "BOTTOMUIParentBOTTOM050"
-			E.db.movers.ElvUF_TargetTargetMover = "BOTTOMRIGHTUIParentBOTTOMRIGHT-464151"
-			E.db.movers.ElvUF_PartyMover = "BOTTOMUIParentBOTTOM074"
-			E.db.movers.ElvUF_PetMover = "BOTTOMLEFTUIParentBOTTOMLEFT464151"
+			E.db.movers.ElvUF_PlayerMover = "BOTTOMLEFTUIParentBOTTOMLEFT464258"
+			E.db.movers.ElvUF_TargetMover = "BOTTOMRIGHTUIParentBOTTOMRIGHT-464258"
+			E.db.movers.ElvUF_Raid40Mover = "BOTTOMUIParentBOTTOM066"
+			E.db.movers.ElvUF_Raid25Mover = "BOTTOMUIParentBOTTOM066"
+			E.db.movers.ElvUF_Raid10Mover = "BOTTOMUIParentBOTTOM066"
+			E.db.movers.ElvUF_TargetTargetMover = "BOTTOMRIGHTUIParentBOTTOMRIGHT-464167"
+			E.db.movers.ElvUF_PartyMover = "BOTTOMUIParentBOTTOM090"
+			E.db.movers.ElvUF_PetMover = "BOTTOMLEFTUIParentBOTTOMLEFT464167"
 			E.db.movers.ElvUF_FocusMover = "BOTTOMUIParentBOTTOM280332"			
 		end
 	elseif E.db.lowresolutionset then
 		if not E.db.movers then E.db.movers = {}; end
-		E.db.movers.ElvUF_PlayerMover = "BOTTOMUIParentBOTTOM-106135"
-		E.db.movers.ElvUF_TargetMover = "BOTTOMUIParentBOTTOM106135"
-		E.db.movers.ElvUF_TargetTargetMover = "BOTTOMUIParentBOTTOM10680"
-		E.db.movers.ElvUF_PetMover = "BOTTOMUIParentBOTTOM-10680"
+		E.db.movers.ElvUF_PlayerMover = "BOTTOMUIParentBOTTOM-106151"
+		E.db.movers.ElvUF_TargetMover = "BOTTOMUIParentBOTTOM106151"
+		E.db.movers.ElvUF_TargetTargetMover = "BOTTOMUIParentBOTTOM10696"
+		E.db.movers.ElvUF_PetMover = "BOTTOMUIParentBOTTOM-10696"
 		E.db.movers.ElvUF_FocusMover = "BOTTOMUIParentBOTTOM310332"			
 	else
-		if not noDataReset then
+		--[[if not noDataReset then
 			E:ResetMovers('')
-		end
+		end]]
+		E.db.movers.ElvUF_PlayerMover = "BOTTOMUIParentBOTTOM-28888"
+		E.db.movers.ElvUF_TargetMover = "BOTTOMUIParentBOTTOM28888"
+		E.db.movers.ElvUF_TargetTargetMover = "BOTTOMUIParentBOTTOM099"
+		E.db.movers.ElvUF_PetMover = "BOTTOMUIParentBOTTOM0136"
+		E.db.movers.ElvUF_FocusMover = "BOTTOMUIParentBOTTOM280332"
+		E.db.movers.ElvUF_Raid40Mover = "BOTTOMLEFTUIParentBOTTOMLEFT0200"
+		E.db.movers.ElvUF_Raid25Mover = "BOTTOMLEFTUIParentBOTTOMLEFT0200"
+		E.db.movers.ElvUF_Raid10Mover = "BOTTOMLEFTUIParentBOTTOMLEFT0200"
+		E.db.movers.ElvUF_PartyMover = "BOTTOMLEFTUIParentBOTTOMLEFT0200"
 	end
 	
 	if E.db.lowresolutionset and not noDataReset then
@@ -439,7 +464,7 @@ local function SetPage(PageNum)
 	end
 	
 	InstallTutorialImage:Size(256, 128)
-	InstallTutorialImage:SetTexture('Interface\\AddOns\\ElvUI\\media\\textures\\logo_elvui.tga')
+	InstallTutorialImage:SetTexture('Interface\\AddOns\\ElvUI_DPE\\textures\\logo_elvui_dpe.tga')
 	InstallTutorialImage:Show()	
 	
 	if PageNum == 1 then
