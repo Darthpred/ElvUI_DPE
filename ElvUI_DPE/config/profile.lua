@@ -190,9 +190,9 @@ P['general'] = {
 	["font"] = "ElvUI Font",
 	
 	--colors
-	["bordercolor"] = { r = .31,g = .31,b = .31 },
-	["backdropcolor"] = { r = .1,g = .1,b = .1 },
-	["backdropfadecolor"] = { r = .06,g = .06,b = .06, a = 0.9 },
+	["bordercolor"] = { r = 0.1,g = 0.1,b = 0.1 },
+	["backdropcolor"] = { r = 0.1,g = 0.1,b = 0.1 },
+	["backdropfadecolor"] = { r = .054,g = .054,b = .054, a = 0.8 },
 	["valuecolor"] = {r = 23/255,g = 132/255,b = 209/255},
 	
 	--panels
@@ -209,6 +209,7 @@ P['general'] = {
 	['raidReminder'] = true,
 	['minimapPanels'] = true,
 	['tinyWorldMap'] = true,
+	['minimapLocationText'] = 'SHOW',
 };
 
 P.chat.editboxhistory = 5
@@ -268,6 +269,7 @@ P['datatexts'] = {
 	},
 	['localtime'] = true,
 	['time24'] = true,
+	['battleground'] = true,
 }
 
 P.unitframe.smoothbars = false
