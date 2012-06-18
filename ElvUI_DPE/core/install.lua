@@ -166,177 +166,176 @@ local function SetupCVars()
 	InstallStepComplete:Show()					
 end	
 
-function E:SetupResolution()
+function E:SetupResolution(noDataReset)
+	if not noDataReset then
+		E:ResetMovers('')
+	end
+	
 	if self == 'low' then
-		E.db.general.panelWidth = 400
-		E.db.general.panelHeight = 180
+		if not E.db.movers then E.db.movers = {}; end
+		if not noDataReset then
+			E.db.general.panelWidth = 400
+			E.db.general.panelHeight = 180
+			
+			E:CopyTable(E.db.actionbar, P.actionbar)
+					
+			E.db.actionbar.bar1.heightMult = 2;
+			E.db.actionbar.bar2.enabled = true;
+			E.db.actionbar.bar3.enabled = false;
+			E.db.actionbar.bar5.enabled = false;
+		end
 		
-		E:CopyTable(E.db.actionbar, P.actionbar)
+		E.db.movers.ElvAB_2 = "CENTERUIParentBOTTOM056.18"
 		
-		E.db.actionbar.bar1.heightMult = 2;
-		E.db.actionbar.bar2.enabled = true;
-		E.db.actionbar.bar3.enabled = false;
-		E.db.actionbar.bar5.enabled = false;
-		E:GetModule('ActionBars'):ResetMovers('')
-		E.db.actionbar.bar2["position"] = {
-			["p2"] = "BOTTOM",
-			["p"] = "CENTER",
-			["p3"] = 0,
-			["p4"] = 56.18668365478516,
-		}
-
+		if not noDataReset then
+			E:CopyTable(E.db.unitframe.units, P.unitframe.units)
+			
+			E.db.unitframe.fontsize = 10
+			
+			E.db.unitframe.units.player.width = 200;
+			E.db.unitframe.units.player.castbar.width = 200;
+			E.db.unitframe.units.player.classbar.fill = 'fill';
+			
+			E.db.unitframe.units.target.width = 200;
+			E.db.unitframe.units.target.castbar.width = 200;
+			
+			E.db.unitframe.units.pet.power.enable = false;
+			E.db.unitframe.units.pet.width = 200;
+			E.db.unitframe.units.pet.height = 26;
+			
+			E.db.unitframe.units.targettarget.debuffs.enable = false;
+			E.db.unitframe.units.targettarget.power.enable = false;
+			E.db.unitframe.units.targettarget.width = 200;
+			E.db.unitframe.units.targettarget.height = 26;	
+			
+			E.db.unitframe.units.boss.width = 200;
+			E.db.unitframe.units.boss.castbar.width = 200;
+			E.db.unitframe.units.arena.width = 200;
+			E.db.unitframe.units.arena.castbar.width = 200;			
+		end
 		
-		E:CopyTable(E.db.unitframe.units, P.unitframe.units)
-		
-		E.db.unitframe.fontsize = 11
-		
-		E.db.unitframe.units.player.width = 200;
-		E.db.unitframe.units.player.castbar.width = 200;
-		E.db.unitframe.units.player.classbar.fill = 'fill';
-		
-		E.db.unitframe.units.target.width = 200;
-		E.db.unitframe.units.target.castbar.width = 200;
-		
-		E.db.unitframe.units.pet.power.enable = false;
-		E.db.unitframe.units.pet.width = 200;
-		E.db.unitframe.units.pet.height = 26;
-		
-		E.db.unitframe.units.targettarget.debuffs.enable = false;
-		E.db.unitframe.units.targettarget.power.enable = false;
-		E.db.unitframe.units.targettarget.width = 200;
-		E.db.unitframe.units.targettarget.height = 26;	
-		
-		E.db.unitframe.units.boss.width = 200;
-		E.db.unitframe.units.boss.castbar.width = 200;
-		E.db.unitframe.units.arena.width = 200;
-		E.db.unitframe.units.arena.castbar.width = 200;			
-		
-		E.db.unitframe.units["positions"] = {
-			["ElvUF_TargetTarget"] = "BOTTOMUIParent10680",
-			["ElvUF_Player"] = "BOTTOMUIParent-106135",
-			["ElvUF_Target"] = "BOTTOMUIParent106135",
-			["ElvUF_Pet"] = "BOTTOMUIParent-10680",
-			['ElvUF_Focus'] = "BOTTOMUIParent310332",
-		}
+		E.db.movers.ElvUF_PlayerMover = "BOTTOMUIParentBOTTOM-106135"
+		E.db.movers.ElvUF_TargetTargetMover = "BOTTOMUIParentBOTTOM10680"
+		E.db.movers.ElvUF_TargetMover = "BOTTOMUIParentBOTTOM106135"
+		E.db.movers.ElvUF_PetMover = "BOTTOMUIParentBOTTOM-10680"
+		E.db.movers.ElvUF_FocusMover = "BOTTOMUIParentBOTTOM310332"
 		
 		E.db.lowresolutionset = true;
-	else
+	elseif not noDataReset then
 		E.db.general.panelWidth = P.general.panelWidth
 		E.db.general.panelHeight = P.general.panelHeight
 		
 		E:CopyTable(E.db.actionbar, P.actionbar)
 		E:CopyTable(E.db.unitframe.units, P.unitframe.units)
-		E.db.unitframe.fontsize = 12
-		E.db.unitframe.units["positions"] = nil;
-		E:GetModule('ActionBars'):ResetMovers('')
+
 		E.db.lowresolutionset = nil;
 	end
 
 	E:UpdateAll()
-	if InstallStepComplete then
+	
+	if InstallStepComplete and not noDataReset then
 		InstallStepComplete.message = L["Resolution Style Set"]
 		InstallStepComplete:Show()		
 	end
 end
 
-function E:SetupLayout(layout)
+function E:SetupLayout(layout, noDataReset)
 	
 	--Unitframes
-	E:CopyTable(E.db.unitframe.units, P.unitframe.units)
+	if not noDataReset then
+		E:CopyTable(E.db.unitframe.units, P.unitframe.units)
+	end
 	if layout == 'healer' then
 		if not IsAddOnLoaded('Clique') then
 			E:Print(L['Using the healer layout it is highly recommended you download the addon Clique to work side by side with ElvUI.'])
 		end
 		
-		E.db.unitframe.units.party.health.frequentUpdates = true;
-		E.db.unitframe.units.raid625.health.frequentUpdates = true;
-		E.db.unitframe.units.raid2640.health.frequentUpdates = true;
-		
-		E.db.unitframe.units.boss.width = 200;
-		E.db.unitframe.units.boss.castbar.width = 200;
-		E.db.unitframe.units.arena.width = 200;
-		E.db.unitframe.units.arena.castbar.width = 200;
-		
-		E.db.unitframe.units.party.point = 'LEFT';
-		E.db.unitframe.units.party.xOffset = 5;
-		E.db.unitframe.units.party.healPrediction = true;
-		E.db.unitframe.units.party.columnAnchorPoint = 'LEFT';
-		E.db.unitframe.units.party.width = 80;
-		E.db.unitframe.units.party.height = 52;
-		E.db.unitframe.units.party.health.text_format = 'deficit';
-		E.db.unitframe.units.party.health.position = 'BOTTOM';
-		E.db.unitframe.units.party.health.orientation = 'VERTICAL';
-		E.db.unitframe.units.party.name.position = 'TOP';
-		E.db.unitframe.units.party.name.length = "SHORT";
-		E.db.unitframe.units.party.debuffs.anchorPoint = 'BOTTOMLEFT';
-		E.db.unitframe.units.party.debuffs.initialAnchor = 'TOPLEFT';
-		E.db.unitframe.units.party.debuffs.useFilter = 'DebuffBlacklist';
-		E.db.unitframe.units.party.debuffs.sizeOverride = 0;
-		E.db.unitframe.units.party.petsGroup.enable = true;
-		E.db.unitframe.units.party.petsGroup.width = 80;
-		E.db.unitframe.units.party.petsGroup.initialAnchor = 'BOTTOM';
-		E.db.unitframe.units.party.petsGroup.anchorPoint = 'TOP';
-		E.db.unitframe.units.party.petsGroup.xOffset = 0;
-		E.db.unitframe.units.party.petsGroup.yOffset = 1;
-		E.db.unitframe.units.party.targetsGroup.enable = false;
-		E.db.unitframe.units.party.targetsGroup.width = 80;
-		E.db.unitframe.units.party.targetsGroup.initialAnchor = 'BOTTOM';
-		E.db.unitframe.units.party.targetsGroup.anchorPoint = 'TOP';
-		E.db.unitframe.units.party.targetsGroup.xOffset = 0;
-		E.db.unitframe.units.party.targetsGroup.yOffset = 1;
+		if not noDataReset then
+			E.db.unitframe.units.party.health.frequentUpdates = true;
+			E.db.unitframe.units.raid25.health.frequentUpdates = true;
+			E.db.unitframe.units.raid40.health.frequentUpdates = true;
+			
+			E.db.unitframe.units.raid40.height = 36;
+			E.db.unitframe.units.raid40.health.text = true;
+			E.db.unitframe.units.raid40.name.position = 'TOP';
+			E.db.unitframe.units.raid40.roleIcon.enable = true;
+			E.db.unitframe.units.boss.width = 200;
+			E.db.unitframe.units.boss.castbar.width = 200;
+			E.db.unitframe.units.arena.width = 200;
+			E.db.unitframe.units.arena.castbar.width = 200;
+			
+			E.db.unitframe.units.party.point = 'LEFT';
+			E.db.unitframe.units.party.xOffset = 5;
+			E.db.unitframe.units.party.healPrediction = true;
+			E.db.unitframe.units.party.columnAnchorPoint = 'LEFT';
+			E.db.unitframe.units.party.width = 80;
+			E.db.unitframe.units.party.height = 52;
+			E.db.unitframe.units.party.health.text_format = 'deficit';
+			E.db.unitframe.units.party.health.position = 'BOTTOM';
+			E.db.unitframe.units.party.health.orientation = 'VERTICAL';
+			E.db.unitframe.units.party.name.position = 'TOP';
+			E.db.unitframe.units.party.name.length = "SHORT";
+			E.db.unitframe.units.party.debuffs.anchorPoint = 'BOTTOMLEFT';
+			E.db.unitframe.units.party.debuffs.initialAnchor = 'TOPLEFT';
+			E.db.unitframe.units.party.debuffs.useFilter = 'DebuffBlacklist';
+			E.db.unitframe.units.party.debuffs.sizeOverride = 0;
+			E.db.unitframe.units.party.petsGroup.enable = true;
+			E.db.unitframe.units.party.petsGroup.width = 80;
+			E.db.unitframe.units.party.petsGroup.initialAnchor = 'BOTTOM';
+			E.db.unitframe.units.party.petsGroup.anchorPoint = 'TOP';
+			E.db.unitframe.units.party.petsGroup.xOffset = 0;
+			E.db.unitframe.units.party.petsGroup.yOffset = 1;
+			E.db.unitframe.units.party.targetsGroup.enable = false;
+			E.db.unitframe.units.party.targetsGroup.width = 80;
+			E.db.unitframe.units.party.targetsGroup.initialAnchor = 'BOTTOM';
+			E.db.unitframe.units.party.targetsGroup.anchorPoint = 'TOP';
+			E.db.unitframe.units.party.targetsGroup.xOffset = 0;
+			E.db.unitframe.units.party.targetsGroup.yOffset = 1;
 
-		E.db.unitframe.units.raid625.healPrediction = true;
-		E.db.unitframe.units.raid625.health.orientation = 'VERTICAL';
+			E.db.unitframe.units.raid25.healPrediction = true;
+			E.db.unitframe.units.raid25.health.orientation = 'VERTICAL';
 
-		E.db.unitframe.units.raid2640.healPrediction = true;
-		E.db.unitframe.units.raid2640.health.orientation = 'VERTICAL';		
-		
+			E.db.unitframe.units.raid40.healPrediction = true;
+			E.db.unitframe.units.raid40.health.orientation = 'VERTICAL';		
+		end
+			
+		if not E.db.movers then E.db.movers = {}; end
 		if E.db.lowresolutionset then
-			E.db.unitframe.units["positions"] = {
-				["ElvUF_Player"] = "BOTTOMUIParent-305242",
-				["ElvUF_Target"] = "BOTTOMUIParent305242",
-				["ElvUF_Raid2640"] = "BOTTOMUIParent0180",
-				["ElvUF_Raid625"] = "BOTTOMUIParent0180",
-				["ElvUF_TargetTarget"] = "BOTTOMUIParent305187",
-				["ElvUF_Focus"] = "RIGHTUIParent-264-43",
-				["ElvUF_Party"] = "BOTTOMUIParent0204",
-				["ElvUF_Pet"] = "BOTTOMUIParent-305187",
-				['ElvUF_Focus'] = "BOTTOMUIParent310432",
-			}			
+			E.db.movers.ElvUF_PlayerMover = "BOTTOMUIParentBOTTOM-305242"
+			E.db.movers.ElvUF_TargetMover = "BOTTOMUIParentBOTTOM305242"
+			E.db.movers.ElvUF_Raid40Mover = "BOTTOMUIParentBOTTOM080"
+			E.db.movers.ElvUF_Raid25Mover = "BOTTOMUIParentBOTTOM080"
+			E.db.movers.ElvUF_Raid10Mover = "BOTTOMUIParentBOTTOM080"
+			E.db.movers.ElvUF_TargetTargetMover = "BOTTOMUIParentBOTTOM305187"
+			E.db.movers.ElvUF_PartyMover = "BOTTOMUIParentBOTTOM0104"
+			E.db.movers.ElvUF_PetMover = "BOTTOMUIParentBOTTOM-305187"
+			E.db.movers.ElvUF_FocusMover = "BOTTOMUIParentBOTTOM310432"
+			
 		else
-			E.db.unitframe.units["positions"] = {
-				["ElvUF_Player"] = "BOTTOMLEFTUIParent464242",
-				["ElvUF_Target"] = "BOTTOMRIGHTUIParent-464242",
-				["ElvUF_Raid2640"] = "BOTTOMUIParent0150",
-				["ElvUF_Raid625"] = "BOTTOMUIParent0150",
-				["ElvUF_TargetTarget"] = "BOTTOMRIGHTUIParent-464151",
-				["ElvUF_Focus"] = "RIGHTUIParent-475-143",
-				["ElvUF_Party"] = "BOTTOMUIParent0174",
-				["ElvUF_Pet"] = "BOTTOMLEFTUIParent464151",
-				['ElvUF_Focus'] = "BOTTOMUIParent280332",
-			}
+			E.db.movers.ElvUF_PlayerMover = "BOTTOMLEFTUIParentBOTTOMLEFT464242"
+			E.db.movers.ElvUF_TargetMover = "BOTTOMRIGHTUIParentBOTTOMRIGHT-464242"
+			E.db.movers.ElvUF_Raid40Mover = "BOTTOMUIParentBOTTOM050"
+			E.db.movers.ElvUF_Raid25Mover = "BOTTOMUIParentBOTTOM050"
+			E.db.movers.ElvUF_Raid10Mover = "BOTTOMUIParentBOTTOM050"
+			E.db.movers.ElvUF_TargetTargetMover = "BOTTOMRIGHTUIParentBOTTOMRIGHT-464151"
+			E.db.movers.ElvUF_PartyMover = "BOTTOMUIParentBOTTOM074"
+			E.db.movers.ElvUF_PetMover = "BOTTOMLEFTUIParentBOTTOMLEFT464151"
+			E.db.movers.ElvUF_FocusMover = "BOTTOMUIParentBOTTOM280332"			
 		end
 	elseif E.db.lowresolutionset then
-		E.db.unitframe.units["positions"] = {
-			["ElvUF_TargetTarget"] = "BOTTOMUIParent106120",
-			["ElvUF_Player"] = "BOTTOMUIParent-306185",
-			["ElvUF_Target"] = "BOTTOMUIParent306185",
-			["ElvUF_Pet"] = "BOTTOMUIParent-106120",
-			['ElvUF_Focus'] = "BOTTOMUIParent310382",
-		}		
+		if not E.db.movers then E.db.movers = {}; end
+		E.db.movers.ElvUF_PlayerMover = "BOTTOMUIParentBOTTOM-106135"
+		E.db.movers.ElvUF_TargetMover = "BOTTOMUIParentBOTTOM106135"
+		E.db.movers.ElvUF_TargetTargetMover = "BOTTOMUIParentBOTTOM10680"
+		E.db.movers.ElvUF_PetMover = "BOTTOMUIParentBOTTOM-10680"
+		E.db.movers.ElvUF_FocusMover = "BOTTOMUIParentBOTTOM310332"			
 	else
-		E.db.unitframe.units["positions"] = {
-			["ElvUF_TargetTarget"] = "BOTTOMUIParent106120",
-			["ElvUF_Player"] = "BOTTOMUIParent-306185",
-			["ElvUF_Target"] = "BOTTOMUIParent306185",
-			["ElvUF_Pet"] = "BOTTOMUIParent-106120",
-			['ElvUF_Focus'] = "BOTTOMUIParent310382",
-		}		
+		if not noDataReset then
+			E:ResetMovers('')
+		end
 	end
 	
-	if E.db.lowresolutionset then
-		E.db.unitframe.fontsize = 11
-		
+	if E.db.lowresolutionset and not noDataReset then
 		E.db.unitframe.units.player.width = 200;
 		E.db.unitframe.units.player.castbar.width = 200;
 		E.db.unitframe.units.player.classbar.fill = 'fill';
@@ -360,7 +359,7 @@ function E:SetupLayout(layout)
 	end
 	
 	--Datatexts
-	if not E.db.layoutSet then
+	if not E.db.layoutSet and not noDataReset then
 		E:CopyTable(E.db.datatexts.panels, P.datatexts.panels)
 		if layout == 'tank' then
 			E.db.datatexts.panels.LeftChatDataPanel.left = 'Armor';
@@ -440,14 +439,15 @@ local function SetPage(PageNum)
 	end
 	
 	InstallTutorialImage:Size(256, 128)
-	InstallTutorialImage:SetTexture('Interface\\AddOns\\ElvUI_DPE\\textures\\logo_elvui_dpe.tga')
-	InstallTutorialImage:Show()
+	InstallTutorialImage:SetTexture('Interface\\AddOns\\ElvUI\\media\\textures\\logo_elvui.tga')
+	InstallTutorialImage:Show()	
 	
 	if PageNum == 1 then
 		f.SubTitle:SetText(format(L["Welcome to ElvUI version %s!"], E.version))
 		f.Desc1:SetText(L["This install process will help you learn some of the features in ElvUI has to offer and also prepare your user interface for usage."])
 		f.Desc2:SetText(L["The in-game configuration menu can be accesses by typing the /ec command or by clicking the 'C' button on the minimap. Press the button below if you wish to skip the installation process."])
 		f.Desc3:SetText(L["Please press the continue button to go onto the next step."])
+				
 		InstallOption1Button:Show()
 		InstallOption1Button:SetScript("OnClick", InstallComplete)
 		InstallOption1Button:SetText(L["Skip Process"])			
@@ -479,8 +479,8 @@ local function SetPage(PageNum)
 		end
 		
 		InstallOption1Button:Show()
-		InstallOption1Button:SetScript("OnClick", E.SetupResolution)
-		InstallOption1Button:SetText(L["High Resolution"])
+		InstallOption1Button:SetScript('OnClick', function() E.SetupResolution('high') end)
+		InstallOption1Button:SetText(L["High Resolution"])	
 		InstallOption2Button:Show()
 		InstallOption2Button:SetScript('OnClick', function() E.SetupResolution('low') end)
 		InstallOption2Button:SetText(L['Low Resolution'])
@@ -648,7 +648,7 @@ function E:Install()
 		f.Option2:Hide()
 		f.Option2:SetScript('OnShow', function() f.Option1:SetWidth(110); f.Option1:ClearAllPoints(); f.Option1:Point('BOTTOMRIGHT', f, 'BOTTOM', -4, 45) end)
 		f.Option2:SetScript('OnHide', function() f.Option1:SetWidth(160); f.Option1:ClearAllPoints(); f.Option1:Point("BOTTOM", 0, 45) end)
-		E.Skins:HandleButton(f.Option1, true)
+		E.Skins:HandleButton(f.Option1, true)		
 		
 		f.RoleOptionTank = CreateFrame('Button', 'InstallRoleOptionTank', f, 'UIPanelButtonTemplate2')
 		f.RoleOptionTank:StripTextures()
