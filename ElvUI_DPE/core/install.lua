@@ -441,6 +441,7 @@ function E:SetupLayout(layout, noDataReset)
 		--[[if not noDataReset then
 			E:ResetMovers('')
 		end]]
+		if not E.db.movers then E.db.movers = {}; end
 		E.db.movers.ElvUF_PlayerMover = "BOTTOMUIParentBOTTOM-28888"
 		E.db.movers.ElvUF_TargetMover = "BOTTOMUIParentBOTTOM28888"
 		E.db.movers.ElvUF_TargetTargetMover = "BOTTOMUIParentBOTTOM099"
