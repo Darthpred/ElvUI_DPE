@@ -60,14 +60,6 @@ function DTP:CreateDataPanels()
 	E:GetModule('DataTexts'):RegisterPanel(DP_4, 3, 'ANCHOR_BOTTOM', 0, -4)
 	top_right_bar:Hide()
 	
-	--bottom left
-	local top_bar = CreateFrame('Frame', 'DP_5', E.UIParent)
-	top_bar:SetTemplate('Default', true)
-	top_bar:SetFrameStrata('LOW')
-	top_bar:Point("BOTTOM", E.UIParent, "BOTTOM", -305, 0); 
-	E:GetModule('DataTexts'):RegisterPanel(DP_5, 3, 'ANCHOR_BOTTOM', 0, -4)
-	top_bar:Hide()
-	
 	--bottom center
 	local map = CreateFrame('Frame', 'Bottom_Panel', E.UIParent)
 	map:SetTemplate('Default', true)
@@ -76,11 +68,19 @@ function DTP:CreateDataPanels()
 	E:GetModule('DataTexts'):RegisterPanel(Bottom_Panel, 1, 'ANCHOR_BOTTOM', 0, -4)
 	map:Hide()
 	
+	--bottom left
+	local top_bar = CreateFrame('Frame', 'DP_5', E.UIParent)
+	top_bar:SetTemplate('Default', true)
+	top_bar:SetFrameStrata('LOW')
+	top_bar:Point("RIGHT", Bottom_Panel, "LEFT", -1, 0); 
+	E:GetModule('DataTexts'):RegisterPanel(DP_5, 3, 'ANCHOR_BOTTOM', 0, -4)
+	top_bar:Hide()
+	
 	--bottom right
 	local bottom_bar = CreateFrame('Frame', "DP_6", E.UIParent)
 	bottom_bar:SetTemplate('Default', true)
 	bottom_bar:SetFrameStrata('LOW')
-	bottom_bar:Point("BOTTOM", E.UIParent, "BOTTOM", 305, 0); 
+	bottom_bar:Point("LEFT", Bottom_Panel, "RIGHT", 1, 0); 
 	E:GetModule('DataTexts'):RegisterPanel(DP_6, 3, 'ANCHOR_BOTTOM', 0, -4)
 	bottom_bar:Hide()
 end
