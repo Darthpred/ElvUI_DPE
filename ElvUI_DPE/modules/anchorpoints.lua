@@ -1,15 +1,5 @@
 local E, L, V, P, G = unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 local AB = E:GetModule('ActionBars');
-
-	--[[local function PositionBar1()
-		--E.db.movers.ElvAB_1 = "BOTTOMUIParentBOTTOM021"
-		--AB.['bar1']['position'] = "BOTTOM,ElvUIParent,BOTTOM,0,21"
-		--AB.movers['bar1']["p"] = "BOTTOM"
-		AB.movers['bar1']["p2"] = E.UIParent
-		AB.movers['bar1']["p3"] = "BOTTOM"
-		AB.movers['bar1']["p4"] = 0
-		AB.movers['bar1']["p5"] = 21
-	end]]
 	
 AB["barDefaults"] = {
 	["bar1"] = {
@@ -43,15 +33,8 @@ AB["barDefaults"] = {
 		['position'] = "RIGHT,ElvUI_Bar1,LEFT,-4,0",
 	},	
 }	
---[[
-	local function PositionBar2()
-		AB.movers['bar2']["p"] = "TOP"
-		AB.movers['bar2']["p2"] = ElvUI_Bar1
-		AB.movers['bar2']["p3"] = "BOTTOM"
-		AB.movers['bar2']["p4"] = 0
-		AB.movers['bar2']["p5"] = bar2ypos
-	end
-]]
+
+ --Will do something with this after i found how defaults for it are set.
 	--local function PositionStanceBar()
 	--ElvUI_BarShapeShift:Point('TOPLEFT', E.UIParent, 'TOPLEFT', 4, -4);
 		--[[AB.movers['barShapeShift']["p"] = "BOTTOMRIGHT"
@@ -60,28 +43,16 @@ AB["barDefaults"] = {
 		AB.movers['barShapeShift']["p4"] = 2
 		AB.movers['barShapeShift']["p5"] = -3]]
 	--end
---[[	
-	local function PositionGMMover()
+	
+	local function PositionGMMover() --Still works lol O_o
 		if not E:HasMoverBeenMoved('GMMover') then
 			GMMover:ClearAllPoints()
 			GMMover:Point("TOPLEFT", E.UIParent, "TOPLEFT", 310, -1)
 		end
-		E.CreatedMovers['GMMover']["p"] = "TOPLEFT"
-		E.CreatedMovers['GMMover']["p2"] = E.UIParent
-		E.CreatedMovers['GMMover']["p3"] = "TOPLEFT"
-		E.CreatedMovers['GMMover']["p4"] = 310
-		E.CreatedMovers['GMMover']["p5"] = -1
 	end
-]]	
+
 local function PositionHookUpdate()
-	--PositionBar1()
-	--PositionBar2()
-	--PositionStanceBar()
-
-	--AB:SetMoverPositions()  --Saves Action Bar Positions
-
-	--PositionGMMover()
-
+	
 	--For some reason the FocusTarget frame position won't stick unless I do this. UF positions are set in install.lua
 	E:MoveUI(true, 'unitframes')
 	E:MoveUI(false)
