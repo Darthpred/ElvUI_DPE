@@ -1,6 +1,6 @@
 local E, L, V, P, G = unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 local AB = E:GetModule('ActionBars');
-	
+--[[	
 AB["barDefaults"] = {
 	["bar1"] = {
 		['page'] = 1,
@@ -33,7 +33,7 @@ AB["barDefaults"] = {
 		['position'] = "RIGHT,ElvUI_Bar1,LEFT,-4,0",
 	},	
 }	
-
+]]
  --Will do something with this after i found how defaults for it are set.
 	--local function PositionStanceBar()
 	--ElvUI_BarShapeShift:Point('TOPLEFT', E.UIParent, 'TOPLEFT', 4, -4);
