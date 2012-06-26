@@ -1,7 +1,7 @@
 ﻿local E, L, V, P, G = unpack(ElvUI); --Inport: Engine, Locales, PrivateDB, ProfileDB, GlobalDB
 
 local CURRENT_PAGE = 0
-local MAX_PAGE = 7
+local MAX_PAGE = 8
 
 local function SetupChat()
 	InstallStepComplete.message = L["Chat Set"]
@@ -409,48 +409,38 @@ function E:SetupLayout(layout, noDataReset)
 			
 		if not E.db.movers then E.db.movers = {}; end
 		if E.db.lowresolutionset then
-			E.db.movers.ElvUF_PlayerMover = "BOTTOMUIParentBOTTOM-305256"
-			E.db.movers.ElvUF_TargetMover = "BOTTOMUIParentBOTTOM305256"
-			E.db.movers.ElvUF_Raid40Mover = "BOTTOMUIParentBOTTOM096"
-			E.db.movers.ElvUF_Raid25Mover = "BOTTOMUIParentBOTTOM096"
-			E.db.movers.ElvUF_Raid10Mover = "BOTTOMUIParentBOTTOM096"
-			E.db.movers.ElvUF_TargetTargetMover = "BOTTOMUIParentBOTTOM305203"
-			E.db.movers.ElvUF_PartyMover = "BOTTOMUIParentBOTTOM0120"
-			E.db.movers.ElvUF_PetMover = "BOTTOMUIParentBOTTOM-305203"
+			E.db.movers.ElvUF_PlayerMover = "BOTTOMUIParentBOTTOM-305242"
+			E.db.movers.ElvUF_TargetMover = "BOTTOMUIParentBOTTOM305242"
+			E.db.movers.ElvUF_Raid40Mover = "BOTTOMUIParentBOTTOM080"
+			E.db.movers.ElvUF_Raid25Mover = "BOTTOMUIParentBOTTOM080"
+			E.db.movers.ElvUF_Raid10Mover = "BOTTOMUIParentBOTTOM080"
+			E.db.movers.ElvUF_TargetTargetMover = "BOTTOMUIParentBOTTOM305187"
+			E.db.movers.ElvUF_PartyMover = "BOTTOMUIParentBOTTOM0104"
+			E.db.movers.ElvUF_PetMover = "BOTTOMUIParentBOTTOM-305187"
 			E.db.movers.ElvUF_FocusMover = "BOTTOMUIParentBOTTOM310432"
 			
 		else
-			E.db.movers.ElvUF_PlayerMover = "BOTTOMLEFTUIParentBOTTOMLEFT464258"
-			E.db.movers.ElvUF_TargetMover = "BOTTOMRIGHTUIParentBOTTOMRIGHT-464258"
-			E.db.movers.ElvUF_Raid40Mover = "BOTTOMUIParentBOTTOM066"
-			E.db.movers.ElvUF_Raid25Mover = "BOTTOMUIParentBOTTOM066"
-			E.db.movers.ElvUF_Raid10Mover = "BOTTOMUIParentBOTTOM066"
-			E.db.movers.ElvUF_TargetTargetMover = "BOTTOMRIGHTUIParentBOTTOMRIGHT-464167"
-			E.db.movers.ElvUF_PartyMover = "BOTTOMUIParentBOTTOM090"
-			E.db.movers.ElvUF_PetMover = "BOTTOMLEFTUIParentBOTTOMLEFT464167"
+			E.db.movers.ElvUF_PlayerMover = "BOTTOMLEFTUIParentBOTTOMLEFT464242"
+			E.db.movers.ElvUF_TargetMover = "BOTTOMRIGHTUIParentBOTTOMRIGHT-464242"
+			E.db.movers.ElvUF_Raid40Mover = "BOTTOMUIParentBOTTOM050"
+			E.db.movers.ElvUF_Raid25Mover = "BOTTOMUIParentBOTTOM050"
+			E.db.movers.ElvUF_Raid10Mover = "BOTTOMUIParentBOTTOM050"
+			E.db.movers.ElvUF_TargetTargetMover = "BOTTOMRIGHTUIParentBOTTOMRIGHT-464151"
+			E.db.movers.ElvUF_PartyMover = "BOTTOMUIParentBOTTOM074"
+			E.db.movers.ElvUF_PetMover = "BOTTOMLEFTUIParentBOTTOMLEFT464151"
 			E.db.movers.ElvUF_FocusMover = "BOTTOMUIParentBOTTOM280332"			
 		end
 	elseif E.db.lowresolutionset then
 		if not E.db.movers then E.db.movers = {}; end
-		E.db.movers.ElvUF_PlayerMover = "BOTTOMUIParentBOTTOM-106151"
-		E.db.movers.ElvUF_TargetMover = "BOTTOMUIParentBOTTOM106151"
-		E.db.movers.ElvUF_TargetTargetMover = "BOTTOMUIParentBOTTOM10696"
-		E.db.movers.ElvUF_PetMover = "BOTTOMUIParentBOTTOM-10696"
+		E.db.movers.ElvUF_PlayerMover = "BOTTOMUIParentBOTTOM-106135"
+		E.db.movers.ElvUF_TargetMover = "BOTTOMUIParentBOTTOM106135"
+		E.db.movers.ElvUF_TargetTargetMover = "BOTTOMUIParentBOTTOM10680"
+		E.db.movers.ElvUF_PetMover = "BOTTOMUIParentBOTTOM-10680"
 		E.db.movers.ElvUF_FocusMover = "BOTTOMUIParentBOTTOM310332"			
 	else
-		--[[if not noDataReset then
+		if not noDataReset then
 			E:ResetMovers('')
-		end]]
-		if not E.db.movers then E.db.movers = {}; end
-		E.db.movers.ElvUF_PlayerMover = "BOTTOMUIParentBOTTOM-28888"
-		E.db.movers.ElvUF_TargetMover = "BOTTOMUIParentBOTTOM28888"
-		E.db.movers.ElvUF_TargetTargetMover = "BOTTOMUIParentBOTTOM099"
-		E.db.movers.ElvUF_PetMover = "BOTTOMUIParentBOTTOM0136"
-		E.db.movers.ElvUF_FocusMover = "BOTTOMUIParentBOTTOM280332"
-		E.db.movers.ElvUF_Raid40Mover = "BOTTOMLEFTUIParentBOTTOMLEFT0200"
-		E.db.movers.ElvUF_Raid25Mover = "BOTTOMLEFTUIParentBOTTOMLEFT0200"
-		E.db.movers.ElvUF_Raid10Mover = "BOTTOMLEFTUIParentBOTTOMLEFT0200"
-		E.db.movers.ElvUF_PartyMover = "BOTTOMLEFTUIParentBOTTOMLEFT0200"
+		end
 	end
 	
 	if E.db.lowresolutionset and not noDataReset then
@@ -489,7 +479,7 @@ function E:SetupLayout(layout, noDataReset)
 			E.db.datatexts.panels.LeftChatDataPanel.left = 'Attack Power';
 			E.db.datatexts.panels.LeftChatDataPanel.right = 'Crit Chance';
 		end
-		
+
 		if InstallStepComplete then
 			InstallStepComplete.message = L["Layout Set"]
 			InstallStepComplete:Show()	
@@ -505,6 +495,150 @@ function E:SetupLayout(layout, noDataReset)
 	E:UpdateAll(true)
 	local DT = E:GetModule('DataTexts')
 	DT:LoadDataTexts()
+end
+
+function E:EditSetup() --The function to switch from classic ElvUI settings to ours
+	InstallStepComplete.message = L["Darth's Defaults Set"]
+	InstallStepComplete:Show()
+	if not E.db.movers then E.db.movers = {}; end
+	--Actionbars moving up
+	E.db.movers.ElvAB_1 = "BOTTOMUIParentBOTTOM021"
+	
+	layout = E.db.layoutSet --To know if some sort of layout was choosed before
+	
+	--The big block for moving all unitframes stuff up
+	if layout == 'healer' then
+		if not noDataReset then
+			E.db.unitframe.units.party.health.frequentUpdates = true;
+			E.db.unitframe.units.raid25.health.frequentUpdates = true;
+			E.db.unitframe.units.raid40.health.frequentUpdates = true;
+			
+			E.db.unitframe.units.raid40.height = 36;
+			E.db.unitframe.units.raid40.health.text = true;
+			E.db.unitframe.units.raid40.name.position = 'TOP';
+			E.db.unitframe.units.raid40.roleIcon.enable = true;
+			E.db.unitframe.units.boss.width = 200;
+			E.db.unitframe.units.boss.castbar.width = 200;
+			E.db.unitframe.units.arena.width = 200;
+			E.db.unitframe.units.arena.castbar.width = 200;
+			
+			E.db.unitframe.units.party.point = 'LEFT';
+			E.db.unitframe.units.party.xOffset = 5;
+			E.db.unitframe.units.party.healPrediction = true;
+			E.db.unitframe.units.party.columnAnchorPoint = 'LEFT';
+			E.db.unitframe.units.party.width = 80;
+			E.db.unitframe.units.party.height = 52;
+			E.db.unitframe.units.party.health.text_format = 'deficit';
+			E.db.unitframe.units.party.health.position = 'BOTTOM';
+			E.db.unitframe.units.party.health.orientation = 'VERTICAL';
+			E.db.unitframe.units.party.name.position = 'TOP';
+			E.db.unitframe.units.party.name.length = "SHORT";
+			E.db.unitframe.units.party.debuffs.anchorPoint = 'BOTTOMLEFT';
+			E.db.unitframe.units.party.debuffs.initialAnchor = 'TOPLEFT';
+			E.db.unitframe.units.party.debuffs.useFilter = 'DebuffBlacklist';
+			E.db.unitframe.units.party.debuffs.sizeOverride = 0;
+			E.db.unitframe.units.party.petsGroup.enable = true;
+			E.db.unitframe.units.party.petsGroup.width = 80;
+			E.db.unitframe.units.party.petsGroup.initialAnchor = 'BOTTOM';
+			E.db.unitframe.units.party.petsGroup.anchorPoint = 'TOP';
+			E.db.unitframe.units.party.petsGroup.xOffset = 0;
+			E.db.unitframe.units.party.petsGroup.yOffset = 1;
+			E.db.unitframe.units.party.targetsGroup.enable = false;
+			E.db.unitframe.units.party.targetsGroup.width = 80;
+			E.db.unitframe.units.party.targetsGroup.initialAnchor = 'BOTTOM';
+			E.db.unitframe.units.party.targetsGroup.anchorPoint = 'TOP';
+			E.db.unitframe.units.party.targetsGroup.xOffset = 0;
+			E.db.unitframe.units.party.targetsGroup.yOffset = 1;
+
+			E.db.unitframe.units.raid25.healPrediction = true;
+			E.db.unitframe.units.raid25.health.orientation = 'VERTICAL';
+
+			E.db.unitframe.units.raid40.healPrediction = true;
+			E.db.unitframe.units.raid40.health.orientation = 'VERTICAL';		
+		end
+			
+		if not E.db.movers then E.db.movers = {}; end
+		if E.db.lowresolutionset then
+			E.db.movers.ElvUF_PlayerMover = "BOTTOMUIParentBOTTOM-305256"
+			E.db.movers.ElvUF_TargetMover = "BOTTOMUIParentBOTTOM305256"
+			E.db.movers.ElvUF_Raid40Mover = "BOTTOMUIParentBOTTOM096"
+			E.db.movers.ElvUF_Raid25Mover = "BOTTOMUIParentBOTTOM096"
+			E.db.movers.ElvUF_Raid10Mover = "BOTTOMUIParentBOTTOM096"
+			E.db.movers.ElvUF_TargetTargetMover = "BOTTOMUIParentBOTTOM305203"
+			E.db.movers.ElvUF_PartyMover = "BOTTOMUIParentBOTTOM0120"
+			E.db.movers.ElvUF_PetMover = "BOTTOMUIParentBOTTOM-305203"
+			E.db.movers.ElvUF_FocusMover = "BOTTOMUIParentBOTTOM310432"
+			
+		else
+			E.db.movers.ElvUF_PlayerMover = "BOTTOMLEFTUIParentBOTTOMLEFT464258"
+			E.db.movers.ElvUF_TargetMover = "BOTTOMRIGHTUIParentBOTTOMRIGHT-464258"
+			E.db.movers.ElvUF_Raid40Mover = "BOTTOMUIParentBOTTOM066"
+			E.db.movers.ElvUF_Raid25Mover = "BOTTOMUIParentBOTTOM066"
+			E.db.movers.ElvUF_Raid10Mover = "BOTTOMUIParentBOTTOM066"
+			E.db.movers.ElvUF_TargetTargetMover = "BOTTOMRIGHTUIParentBOTTOMRIGHT-464167"
+			E.db.movers.ElvUF_PartyMover = "BOTTOMUIParentBOTTOM090"
+			E.db.movers.ElvUF_PetMover = "BOTTOMLEFTUIParentBOTTOMLEFT464167"
+			E.db.movers.ElvUF_FocusMover = "BOTTOMUIParentBOTTOM280332"
+		end
+	elseif E.db.lowresolutionset then
+		if not E.db.movers then E.db.movers = {}; end
+		E.db.movers.ElvUF_PlayerMover = "BOTTOMUIParentBOTTOM-106151"
+		E.db.movers.ElvUF_TargetMover = "BOTTOMUIParentBOTTOM106151"
+		E.db.movers.ElvUF_TargetTargetMover = "BOTTOMUIParentBOTTOM10696"
+		E.db.movers.ElvUF_PetMover = "BOTTOMUIParentBOTTOM-10696"
+		E.db.movers.ElvUF_FocusMover = "BOTTOMUIParentBOTTOM310332"			
+	else
+		--[[if not noDataReset then
+			E:ResetMovers('')
+		end]]
+		if not E.db.movers then E.db.movers = {}; end
+		E.db.movers.ElvUF_PlayerMover = "BOTTOMUIParentBOTTOM-28888"
+		E.db.movers.ElvUF_TargetMover = "BOTTOMUIParentBOTTOM28888"
+		E.db.movers.ElvUF_TargetTargetMover = "BOTTOMUIParentBOTTOM0120"
+		E.db.movers.ElvUF_PetMover = "BOTTOMUIParentBOTTOM0164"
+		E.db.movers.ElvUF_FocusMover = "BOTTOMUIParentBOTTOM280332"
+		E.db.movers.ElvUF_Raid40Mover = "BOTTOMLEFTUIParentBOTTOMLEFT0200"
+		E.db.movers.ElvUF_Raid25Mover = "BOTTOMLEFTUIParentBOTTOMLEFT0200"
+		E.db.movers.ElvUF_Raid10Mover = "BOTTOMLEFTUIParentBOTTOMLEFT0200"
+		E.db.movers.ElvUF_PartyMover = "BOTTOMLEFTUIParentBOTTOMLEFT0200"
+	end
+	
+	if E.db.lowresolutionset and not noDataReset then
+		E.db.unitframe.units.player.width = 200;
+		E.db.unitframe.units.player.castbar.width = 200;
+		E.db.unitframe.units.player.classbar.fill = 'fill';
+		
+		E.db.unitframe.units.target.width = 200;
+		E.db.unitframe.units.target.castbar.width = 200;
+		
+		E.db.unitframe.units.pet.power.enable = false;
+		E.db.unitframe.units.pet.width = 200;
+		E.db.unitframe.units.pet.height = 26;
+		
+		E.db.unitframe.units.targettarget.debuffs.enable = false;
+		E.db.unitframe.units.targettarget.power.enable = false;
+		E.db.unitframe.units.targettarget.width = 200;
+		E.db.unitframe.units.targettarget.height = 26;	
+		
+		E.db.unitframe.units.boss.width = 200;
+		E.db.unitframe.units.boss.castbar.width = 200;
+		E.db.unitframe.units.arena.width = 200;
+		E.db.unitframe.units.arena.castbar.width = 200;		
+	end
+	
+	E.db.unitframe.units.player.name.enable = true;
+	
+	E:UpdateAll(true)
+end
+
+function E:ElvSetup() --The function to restore defaults. not finished yet lol
+	InstallStepComplete.message = L["Elv's Defaults Set"]
+	InstallStepComplete:Show()
+	if not E.db.movers then E.db.movers = {}; end
+	--Actionbars setting up to Elv's defaults
+	E.db.movers.ElvAB_1 = "BOTTOMUIParentBOTTOM04"
+	
+	E:UpdateAll(true)
 end
 
 local function InstallComplete()
@@ -641,7 +775,15 @@ local function SetPage(PageNum)
 		InstallOption4Button:Show()
 		InstallOption4Button:SetScript('OnClick', function() E.db.layoutSet = nil; E:SetupLayout('dpsCaster') end)
 		InstallOption4Button:SetText(L['Caster DPS'])
-	elseif PageNum == 7 then
+	elseif PageNum == 7 then --The new page
+		f.SubTitle:SetText(L["Da Edit Options LOL"])
+		InstallOption1Button:Show()
+		InstallOption1Button:SetScript('OnClick', function() E:EditSetup() end)
+		InstallOption1Button:SetText(L["Click Me"])	
+		InstallOption2Button:Show()
+		InstallOption2Button:SetScript('OnClick', function() E:ElvSetup() end)
+		InstallOption2Button:SetText(L["Click Me 2"])	
+	elseif PageNum == 8 then
 		f.SubTitle:SetText(L["Installation Complete"])
 		f.Desc1:SetText(L["You are now finished with the installation process. Bonus Hint: If you wish to access blizzard micro menu, middle click on the minimap. If you don't have a middle click button then hold down shift and right click the minimap. If you are in need of technical support please visit us at www.tukui.org."])
 		f.Desc2:SetText(L["Please click the button below so you can setup variables and ReloadUI."])			
